@@ -21,7 +21,10 @@ class _STMPenjumlahanScreen extends State<STMPenjumlahanScreen> {
   int activeIndex = 3;
   double padding = 16.0;
   int total = 0;
-  bool finish = false;
+  bool run = false;
+  int hasil = 0;
+  bool done = false;
+  int q = 0;
 
   @override
   void initState() {
@@ -220,17 +223,74 @@ class _STMPenjumlahanScreen extends State<STMPenjumlahanScreen> {
             ),
             TextButton(
               onPressed: () {
-                if(!finish) {
+                if(!done) {
                   setState(() {
-                    finish = true;
-                    list[activeIndex].setIsCurrent(true);
-                    jumpToItem();
-                    q0();
+                    if(q != -1) {
+                      if(q == 0) {
+                        q0();
+                      } else if(q == 1) {
+                        q1();
+                      } else if(q == 2) {
+                        q2();
+                      } else if(q == 3) {
+                        q3();
+                      } else if(q == 4) {
+                        q4();
+                      } else if(q == 5) {
+                        q5();
+                      } else if(q == 6) {
+                        q6();
+                      } else if(q == 7) {
+                        q7();
+                      } else if(q == 8) {
+                        q8();
+                      } else if(q == 9) {
+                        q9();
+                      } else if(q == 10) {
+                        q10();
+                      } else if(q == 11) {
+                        q11();
+                      } else if(q == 12) {
+                        q12();
+                      } else if(q == 13) {
+                        q13();
+                      } else if(q == 14) {
+                        q14();
+                      } else if(q == 15) {
+                        q15();
+                      } else if(q == 16) {
+                        q16();
+                      } else if(q == 17) {
+                        q17();
+                      } else if(q == 18) {
+                        q18();
+                      } else if(q == 19) {
+                        q19();
+                      } else if(q == 20) {
+                        q20();
+                      } else if(q == 21) {
+                        q21();
+                      } else if(q == 22) {
+                        q22();
+                      } else if(q == 23) {
+                        q23();
+                      } else if(q == 24) {
+                        q24();
+                      } else if(q == 25) {
+                        q25();
+                      }
+                    } else {
+                      list[activeIndex].setIsCurrent(true);
+                      jumpToItem();
+                      q0();
+                    }
                   });
                 }
               },
               child: const Text('Proses'),
             ),
+            Text('Hasil:'),
+            Text(done ? hasil.toString() : ''),
           ],
         ),
       ),
@@ -256,7 +316,8 @@ class _STMPenjumlahanScreen extends State<STMPenjumlahanScreen> {
         list[activeIndex].setIsCurrent(false);
         activeIndex++;
         jumpToItem();
-        q1();
+        list[activeIndex].setIsCurrent(true);
+        q = 1;
         break;
       }
       case '1': {
@@ -264,7 +325,8 @@ class _STMPenjumlahanScreen extends State<STMPenjumlahanScreen> {
         list[activeIndex].setIsCurrent(false);
         activeIndex++;
         jumpToItem();
-        q13();
+        list[activeIndex].setIsCurrent(true);
+        q = 13;
         break;
       }
     }
@@ -277,7 +339,8 @@ class _STMPenjumlahanScreen extends State<STMPenjumlahanScreen> {
         list[activeIndex].setIsCurrent(false);
         activeIndex++;
         jumpToItem();
-        q2();
+        list[activeIndex].setIsCurrent(true);
+        q = 2;
         break;
       }
       case '1': {
@@ -285,105 +348,543 @@ class _STMPenjumlahanScreen extends State<STMPenjumlahanScreen> {
         list[activeIndex].setIsCurrent(false);
         activeIndex--;
         jumpToItem();
-        q8();
+        list[activeIndex].setIsCurrent(true);
+        q = 8;
         break;
       }
     }
   }
 
   void q2() {
-
+    switch(list[activeIndex].getContent()) {
+      case '0': {
+        list[activeIndex].setContent('0');
+        list[activeIndex].setIsCurrent(false);
+        activeIndex++;
+        jumpToItem();
+        list[activeIndex].setIsCurrent(true);
+        q = 2;
+        break;
+      }
+      case '1': {
+        list[activeIndex].setContent('1');
+        list[activeIndex].setIsCurrent(false);
+        activeIndex++;
+        jumpToItem();
+        list[activeIndex].setIsCurrent(true);
+        q = 3;
+        break;
+      }
+    }
   }
 
   void q3() {
-
+    switch(list[activeIndex].getContent()) {
+      case 'X': {
+        list[activeIndex].setContent('X');
+        list[activeIndex].setIsCurrent(false);
+        activeIndex++;
+        jumpToItem();
+        list[activeIndex].setIsCurrent(true);
+        q = 4;
+        break;
+      }
+      case 'Y': {
+        list[activeIndex].setContent('Y');
+        list[activeIndex].setIsCurrent(false);
+        activeIndex++;
+        jumpToItem();
+        list[activeIndex].setIsCurrent(true);
+        q = 10;
+        break;
+      }
+      case 'B': {
+        list[activeIndex].setContent('B');
+        list[activeIndex].setIsCurrent(false);
+        activeIndex--;
+        jumpToItem();
+        list[activeIndex].setIsCurrent(true);
+        q = 9;
+        break;
+      }
+    }
   }
 
   void q4() {
-
+    switch(list[activeIndex].getContent()) {
+      case '0': {
+        list[activeIndex].setContent('0');
+        list[activeIndex].setIsCurrent(false);
+        activeIndex++;
+        jumpToItem();
+        list[activeIndex].setIsCurrent(true);
+        q = 4;
+        break;
+      }
+      case 'B': {
+        list[activeIndex].setContent('0');
+        list[activeIndex].setIsCurrent(false);
+        list[activeIndex + 3].setContent('B');
+        list.add(
+          Item('-1', false)
+        );
+        activeIndex--;
+        jumpToItem();
+        list[activeIndex].setIsCurrent(true);
+        q = 5;
+        break;
+      }
+    }
   }
 
   void q5() {
-
+    switch(list[activeIndex].getContent()) {
+      case '0': {
+        list[activeIndex].setContent('0');
+        list[activeIndex].setIsCurrent(false);
+        activeIndex--;
+        jumpToItem();
+        list[activeIndex].setIsCurrent(true);
+        q = 5;
+        break;
+      }
+      case 'X': {
+        list[activeIndex].setContent('X');
+        list[activeIndex].setIsCurrent(false);
+        activeIndex--;
+        jumpToItem();
+        list[activeIndex].setIsCurrent(true);
+        q = 6;
+        break;
+      }
+    }
   }
 
   void q6() {
-
+    switch(list[activeIndex].getContent()) {
+      case '1': {
+        list[activeIndex].setContent('1');
+        list[activeIndex].setIsCurrent(false);
+        activeIndex--;
+        jumpToItem();
+        list[activeIndex].setIsCurrent(true);
+        q = 7;
+        break;
+      }
+    }
   }
 
   void q7() {
-
+    switch(list[activeIndex].getContent()) {
+      case '0': {
+        list[activeIndex].setContent('0');
+        list[activeIndex].setIsCurrent(false);
+        activeIndex--;
+        jumpToItem();
+        list[activeIndex].setIsCurrent(true);
+        q = 7;
+        break;
+      }
+      case 'B': {
+        list[activeIndex].setContent('B');
+        list[activeIndex].setIsCurrent(false);
+        activeIndex++;
+        jumpToItem();
+        list[activeIndex].setIsCurrent(true);
+        q = 1;
+        break;
+      }
+    }
   }
 
   void q8() {
-
+    switch(list[activeIndex].getContent()) {
+      case 'B': {
+        list[activeIndex].setContent('B');
+        list[activeIndex].setIsCurrent(false);
+        activeIndex--;
+        jumpToItem();
+        list[activeIndex].setIsCurrent(true);
+        q = 8;
+        break;
+      }
+      case 'X': {
+        list[activeIndex].setContent('B');
+        list[activeIndex].setIsCurrent(false);
+        activeIndex++;
+        jumpToItem();
+        list[activeIndex].setIsCurrent(true);
+        q = 14;
+        break;
+      }
+    }
   }
 
   void q9() {
-
+    switch(list[activeIndex].getContent()) {
+      case '1': {
+        list[activeIndex].setContent('B');
+        list[activeIndex].setIsCurrent(false);
+        activeIndex--;
+        jumpToItem();
+        list[activeIndex].setIsCurrent(true);
+        q = 15;
+        break;
+      }
+    }
   }
 
   void q10() {
-
+    switch(list[activeIndex].getContent()) {
+      case '0': {
+        list[activeIndex].setContent('0');
+        list[activeIndex].setIsCurrent(false);
+        activeIndex++;
+        jumpToItem();
+        list[activeIndex].setIsCurrent(true);
+        q = 10;
+        break;
+      }
+      case 'B': {
+        list[activeIndex].setContent('B');
+        list[activeIndex].setIsCurrent(false);
+        activeIndex--;
+        jumpToItem();
+        list[activeIndex].setIsCurrent(true);
+        q = 11;
+        break;
+      }
+    }
   }
 
   void q11() {
-
+    switch(list[activeIndex].getContent()) {
+      case '0': {
+        list[activeIndex].setContent('B');
+        list[activeIndex].setIsCurrent(false);
+        activeIndex--;
+        jumpToItem();
+        list[activeIndex].setIsCurrent(true);
+        q = 12;
+        break;
+      }
+      case 'Y': {
+        list[activeIndex].setContent('Y');
+        list[activeIndex].setIsCurrent(false);
+        activeIndex--;
+        jumpToItem();
+        list[activeIndex].setIsCurrent(true);
+        q = 17;
+        break;
+      }
+    }
   }
 
   void q12() {
-
+    switch(list[activeIndex].getContent()) {
+      case '0': {
+        list[activeIndex].setContent('0');
+        list[activeIndex].setIsCurrent(false);
+        activeIndex--;
+        jumpToItem();
+        list[activeIndex].setIsCurrent(true);
+        q = 12;
+        break;
+      }
+      case 'Y': {
+        list[activeIndex].setContent('Y');
+        list[activeIndex].setIsCurrent(false);
+        activeIndex--;
+        jumpToItem();
+        list[activeIndex].setIsCurrent(true);
+        q = 6;
+        break;
+      }
+    }
   }
 
   void q13() {
-
+    switch(list[activeIndex].getContent()) {
+      case 'X': {
+        list[activeIndex].setContent('X');
+        list[activeIndex].setIsCurrent(false);
+        activeIndex++;
+        jumpToItem();
+        list[activeIndex].setIsCurrent(true);
+        q = 24;
+        break;
+      }
+    }
   }
 
   void q14() {
-
+    switch(list[activeIndex].getContent()) {
+      case 'B': {
+        list[activeIndex].setContent('B');
+        list[activeIndex].setIsCurrent(false);
+        activeIndex++;
+        jumpToItem();
+        list[activeIndex].setIsCurrent(true);
+        q = 14;
+        break;
+      }
+      case 'X': {
+        list[activeIndex].setContent('X');
+        list[activeIndex].setIsCurrent(false);
+        activeIndex++;
+        jumpToItem();
+        list[activeIndex].setIsCurrent(true);
+        q = 23;
+        break;
+      }
+      case 'Y': {
+        list[activeIndex].setContent('Y');
+        list[activeIndex].setIsCurrent(false);
+        activeIndex++;
+        jumpToItem();
+        list[activeIndex].setIsCurrent(true);
+        q = 23;
+        break;
+      }
+    }
   }
 
   void q15() {
-
+    switch(list[activeIndex].getContent()) {
+      case '0': {
+        list[activeIndex].setContent('0');
+        list[activeIndex].setIsCurrent(false);
+        activeIndex--;
+        jumpToItem();
+        list[activeIndex].setIsCurrent(true);
+        q = 15;
+        break;
+      }
+      case 'B': {
+        list[activeIndex].setContent('0');
+        list[activeIndex].setIsCurrent(false);
+        activeIndex++;
+        jumpToItem();
+        list[activeIndex].setIsCurrent(true);
+        q = 16;
+        break;
+      }
+    }
   }
 
   void q16() {
-
+    switch(list[activeIndex].getContent()) {
+      case '0': {
+        list[activeIndex].setContent('0');
+        list[activeIndex].setIsCurrent(false);
+        activeIndex++;
+        jumpToItem();
+        list[activeIndex].setIsCurrent(true);
+        q = 16;
+        break;
+      }
+      case 'B': {
+        list[activeIndex].setContent('B');
+        list[activeIndex].setIsCurrent(false);
+        activeIndex++;
+        jumpToItem();
+        list[activeIndex].setIsCurrent(true);
+        q = 25;
+        break;
+      }
+    }
   }
 
   void q17() {
-
+    switch(list[activeIndex].getContent()) {
+      case '1': {
+        list[activeIndex].setContent('1');
+        list[activeIndex].setIsCurrent(false);
+        activeIndex--;
+        jumpToItem();
+        list[activeIndex].setIsCurrent(true);
+        q = 18;
+        break;
+      }
+    }
   }
 
   void q18() {
-
+    switch(list[activeIndex].getContent()) {
+      case 'B': {
+        list[activeIndex].setContent('B');
+        list[activeIndex].setIsCurrent(false);
+        activeIndex--;
+        jumpToItem();
+        list[activeIndex].setIsCurrent(true);
+        q = 18;
+        break;
+      }
+      case '0': {
+        list[activeIndex].setContent('0');
+        list[activeIndex].setIsCurrent(false);
+        activeIndex--;
+        jumpToItem();
+        list[activeIndex].setIsCurrent(true);
+        q = 18;
+        break;
+      }
+      case 'X': {
+        list[activeIndex].setContent('X');
+        list[activeIndex].setIsCurrent(false);
+        activeIndex++;
+        jumpToItem();
+        list[activeIndex].setIsCurrent(true);
+        q = 19;
+        break;
+      }
+    }
   }
 
   void q19() {
-
+    switch(list[activeIndex].getContent()) {
+      case '0': {
+        list[activeIndex].setContent('0');
+        list[activeIndex].setIsCurrent(false);
+        activeIndex++;
+        jumpToItem();
+        list[activeIndex].setIsCurrent(true);
+        q = 19;
+        break;
+      }
+      case 'B': {
+        list[activeIndex].setContent('0');
+        list[activeIndex].setIsCurrent(false);
+        activeIndex++;
+        jumpToItem();
+        list[activeIndex].setIsCurrent(true);
+        q = 20;
+        break;
+      }
+    }
   }
 
   void q20() {
-
+    switch(list[activeIndex].getContent()) {
+      case 'B': {
+        list[activeIndex].setContent('B');
+        list[activeIndex].setIsCurrent(false);
+        activeIndex++;
+        jumpToItem();
+        list[activeIndex].setIsCurrent(true);
+        q = 20;
+        break;
+      }
+      case '1': {
+        list[activeIndex].setContent('B');
+        list[activeIndex].setIsCurrent(false);
+        activeIndex++;
+        jumpToItem();
+        list[activeIndex].setIsCurrent(true);
+        q = 21;
+        break;
+      }
+      case '0': {
+        list[activeIndex].setContent('B');
+        list[activeIndex].setIsCurrent(false);
+        activeIndex--;
+        jumpToItem();
+        list[activeIndex].setIsCurrent(true);
+        q = 18;
+        break;
+      }
+    }
   }
 
   void q21() {
-
+    switch(list[activeIndex].getContent()) {
+      case 'Y': {
+        list[activeIndex].setContent('B');
+        list[activeIndex].setIsCurrent(false);
+        activeIndex++;
+        jumpToItem();
+        list[activeIndex].setIsCurrent(true);
+        q = 22;
+        break;
+      }
+    }
   }
 
   void q22() {
-
+    switch(list[activeIndex].getContent()) {
+      case 'B': {
+        list[activeIndex].setContent('B');
+        list[activeIndex].setIsCurrent(false);
+        activeIndex++;
+        jumpToItem();
+        list[activeIndex].setIsCurrent(true);
+        q = 25;
+        break;
+      }
+    }
   }
 
   void q23() {
-
+    switch(list[activeIndex].getContent()) {
+      case '0': {
+        list[activeIndex].setContent('0');
+        list[activeIndex].setIsCurrent(false);
+        activeIndex++;
+        jumpToItem();
+        list[activeIndex].setIsCurrent(true);
+        q = 23;
+        break;
+      }
+      case 'B': {
+        list[activeIndex].setContent('B');
+        list[activeIndex].setIsCurrent(false);
+        activeIndex++;
+        jumpToItem();
+        list[activeIndex].setIsCurrent(true);
+        q = 25;
+        break;
+      }
+    }
   }
 
   void q24() {
-
+    switch(list[activeIndex].getContent()) {
+      case '0': {
+        list[activeIndex].setContent('0');
+        list[activeIndex].setIsCurrent(false);
+        activeIndex++;
+        jumpToItem();
+        list[activeIndex].setIsCurrent(true);
+        q = 24;
+        break;
+      }
+      case 'B': {
+        list[activeIndex].setContent('B');
+        list[activeIndex].setIsCurrent(false);
+        activeIndex++;
+        jumpToItem();
+        list[activeIndex].setIsCurrent(true);
+        q = 25;
+        break;
+      }
+    }
   }
 
   void q25() {
-
+    if(list.contains('X')) {
+      if(xIsPlus) {
+        hasil = list.where((item) => item.getContent() == '0').toList().length;
+      } else {
+        hasil = list.where((item) => item.getContent() == '0').toList().length * -1;
+      }
+    } else if(list.contains('Y')) {
+      if(xIsPlus) {
+        hasil = list.where((item) => item.getContent() == '0').toList().length * -1;
+      } else {
+        hasil = list.where((item) => item.getContent() == '0').toList().length;
+      }
+    }
+    q = -1;
+    done = true;
   }
 }
