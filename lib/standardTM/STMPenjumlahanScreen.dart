@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:tubes/model/Item.dart';
 
@@ -22,9 +24,10 @@ class _STMPenjumlahanScreen extends State<STMPenjumlahanScreen> {
   double padding = 16.0;
   int total = 0;
   bool run = false;
-  int hasil = 0;
   bool done = false;
   int q = 0;
+  int hasil = 0;
+  Timer timer = Timer.periodic(Duration(seconds: 1), (timer) {});
 
   @override
   void initState() {
@@ -119,7 +122,7 @@ class _STMPenjumlahanScreen extends State<STMPenjumlahanScreen> {
           Item('0', false)
         );
       }
-    } else if(B < 0 && !xIsPlus) {
+    } else if(B > 0 && !xIsPlus) {
       list.add(
         Item('Y', false)
       );
@@ -157,6 +160,7 @@ class _STMPenjumlahanScreen extends State<STMPenjumlahanScreen> {
             color: Colors.white,
           ),
           onPressed: () {
+            timer.cancel();
             Navigator.pop(context);
           },
         ),
@@ -223,69 +227,12 @@ class _STMPenjumlahanScreen extends State<STMPenjumlahanScreen> {
             ),
             TextButton(
               onPressed: () {
-                if(!done) {
-                  setState(() {
-                    if(q != -1) {
-                      if(q == 0) {
-                        q0();
-                      } else if(q == 1) {
-                        q1();
-                      } else if(q == 2) {
-                        q2();
-                      } else if(q == 3) {
-                        q3();
-                      } else if(q == 4) {
-                        q4();
-                      } else if(q == 5) {
-                        q5();
-                      } else if(q == 6) {
-                        q6();
-                      } else if(q == 7) {
-                        q7();
-                      } else if(q == 8) {
-                        q8();
-                      } else if(q == 9) {
-                        q9();
-                      } else if(q == 10) {
-                        q10();
-                      } else if(q == 11) {
-                        q11();
-                      } else if(q == 12) {
-                        q12();
-                      } else if(q == 13) {
-                        q13();
-                      } else if(q == 14) {
-                        q14();
-                      } else if(q == 15) {
-                        q15();
-                      } else if(q == 16) {
-                        q16();
-                      } else if(q == 17) {
-                        q17();
-                      } else if(q == 18) {
-                        q18();
-                      } else if(q == 19) {
-                        q19();
-                      } else if(q == 20) {
-                        q20();
-                      } else if(q == 21) {
-                        q21();
-                      } else if(q == 22) {
-                        q22();
-                      } else if(q == 23) {
-                        q23();
-                      } else if(q == 24) {
-                        q24();
-                      } else if(q == 25) {
-                        q25();
-                      }
-                    } else {
-                      list[activeIndex].setIsCurrent(true);
-                      jumpToItem();
-                      q0();
-                    }
-                  });
-                }
+                setState(() {
+                  list[activeIndex].setIsCurrent(true);
+                  jumpToItem();
+                  q = 0;               
+                });
+                runTM();
               },
               child: const Text('Proses'),
             ),
@@ -307,6 +254,70 @@ class _STMPenjumlahanScreen extends State<STMPenjumlahanScreen> {
       ),
       curve: Curves.ease,
     );
+  }
+
+  void runTM() {
+    timer = Timer.periodic(Duration(seconds: 1), (timer) {
+      setState(() {
+        if(!done) {
+          if(q == 0) {
+            q0();
+          } else if(q == 1) {
+            q1();
+          } else if(q == 2) {
+            q2();
+          } else if(q == 3) {
+            q3();
+          } else if(q == 4) {
+            q4();
+          } else if(q == 5) {
+            q5();
+          } else if(q == 6) {
+            q6();
+          } else if(q == 7) {
+            q7();
+          } else if(q == 8) {
+            q8();
+          } else if(q == 9) {
+            q9();
+          } else if(q == 10) {
+            q10();
+          } else if(q == 11) {
+            q11();
+          } else if(q == 12) {
+            q12();
+          } else if(q == 13) {
+            q13();
+          } else if(q == 14) {
+            q14();
+          } else if(q == 15) {
+            q15();
+          } else if(q == 16) {
+            q16();
+          } else if(q == 17) {
+            q17();
+          } else if(q == 18) {
+            q18();
+          } else if(q == 19) {
+            q19();
+          } else if(q == 20) {
+            q20();
+          } else if(q == 21) {
+            q21();
+          } else if(q == 22) {
+            q22();
+          } else if(q == 23) {
+            q23();
+          } else if(q == 24) {
+            q24();
+          } else if(q == 25) {
+            q25();
+          }
+        } else {
+          timer.cancel();
+        }
+      });
+    });
   }
 
   void q0() {
@@ -614,6 +625,15 @@ class _STMPenjumlahanScreen extends State<STMPenjumlahanScreen> {
         q = 24;
         break;
       }
+      case 'B': {
+        list[activeIndex].setContent('B');
+        list[activeIndex].setIsCurrent(false);
+        activeIndex++;
+        jumpToItem();
+        list[activeIndex].setIsCurrent(true);
+        q = 25;
+        break;
+      }
     }
   }
 
@@ -871,20 +891,32 @@ class _STMPenjumlahanScreen extends State<STMPenjumlahanScreen> {
   }
 
   void q25() {
-    if(list.contains('X')) {
-      if(xIsPlus) {
-        hasil = list.where((item) => item.getContent() == '0').toList().length;
+    int xCount = list.where((item) => item.getContent() == 'X').toList().length;
+    int yCount = list.where((item) => item.getContent() == 'Y').toList().length;
+    hasil = list.where((item) => item.getContent() == '0').toList().length;
+    if(hasil == 0) {
+      hasil = 0;
+    } else {
+      if(xCount == 1) {
+        if(!xIsPlus) {
+          hasil *= -1;
+        }
+      } else if(yCount == 1) {
+        if(xIsPlus) {
+          hasil *= -1;
+        }
       } else {
-        hasil = list.where((item) => item.getContent() == '0').toList().length * -1;
-      }
-    } else if(list.contains('Y')) {
-      if(xIsPlus) {
-        hasil = list.where((item) => item.getContent() == '0').toList().length * -1;
-      } else {
-        hasil = list.where((item) => item.getContent() == '0').toList().length;
+        hasil = 0;
       }
     }
     q = -1;
     done = true;
+  }
+
+  @override
+  void dispose() {
+    controller.dispose();
+    timer.cancel();
+    super.dispose();
   }
 }
