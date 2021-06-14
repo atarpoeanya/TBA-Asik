@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:tubes/model/Item.dart';
 
@@ -23,7 +22,6 @@ class _STMPenjumlahanScreen extends State<STMPenjumlahanScreen> {
   int activeIndex = 3;
   double padding = 16.0;
   int total = 0;
-  bool run = false;
   bool done = false;
   int q = 0;
   int hasil = 0;
@@ -93,43 +91,68 @@ class _STMPenjumlahanScreen extends State<STMPenjumlahanScreen> {
       Item('1', false)
     );
     
-    if(B < 0 && xIsPlus) {
-      list.add(
-        Item('Y', false)
-      );
-      int tempB = B * -1;
-      for(int i = 0; i < tempB; i++) {
+    if(A != 0) {
+      if(B < 0 && xIsPlus) {
         list.add(
-          Item('0', false)
+          Item('Y', false)
         );
+        int tempB = B * -1;
+        for(int i = 0; i < tempB; i++) {
+          list.add(
+            Item('0', false)
+          );
+        }
+      } else if(B < 0 && !xIsPlus) {
+        list.add(
+          Item('X', false)
+        );
+        int tempB = B * -1;
+        for(int i = 0; i < tempB; i++) {
+          list.add(
+            Item('0', false)
+          );
+        }
+      } else if(B > 0 && xIsPlus) {
+        list.add(
+          Item('X', false)
+        );
+        for(int i = 0; i < B; i++) {
+          list.add(
+            Item('0', false)
+          );
+        }
+      } else if(B > 0 && !xIsPlus) {
+        list.add(
+          Item('Y', false)
+        );
+        for(int i = 0; i < B; i++) {
+          list.add(
+            Item('0', false)
+          );
+        }
       }
-    } else if(B < 0 && !xIsPlus) {
-      list.add(
-        Item('X', false)
-      );
-      int tempB = B * -1;
-      for(int i = 0; i < tempB; i++) {
+    } else {
+      if(B < 0) {
         list.add(
-          Item('0', false)
+          Item('X', false)
         );
-      }
-    } else if(B > 0 && xIsPlus) {
-      list.add(
-        Item('X', false)
-      );
-      for(int i = 0; i < B; i++) {
+        xIsPlus = false;
+        int tempB = B * -1;
+        for(int i = 0; i < tempB; i++) {
+          list.add(
+            Item('0', false)
+          );
+        }
+      } else if(B > 0) {
         list.add(
-          Item('0', false)
+          Item('X', false)
         );
-      }
-    } else if(B > 0 && !xIsPlus) {
-      list.add(
-        Item('Y', false)
-      );
-      for(int i = 0; i < B; i++) {
-        list.add(
-          Item('0', false)
-        );
+        xIsPlus = true;
+        for(int i = 0; i < B; i++) {
+          list.add(
+            Item('0', false)
+          );
+        }
       }
     }
 
@@ -324,19 +347,13 @@ class _STMPenjumlahanScreen extends State<STMPenjumlahanScreen> {
     switch(list[activeIndex].getContent()) {
       case 'X': {
         list[activeIndex].setContent('X');
-        list[activeIndex].setIsCurrent(false);
-        activeIndex++;
-        jumpToItem();
-        list[activeIndex].setIsCurrent(true);
+        R();
         q = 1;
         break;
       }
       case '1': {
         list[activeIndex].setContent('B');
-        list[activeIndex].setIsCurrent(false);
-        activeIndex++;
-        jumpToItem();
-        list[activeIndex].setIsCurrent(true);
+        R();
         q = 13;
         break;
       }
@@ -347,19 +364,13 @@ class _STMPenjumlahanScreen extends State<STMPenjumlahanScreen> {
     switch(list[activeIndex].getContent()) {
       case '0': {
         list[activeIndex].setContent('B');
-        list[activeIndex].setIsCurrent(false);
-        activeIndex++;
-        jumpToItem();
-        list[activeIndex].setIsCurrent(true);
+        R();
         q = 2;
         break;
       }
       case '1': {
         list[activeIndex].setContent('B');
-        list[activeIndex].setIsCurrent(false);
-        activeIndex--;
-        jumpToItem();
-        list[activeIndex].setIsCurrent(true);
+        L();
         q = 8;
         break;
       }
@@ -370,19 +381,13 @@ class _STMPenjumlahanScreen extends State<STMPenjumlahanScreen> {
     switch(list[activeIndex].getContent()) {
       case '0': {
         list[activeIndex].setContent('0');
-        list[activeIndex].setIsCurrent(false);
-        activeIndex++;
-        jumpToItem();
-        list[activeIndex].setIsCurrent(true);
+        R();
         q = 2;
         break;
       }
       case '1': {
         list[activeIndex].setContent('1');
-        list[activeIndex].setIsCurrent(false);
-        activeIndex++;
-        jumpToItem();
-        list[activeIndex].setIsCurrent(true);
+        R();
         q = 3;
         break;
       }
@@ -393,28 +398,19 @@ class _STMPenjumlahanScreen extends State<STMPenjumlahanScreen> {
     switch(list[activeIndex].getContent()) {
       case 'X': {
         list[activeIndex].setContent('X');
-        list[activeIndex].setIsCurrent(false);
-        activeIndex++;
-        jumpToItem();
-        list[activeIndex].setIsCurrent(true);
+        R();
         q = 4;
         break;
       }
       case 'Y': {
         list[activeIndex].setContent('Y');
-        list[activeIndex].setIsCurrent(false);
-        activeIndex++;
-        jumpToItem();
-        list[activeIndex].setIsCurrent(true);
+        R();
         q = 10;
         break;
       }
       case 'B': {
         list[activeIndex].setContent('B');
-        list[activeIndex].setIsCurrent(false);
-        activeIndex--;
-        jumpToItem();
-        list[activeIndex].setIsCurrent(true);
+        L();
         q = 9;
         break;
       }
@@ -425,10 +421,7 @@ class _STMPenjumlahanScreen extends State<STMPenjumlahanScreen> {
     switch(list[activeIndex].getContent()) {
       case '0': {
         list[activeIndex].setContent('0');
-        list[activeIndex].setIsCurrent(false);
-        activeIndex++;
-        jumpToItem();
-        list[activeIndex].setIsCurrent(true);
+        R();
         q = 4;
         break;
       }
@@ -452,19 +445,13 @@ class _STMPenjumlahanScreen extends State<STMPenjumlahanScreen> {
     switch(list[activeIndex].getContent()) {
       case '0': {
         list[activeIndex].setContent('0');
-        list[activeIndex].setIsCurrent(false);
-        activeIndex--;
-        jumpToItem();
-        list[activeIndex].setIsCurrent(true);
+        L();
         q = 5;
         break;
       }
       case 'X': {
         list[activeIndex].setContent('X');
-        list[activeIndex].setIsCurrent(false);
-        activeIndex--;
-        jumpToItem();
-        list[activeIndex].setIsCurrent(true);
+        L();
         q = 6;
         break;
       }
@@ -475,10 +462,7 @@ class _STMPenjumlahanScreen extends State<STMPenjumlahanScreen> {
     switch(list[activeIndex].getContent()) {
       case '1': {
         list[activeIndex].setContent('1');
-        list[activeIndex].setIsCurrent(false);
-        activeIndex--;
-        jumpToItem();
-        list[activeIndex].setIsCurrent(true);
+        L();
         q = 7;
         break;
       }
@@ -489,19 +473,13 @@ class _STMPenjumlahanScreen extends State<STMPenjumlahanScreen> {
     switch(list[activeIndex].getContent()) {
       case '0': {
         list[activeIndex].setContent('0');
-        list[activeIndex].setIsCurrent(false);
-        activeIndex--;
-        jumpToItem();
-        list[activeIndex].setIsCurrent(true);
+        L();
         q = 7;
         break;
       }
       case 'B': {
         list[activeIndex].setContent('B');
-        list[activeIndex].setIsCurrent(false);
-        activeIndex++;
-        jumpToItem();
-        list[activeIndex].setIsCurrent(true);
+        R();
         q = 1;
         break;
       }
@@ -512,19 +490,13 @@ class _STMPenjumlahanScreen extends State<STMPenjumlahanScreen> {
     switch(list[activeIndex].getContent()) {
       case 'B': {
         list[activeIndex].setContent('B');
-        list[activeIndex].setIsCurrent(false);
-        activeIndex--;
-        jumpToItem();
-        list[activeIndex].setIsCurrent(true);
+        L();
         q = 8;
         break;
       }
       case 'X': {
         list[activeIndex].setContent('B');
-        list[activeIndex].setIsCurrent(false);
-        activeIndex++;
-        jumpToItem();
-        list[activeIndex].setIsCurrent(true);
+        R();
         q = 14;
         break;
       }
@@ -535,10 +507,7 @@ class _STMPenjumlahanScreen extends State<STMPenjumlahanScreen> {
     switch(list[activeIndex].getContent()) {
       case '1': {
         list[activeIndex].setContent('B');
-        list[activeIndex].setIsCurrent(false);
-        activeIndex--;
-        jumpToItem();
-        list[activeIndex].setIsCurrent(true);
+        L();
         q = 15;
         break;
       }
@@ -549,19 +518,13 @@ class _STMPenjumlahanScreen extends State<STMPenjumlahanScreen> {
     switch(list[activeIndex].getContent()) {
       case '0': {
         list[activeIndex].setContent('0');
-        list[activeIndex].setIsCurrent(false);
-        activeIndex++;
-        jumpToItem();
-        list[activeIndex].setIsCurrent(true);
+        R();
         q = 10;
         break;
       }
       case 'B': {
         list[activeIndex].setContent('B');
-        list[activeIndex].setIsCurrent(false);
-        activeIndex--;
-        jumpToItem();
-        list[activeIndex].setIsCurrent(true);
+        L();
         q = 11;
         break;
       }
@@ -572,19 +535,13 @@ class _STMPenjumlahanScreen extends State<STMPenjumlahanScreen> {
     switch(list[activeIndex].getContent()) {
       case '0': {
         list[activeIndex].setContent('B');
-        list[activeIndex].setIsCurrent(false);
-        activeIndex--;
-        jumpToItem();
-        list[activeIndex].setIsCurrent(true);
+        L();
         q = 12;
         break;
       }
       case 'Y': {
         list[activeIndex].setContent('Y');
-        list[activeIndex].setIsCurrent(false);
-        activeIndex--;
-        jumpToItem();
-        list[activeIndex].setIsCurrent(true);
+        L();
         q = 17;
         break;
       }
@@ -595,19 +552,13 @@ class _STMPenjumlahanScreen extends State<STMPenjumlahanScreen> {
     switch(list[activeIndex].getContent()) {
       case '0': {
         list[activeIndex].setContent('0');
-        list[activeIndex].setIsCurrent(false);
-        activeIndex--;
-        jumpToItem();
-        list[activeIndex].setIsCurrent(true);
+        L();
         q = 12;
         break;
       }
       case 'Y': {
         list[activeIndex].setContent('Y');
-        list[activeIndex].setIsCurrent(false);
-        activeIndex--;
-        jumpToItem();
-        list[activeIndex].setIsCurrent(true);
+        L();
         q = 6;
         break;
       }
@@ -618,19 +569,13 @@ class _STMPenjumlahanScreen extends State<STMPenjumlahanScreen> {
     switch(list[activeIndex].getContent()) {
       case 'X': {
         list[activeIndex].setContent('X');
-        list[activeIndex].setIsCurrent(false);
-        activeIndex++;
-        jumpToItem();
-        list[activeIndex].setIsCurrent(true);
+        R();
         q = 24;
         break;
       }
       case 'B': {
         list[activeIndex].setContent('B');
-        list[activeIndex].setIsCurrent(false);
-        activeIndex++;
-        jumpToItem();
-        list[activeIndex].setIsCurrent(true);
+        R();
         q = 25;
         break;
       }
@@ -641,28 +586,19 @@ class _STMPenjumlahanScreen extends State<STMPenjumlahanScreen> {
     switch(list[activeIndex].getContent()) {
       case 'B': {
         list[activeIndex].setContent('B');
-        list[activeIndex].setIsCurrent(false);
-        activeIndex++;
-        jumpToItem();
-        list[activeIndex].setIsCurrent(true);
+        R();
         q = 14;
         break;
       }
       case 'X': {
         list[activeIndex].setContent('X');
-        list[activeIndex].setIsCurrent(false);
-        activeIndex++;
-        jumpToItem();
-        list[activeIndex].setIsCurrent(true);
+        R();
         q = 23;
         break;
       }
       case 'Y': {
         list[activeIndex].setContent('Y');
-        list[activeIndex].setIsCurrent(false);
-        activeIndex++;
-        jumpToItem();
-        list[activeIndex].setIsCurrent(true);
+        R();
         q = 23;
         break;
       }
@@ -673,19 +609,13 @@ class _STMPenjumlahanScreen extends State<STMPenjumlahanScreen> {
     switch(list[activeIndex].getContent()) {
       case '0': {
         list[activeIndex].setContent('0');
-        list[activeIndex].setIsCurrent(false);
-        activeIndex--;
-        jumpToItem();
-        list[activeIndex].setIsCurrent(true);
+        L();
         q = 15;
         break;
       }
       case 'B': {
         list[activeIndex].setContent('0');
-        list[activeIndex].setIsCurrent(false);
-        activeIndex++;
-        jumpToItem();
-        list[activeIndex].setIsCurrent(true);
+        R();
         q = 16;
         break;
       }
@@ -696,19 +626,13 @@ class _STMPenjumlahanScreen extends State<STMPenjumlahanScreen> {
     switch(list[activeIndex].getContent()) {
       case '0': {
         list[activeIndex].setContent('0');
-        list[activeIndex].setIsCurrent(false);
-        activeIndex++;
-        jumpToItem();
-        list[activeIndex].setIsCurrent(true);
+        R();
         q = 16;
         break;
       }
       case 'B': {
         list[activeIndex].setContent('B');
-        list[activeIndex].setIsCurrent(false);
-        activeIndex++;
-        jumpToItem();
-        list[activeIndex].setIsCurrent(true);
+        R();
         q = 25;
         break;
       }
@@ -719,10 +643,7 @@ class _STMPenjumlahanScreen extends State<STMPenjumlahanScreen> {
     switch(list[activeIndex].getContent()) {
       case '1': {
         list[activeIndex].setContent('1');
-        list[activeIndex].setIsCurrent(false);
-        activeIndex--;
-        jumpToItem();
-        list[activeIndex].setIsCurrent(true);
+        L();
         q = 18;
         break;
       }
@@ -733,28 +654,19 @@ class _STMPenjumlahanScreen extends State<STMPenjumlahanScreen> {
     switch(list[activeIndex].getContent()) {
       case 'B': {
         list[activeIndex].setContent('B');
-        list[activeIndex].setIsCurrent(false);
-        activeIndex--;
-        jumpToItem();
-        list[activeIndex].setIsCurrent(true);
+        L();
         q = 18;
         break;
       }
       case '0': {
         list[activeIndex].setContent('0');
-        list[activeIndex].setIsCurrent(false);
-        activeIndex--;
-        jumpToItem();
-        list[activeIndex].setIsCurrent(true);
+        L();
         q = 18;
         break;
       }
       case 'X': {
         list[activeIndex].setContent('X');
-        list[activeIndex].setIsCurrent(false);
-        activeIndex++;
-        jumpToItem();
-        list[activeIndex].setIsCurrent(true);
+        R();
         q = 19;
         break;
       }
@@ -765,19 +677,13 @@ class _STMPenjumlahanScreen extends State<STMPenjumlahanScreen> {
     switch(list[activeIndex].getContent()) {
       case '0': {
         list[activeIndex].setContent('0');
-        list[activeIndex].setIsCurrent(false);
-        activeIndex++;
-        jumpToItem();
-        list[activeIndex].setIsCurrent(true);
+        R();
         q = 19;
         break;
       }
       case 'B': {
         list[activeIndex].setContent('0');
-        list[activeIndex].setIsCurrent(false);
-        activeIndex++;
-        jumpToItem();
-        list[activeIndex].setIsCurrent(true);
+        R();
         q = 20;
         break;
       }
@@ -788,28 +694,19 @@ class _STMPenjumlahanScreen extends State<STMPenjumlahanScreen> {
     switch(list[activeIndex].getContent()) {
       case 'B': {
         list[activeIndex].setContent('B');
-        list[activeIndex].setIsCurrent(false);
-        activeIndex++;
-        jumpToItem();
-        list[activeIndex].setIsCurrent(true);
+        R();
         q = 20;
         break;
       }
       case '1': {
         list[activeIndex].setContent('B');
-        list[activeIndex].setIsCurrent(false);
-        activeIndex++;
-        jumpToItem();
-        list[activeIndex].setIsCurrent(true);
+        R();
         q = 21;
         break;
       }
       case '0': {
         list[activeIndex].setContent('B');
-        list[activeIndex].setIsCurrent(false);
-        activeIndex--;
-        jumpToItem();
-        list[activeIndex].setIsCurrent(true);
+        L();
         q = 18;
         break;
       }
@@ -820,10 +717,7 @@ class _STMPenjumlahanScreen extends State<STMPenjumlahanScreen> {
     switch(list[activeIndex].getContent()) {
       case 'Y': {
         list[activeIndex].setContent('B');
-        list[activeIndex].setIsCurrent(false);
-        activeIndex++;
-        jumpToItem();
-        list[activeIndex].setIsCurrent(true);
+        R();
         q = 22;
         break;
       }
@@ -834,10 +728,7 @@ class _STMPenjumlahanScreen extends State<STMPenjumlahanScreen> {
     switch(list[activeIndex].getContent()) {
       case 'B': {
         list[activeIndex].setContent('B');
-        list[activeIndex].setIsCurrent(false);
-        activeIndex++;
-        jumpToItem();
-        list[activeIndex].setIsCurrent(true);
+        R();
         q = 25;
         break;
       }
@@ -848,19 +739,13 @@ class _STMPenjumlahanScreen extends State<STMPenjumlahanScreen> {
     switch(list[activeIndex].getContent()) {
       case '0': {
         list[activeIndex].setContent('0');
-        list[activeIndex].setIsCurrent(false);
-        activeIndex++;
-        jumpToItem();
-        list[activeIndex].setIsCurrent(true);
+        R();
         q = 23;
         break;
       }
       case 'B': {
         list[activeIndex].setContent('B');
-        list[activeIndex].setIsCurrent(false);
-        activeIndex++;
-        jumpToItem();
-        list[activeIndex].setIsCurrent(true);
+        R();
         q = 25;
         break;
       }
@@ -871,19 +756,13 @@ class _STMPenjumlahanScreen extends State<STMPenjumlahanScreen> {
     switch(list[activeIndex].getContent()) {
       case '0': {
         list[activeIndex].setContent('0');
-        list[activeIndex].setIsCurrent(false);
-        activeIndex++;
-        jumpToItem();
-        list[activeIndex].setIsCurrent(true);
+        R();
         q = 24;
         break;
       }
       case 'B': {
         list[activeIndex].setContent('B');
-        list[activeIndex].setIsCurrent(false);
-        activeIndex++;
-        jumpToItem();
-        list[activeIndex].setIsCurrent(true);
+        R();
         q = 25;
         break;
       }
@@ -911,6 +790,20 @@ class _STMPenjumlahanScreen extends State<STMPenjumlahanScreen> {
     }
     q = -1;
     done = true;
+  }
+
+  void R() {
+    list[activeIndex].setIsCurrent(false);
+    activeIndex++;
+    jumpToItem();
+    list[activeIndex].setIsCurrent(true);
+  }
+
+  void L() {
+    list[activeIndex].setIsCurrent(false);
+    activeIndex--;
+    jumpToItem();
+    list[activeIndex].setIsCurrent(true);
   }
 
   @override

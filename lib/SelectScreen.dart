@@ -66,19 +66,45 @@ class SelectScreen extends StatelessWidget {
                               width: MediaQuery.of(context).size.width,
                             );
                           } else if(type == 2) {
-                            return STMPenguranganScreen();
+                            return STMPenguranganScreen(
+                              A: A,
+                              B: B,
+                              width: MediaQuery.of(context).size.width,
+                            );
                           } else if(type == 3) {
-                            return STMPerkalianScreen();
+                            return STMPerkalianScreen(
+                              A: A,
+                              B: B,
+                              width: MediaQuery.of(context).size.width,
+                            );
                           } else if(type == 4) {
-                            return STMPembagianScreen();
+                            return STMPembagianScreen(
+                              A: A,
+                              B: B,
+                              width: MediaQuery.of(context).size.width,
+                            );
                           } else if(type == 5) {
-                            return STMFaktorialScreen();
+                            return STMFaktorialScreen(
+                              A: A,
+                              width: MediaQuery.of(context).size.width,
+                            );
                           } else if(type == 6) {
-                            return STMModuloScreen();
+                            return STMModuloScreen(
+                              A: A,
+                              B: B,
+                              width: MediaQuery.of(context).size.width,
+                            );
                           } else if(type == 7) {
-                            return STMPangkatScreen();
+                            return STMPangkatScreen(
+                              A: A,
+                              B: B,
+                              width: MediaQuery.of(context).size.width,
+                            );
                           } else {
-                            return STMLogaritmaBinerScreen();
+                            return STMLogaritmaBinerScreen(
+                              A: A,
+                              width: MediaQuery.of(context).size.width,
+                            );
                           }
                         }
                       )
