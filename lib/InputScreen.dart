@@ -14,6 +14,7 @@ class InputScreen extends StatefulWidget {
 }
 
 class _InputScreen extends State<InputScreen> {
+  final formKey = GlobalKey<FormState>();
   TextEditingController _controllerA = TextEditingController();
   TextEditingController _controllerB = TextEditingController();
 
@@ -47,46 +48,23 @@ class _InputScreen extends State<InputScreen> {
                 'A + B',
                 textAlign: TextAlign.center,
               ),
-              TextField(
-                controller: _controllerA,
-                keyboardType: TextInputType.numberWithOptions(
-                  signed: true,
-                ),
-                inputFormatters: [
-                  FilteringTextInputFormatter.allow(RegExp(r'[\d+\-]')),
-                  NumberTextInputFormatter(),
-                ],
-                decoration: InputDecoration(
-                  hintText: 'Masukkan bilangan A',
-                  labelText: 'Bilangan A',
-                ),
-              ),
-              TextField(
-                controller: _controllerB,
-                keyboardType: TextInputType.numberWithOptions(
-                  signed: true,
-                ),
-                inputFormatters: [
-                  FilteringTextInputFormatter.allow(RegExp(r'[\d+\-]')),
-                  NumberTextInputFormatter(),
-                ],
-                decoration: InputDecoration(
-                  hintText: 'Masukkan bilangan B',
-                  labelText: 'Bilangan B',
-                ),
-              ),
+              bilanganA(),
+              bilanganB(),
               TextButton(
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => SelectScreen(
-                        type: this.widget.type,
-                        A: _controllerA.text,
-                        B: _controllerB.text,
-                      ),
-                    )
-                  );
+                  final isValid = formKey.currentState?.validate();
+                  if(isValid != null && isValid) {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => SelectScreen(
+                          type: this.widget.type,
+                          A: int.parse(_controllerA.text),
+                          B: int.parse(_controllerB.text),
+                        ),
+                      )
+                    );
+                  }
                 },
                 child: const Text('Lanjut'),
               ),
@@ -122,46 +100,23 @@ class _InputScreen extends State<InputScreen> {
                 'A - B',
                 textAlign: TextAlign.center,
               ),
-              TextField(
-                controller: _controllerA,
-                keyboardType: TextInputType.numberWithOptions(
-                  signed: true,
-                ),
-                inputFormatters: [
-                  FilteringTextInputFormatter.allow(RegExp(r'[\d+\-]')),
-                  NumberTextInputFormatter(),
-                ],
-                decoration: InputDecoration(
-                  hintText: 'Masukkan bilangan A',
-                  labelText: 'Bilangan A',
-                ),
-              ),
-              TextField(
-                controller: _controllerB,
-                keyboardType: TextInputType.numberWithOptions(
-                  signed: true,
-                ),
-                inputFormatters: [
-                  FilteringTextInputFormatter.allow(RegExp(r'[\d+\-]')),
-                  NumberTextInputFormatter(),
-                ],
-                decoration: InputDecoration(
-                  hintText: 'Masukkan bilangan B',
-                  labelText: 'Bilangan B',
-                ),
-              ),
+              bilanganA(),
+              bilanganB(),
               TextButton(
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => SelectScreen(
-                        type: this.widget.type,
-                        A: _controllerA.text,
-                        B: _controllerB.text,
-                      ),
-                    )
-                  );
+                  final isValid = formKey.currentState?.validate();
+                  if(isValid != null && isValid) {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => SelectScreen(
+                          type: this.widget.type,
+                          A: int.parse(_controllerA.text),
+                          B: int.parse(_controllerB.text),
+                        ),
+                      )
+                    );
+                  }
                 },
                 child: const Text('Lanjut'),
               ),
@@ -197,46 +152,23 @@ class _InputScreen extends State<InputScreen> {
                 'A * B',
                 textAlign: TextAlign.center,
               ),
-              TextField(
-                controller: _controllerA,
-                keyboardType: TextInputType.numberWithOptions(
-                  signed: true,
-                ),
-                inputFormatters: [
-                  FilteringTextInputFormatter.allow(RegExp(r'[\d+\-]')),
-                  NumberTextInputFormatter(),
-                ],
-                decoration: InputDecoration(
-                  hintText: 'Masukkan bilangan A',
-                  labelText: 'Bilangan A',
-                ),
-              ),
-              TextField(
-                controller: _controllerB,
-                keyboardType: TextInputType.numberWithOptions(
-                  signed: true,
-                ),
-                inputFormatters: [
-                  FilteringTextInputFormatter.allow(RegExp(r'[\d+\-]')),
-                  NumberTextInputFormatter(),
-                ],
-                decoration: InputDecoration(
-                  hintText: 'Masukkan bilangan B',
-                  labelText: 'Bilangan B',
-                ),
-              ),
+              bilanganA(),
+              bilanganB(),
               TextButton(
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => SelectScreen(
-                        type: this.widget.type,
-                        A: _controllerA.text,
-                        B: _controllerB.text,
-                      ),
-                    )
-                  );
+                  final isValid = formKey.currentState?.validate();
+                  if(isValid != null && isValid) {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => SelectScreen(
+                          type: this.widget.type,
+                          A: int.parse(_controllerA.text),
+                          B: int.parse(_controllerB.text),
+                        ),
+                      )
+                    );
+                  }
                 },
                 child: const Text('Lanjut'),
               ),
@@ -272,46 +204,23 @@ class _InputScreen extends State<InputScreen> {
                 'A / B',
                 textAlign: TextAlign.center,
               ),
-              TextField(
-                controller: _controllerA,
-                keyboardType: TextInputType.numberWithOptions(
-                  signed: true,
-                ),
-                inputFormatters: [
-                  FilteringTextInputFormatter.allow(RegExp(r'[\d+\-]')),
-                  NumberTextInputFormatter(),
-                ],
-                decoration: InputDecoration(
-                  hintText: 'Masukkan bilangan A',
-                  labelText: 'Bilangan A',
-                ),
-              ),
-              TextField(
-                controller: _controllerB,
-                keyboardType: TextInputType.numberWithOptions(
-                  signed: true,
-                ),
-                inputFormatters: [
-                  FilteringTextInputFormatter.allow(RegExp(r'[\d+\-]')),
-                  NumberTextInputFormatter(),
-                ],
-                decoration: InputDecoration(
-                  hintText: 'Masukkan bilangan B',
-                  labelText: 'Bilangan B',
-                ),
-              ),
+              bilanganA(),
+              bilanganB(),
               TextButton(
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => SelectScreen(
-                        type: this.widget.type,
-                        A: _controllerA.text,
-                        B: _controllerB.text,
-                      ),
-                    )
-                  );
+                  final isValid = formKey.currentState?.validate();
+                  if(isValid != null && isValid) {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => SelectScreen(
+                          type: this.widget.type,
+                          A: int.parse(_controllerA.text),
+                          B: int.parse(_controllerB.text),
+                        ),
+                      )
+                    );
+                  }
                 },
                 child: const Text('Lanjut'),
               ),
@@ -347,32 +256,22 @@ class _InputScreen extends State<InputScreen> {
                 'A!',
                 textAlign: TextAlign.center,
               ),
-              TextField(
-                controller: _controllerA,
-                keyboardType: TextInputType.numberWithOptions(
-                  signed: true,
-                ),
-                inputFormatters: [
-                  FilteringTextInputFormatter.allow(RegExp(r'[\d+\-]')),
-                  NumberTextInputFormatter(),
-                ],
-                decoration: InputDecoration(
-                  hintText: 'Masukkan bilangan A',
-                  labelText: 'Bilangan A',
-                ),
-              ),
+              bilanganA(),
               TextButton(
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => SelectScreen(
-                        type: this.widget.type,
-                        A: _controllerA.text,
-                        B: '',
-                      ),
-                    )
-                  );
+                  final isValid = formKey.currentState?.validate();
+                  if(isValid != null && isValid) {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => SelectScreen(
+                          type: this.widget.type,
+                          A: int.parse(_controllerA.text),
+                          B: -1,
+                        ),
+                      )
+                    );
+                  }
                 },
                 child: const Text('Lanjut'),
               ),
@@ -408,46 +307,23 @@ class _InputScreen extends State<InputScreen> {
                 'A % B',
                 textAlign: TextAlign.center,
               ),
-              TextField(
-                controller: _controllerA,
-                keyboardType: TextInputType.numberWithOptions(
-                  signed: true,
-                ),
-                inputFormatters: [
-                  FilteringTextInputFormatter.allow(RegExp(r'[\d+\-]')),
-                  NumberTextInputFormatter(),
-                ],
-                decoration: InputDecoration(
-                  hintText: 'Masukkan bilangan A',
-                  labelText: 'Bilangan A',
-                ),
-              ),
-              TextField(
-                controller: _controllerB,
-                keyboardType: TextInputType.numberWithOptions(
-                  signed: true,
-                ),
-                inputFormatters: [
-                  FilteringTextInputFormatter.allow(RegExp(r'[\d+\-]')),
-                  NumberTextInputFormatter(),
-                ],
-                decoration: InputDecoration(
-                  hintText: 'Masukkan bilangan B',
-                  labelText: 'Bilangan B',
-                ),
-              ),
+              bilanganA(),
+              bilanganB(),
               TextButton(
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => SelectScreen(
-                        type: this.widget.type,
-                        A: _controllerA.text,
-                        B: _controllerB.text,
-                      ),
-                    )
-                  );
+                  final isValid = formKey.currentState?.validate();
+                  if(isValid != null && isValid) {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => SelectScreen(
+                          type: this.widget.type,
+                          A: int.parse(_controllerA.text),
+                          B: int.parse(_controllerB.text),
+                        ),
+                      )
+                    );
+                  }
                 },
                 child: const Text('Lanjut'),
               ),
@@ -483,46 +359,23 @@ class _InputScreen extends State<InputScreen> {
                 'A ^ B',
                 textAlign: TextAlign.center,
               ),
-              TextField(
-                controller: _controllerA,
-                keyboardType: TextInputType.numberWithOptions(
-                  signed: true,
-                ),
-                inputFormatters: [
-                  FilteringTextInputFormatter.allow(RegExp(r'[\d+\-]')),
-                  NumberTextInputFormatter(),
-                ],
-                decoration: InputDecoration(
-                  hintText: 'Masukkan bilangan A',
-                  labelText: 'Bilangan A',
-                ),
-              ),
-              TextField(
-                controller: _controllerB,
-                keyboardType: TextInputType.numberWithOptions(
-                  signed: true,
-                ),
-                inputFormatters: [
-                  FilteringTextInputFormatter.allow(RegExp(r'[\d+\-]')),
-                  NumberTextInputFormatter(),
-                ],
-                decoration: InputDecoration(
-                  hintText: 'Masukkan bilangan B',
-                  labelText: 'Bilangan B',
-                ),
-              ),
+              bilanganA(),
+              bilanganB(),
               TextButton(
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => SelectScreen(
-                        type: this.widget.type,
-                        A: _controllerA.text,
-                        B: _controllerB.text,
-                      ),
-                    )
-                  );
+                  final isValid = formKey.currentState?.validate();
+                  if(isValid != null && isValid) {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => SelectScreen(
+                          type: this.widget.type,
+                          A: int.parse(_controllerA.text),
+                          B: int.parse(_controllerB.text),
+                        ),
+                      )
+                    );
+                  }
                 },
                 child: const Text('Lanjut'),
               ),
@@ -549,76 +402,102 @@ class _InputScreen extends State<InputScreen> {
             ),
           ),
         ),
-        body: Padding(
-          padding: EdgeInsets.all(16.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                'log\u{2082}A',
-                textAlign: TextAlign.center,
-              ),
-              TextField(
-                controller: _controllerA,
-                keyboardType: TextInputType.numberWithOptions(
-                  signed: true,
+        body: Form(
+          key: formKey,
+          child: Padding(
+            padding: EdgeInsets.all(16.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  'log\u{2082}A',
+                  textAlign: TextAlign.center,
                 ),
-                inputFormatters: [
-                  FilteringTextInputFormatter.allow(RegExp(r'[\d+\-]')),
-                  NumberTextInputFormatter(),
-                ],
-                decoration: InputDecoration(
-                  hintText: 'Masukkan bilangan A',
-                  labelText: 'Bilangan A',
+                bilanganA(),
+                TextButton(
+                  onPressed: () {
+                    final isValid = formKey.currentState?.validate();
+                    if(isValid != null && isValid) {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => SelectScreen(
+                            type: this.widget.type,
+                            A: int.parse(_controllerA.text),
+                            B: -1,
+                          ),
+                        )
+                      );
+                    }
+                  },
+                  child: const Text('Lanjut'),
                 ),
-              ),
-              TextButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => SelectScreen(
-                        type: this.widget.type,
-                        A: _controllerA.text,
-                        B: '',
-                      ),
-                    )
-                  );
-                },
-                child: const Text('Lanjut'),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       );
     }
   }
 
+  Widget bilanganA() => TextFormField(
+    controller: _controllerA,
+    keyboardType: TextInputType.numberWithOptions(
+      signed: true,
+    ),
+    inputFormatters: [
+      FilteringTextInputFormatter.allow(RegExp(r'[\d+\-]')),
+    ],
+    decoration: InputDecoration(
+      hintText: 'Masukkan bilangan A',
+      labelText: 'Bilangan A',
+      border: OutlineInputBorder(),
+    ),
+    validator: (value) {
+      if(value == null) {
+        return 'Masukkan bilangan A';
+      } else {
+        int? a = int.tryParse(value);
+        if(a == null) {
+          return 'Masukkan bilangan yang valid';
+        } else {
+          return null;
+        }
+      }
+    },
+  );
+
+  Widget bilanganB() => TextFormField(
+    controller: _controllerB,
+    keyboardType: TextInputType.numberWithOptions(
+      signed: true,
+    ),
+    inputFormatters: [
+      FilteringTextInputFormatter.allow(RegExp(r'[\d+\-]')),
+    ],
+    decoration: InputDecoration(
+      hintText: 'Masukkan bilangan B',
+      labelText: 'Bilangan B',
+      border: OutlineInputBorder(),
+    ),
+    validator: (value) {
+      if(value == null) {
+        return 'Masukkan bilangan B';
+      } else {
+        int? b = int.tryParse(value);
+        if(b == null) {
+          return 'Masukkan bilangan yang valid';
+        } else {
+          return null;
+        }
+      }
+    },
+  );
+
   @override
   void dispose() {
     _controllerA.dispose();
     _controllerB.dispose();
     super.dispose();
-  }
-}
-
-class NumberTextInputFormatter extends TextInputFormatter {
-  @override
-  TextEditingValue formatEditUpdate(TextEditingValue oldValue, TextEditingValue newValue) {
-    if(!newValue.text.contains('-')) {
-      return newValue;
-    }
-    String first = newValue.text[0];
-    String second = newValue.text[1];
-    String text = newValue.text;
-    if(first == '-' && second == '0') {
-      text = '0';
-    } else if(first == '-' && second != '0'){
-      text = '-' + newValue.text.replaceAll('-', '');
-    } else {
-      text = newValue.text.replaceAll('-', '');
-    }
-
-    return TextEditingValue(text: text, selection: TextSelection.collapsed(offset: text.length), composing: newValue.composing);
   }
 }

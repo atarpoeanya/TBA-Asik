@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:tubes/model/Item.dart';
 
 class STMPenguranganScreen extends StatefulWidget {
-  final String A, B;
+  final int A, B;
   final double width;
 
   STMPenguranganScreen({
@@ -17,7 +17,7 @@ class STMPenguranganScreen extends StatefulWidget {
 
 class _STMPenguranganScreen extends State<STMPenguranganScreen> {
   final controller = ScrollController();
-  List<Item> list = [];
+  List<Item> tape = [];
   bool xIsPlus = true;
   int activeIndex = 3;
   double padding = 16.0;
@@ -45,129 +45,126 @@ class _STMPenguranganScreen extends State<STMPenguranganScreen> {
     }
 
     for(int i = 0; i < (total - 2) / 2; i++) {
-      list.add(
+      tape.add(
         Item('-1', false)
       );
       activeIndex++;
     }
 
-    int A = int.parse(this.widget.A);
-    int B = int.parse(this.widget.B);
-
-    list.add(
+    tape.add(
       Item('B', false)
     );
-    list.add(
+    tape.add(
       Item('B', false)
     );
-    list.add(
+    tape.add(
       Item('B', false)
     );
     
-    if(A < 0) {
-      list.add(
+    if(this.widget.A < 0) {
+      tape.add(
         Item('X', false)
       );
       xIsPlus = false;
-      int tempA = A * -1;
+      int tempA = this.widget.A * -1;
       for(int i = 0; i < tempA; i++) {
-        list.add(
+        tape.add(
           Item('0', false)
         );
       }
-    } else if(A > 0) {
-      list.add(
+    } else if(this.widget.A > 0) {
+      tape.add(
         Item('X', false)
       );
       xIsPlus = true;
-      for(int i = 0; i < A; i++) {
-        list.add(
+      for(int i = 0; i < this.widget.A; i++) {
+        tape.add(
           Item('0', false)
         );
       }
     }
 
-    list.add(
+    tape.add(
       Item('1', false)
     );
     
-    if(A != 0) {
-      if(B < 0 && xIsPlus) {
-        list.add(
+    if(this.widget.A != 0) {
+      if(this.widget.B < 0 && xIsPlus) {
+        tape.add(
           Item('Y', false)
         );
-        int tempB = B * -1;
+        int tempB = this.widget.B * -1;
         for(int i = 0; i < tempB; i++) {
-          list.add(
+          tape.add(
             Item('0', false)
           );
         }
-      } else if(B < 0 && !xIsPlus) {
-        list.add(
+      } else if(this.widget.B < 0 && !xIsPlus) {
+        tape.add(
           Item('X', false)
         );
-        int tempB = B * -1;
+        int tempB = this.widget.B * -1;
         for(int i = 0; i < tempB; i++) {
-          list.add(
+          tape.add(
             Item('0', false)
           );
         }
-      } else if(B > 0 && xIsPlus) {
-        list.add(
+      } else if(this.widget.B > 0 && xIsPlus) {
+        tape.add(
           Item('X', false)
         );
-        for(int i = 0; i < B; i++) {
-          list.add(
+        for(int i = 0; i < this.widget.B; i++) {
+          tape.add(
             Item('0', false)
           );
         }
-      } else if(B > 0 && !xIsPlus) {
-        list.add(
+      } else if(this.widget.B > 0 && !xIsPlus) {
+        tape.add(
           Item('Y', false)
         );
-        for(int i = 0; i < B; i++) {
-          list.add(
+        for(int i = 0; i < this.widget.B; i++) {
+          tape.add(
             Item('0', false)
           );
         }
       }
     } else {
-      if(B < 0) {
-        list.add(
+      if(this.widget.B < 0) {
+        tape.add(
           Item('X', false)
         );
         xIsPlus = false;
-        int tempB = B * -1;
+        int tempB = this.widget.B * -1;
         for(int i = 0; i < tempB; i++) {
-          list.add(
+          tape.add(
             Item('0', false)
           );
         }
-      } else if(B > 0) {
-        list.add(
+      } else if(this.widget.B > 0) {
+        tape.add(
           Item('X', false)
         );
         xIsPlus = true;
-        for(int i = 0; i < B; i++) {
-          list.add(
+        for(int i = 0; i < this.widget.B; i++) {
+          tape.add(
             Item('0', false)
           );
         }
       }
     }
 
-    list.add(
+    tape.add(
       Item('B', false)
     );
-    list.add(
+    tape.add(
       Item('B', false)
     );
-    list.add(
+    tape.add(
       Item('B', false)
     );
 
     for(int i = 0; i < (total - 2) / 2; i++) {
-      list.add(
+      tape.add(
         Item('-1', false)
       );
     }
@@ -199,7 +196,7 @@ class _STMPenguranganScreen extends State<STMPenguranganScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(this.widget.A + ' - ' + this.widget.B),
+            Text(this.widget.A.toString() + ' - ' + this.widget.B.toString()),
             Container(
               margin: EdgeInsets.only(
                 top: 16.0,
@@ -207,10 +204,10 @@ class _STMPenguranganScreen extends State<STMPenguranganScreen> {
               height: 50.0,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
-                itemCount: list.length,
+                itemCount: tape.length,
                 controller: controller,
                 itemBuilder: (context, index) {
-                  if(list[index].getContent() == '-1') {
+                  if(tape[index].getContent() == '-1') {
                     return Container(
                       child: Center(
                         child: Text(
@@ -231,7 +228,7 @@ class _STMPenguranganScreen extends State<STMPenguranganScreen> {
                     return Container(
                       child: Center(
                         child: Text(
-                          list[index].getContent(),
+                          tape[index].getContent(),
                           style: TextStyle(
                             color: Colors.white,
                           ),
@@ -240,7 +237,7 @@ class _STMPenguranganScreen extends State<STMPenguranganScreen> {
                       width: 50.0,
                       height: 50.0,
                       decoration: BoxDecoration(
-                        color: list[index].getIsCurrent() == true ? Colors.lightBlue : Colors.lightGreen,
+                        color: tape[index].getIsCurrent() == true ? Colors.lightBlue : Colors.lightGreen,
                         border: Border.all(color: Colors.white, width: 0.5),
                       ),
                     );
@@ -251,7 +248,7 @@ class _STMPenguranganScreen extends State<STMPenguranganScreen> {
             TextButton(
               onPressed: () {
                 setState(() {
-                  list[activeIndex].setIsCurrent(true);
+                  tape[activeIndex].setIsCurrent(true);
                   jumpToItem();
                   q = 0;               
                 });
@@ -344,15 +341,15 @@ class _STMPenguranganScreen extends State<STMPenguranganScreen> {
   }
 
   void q0() {
-    switch(list[activeIndex].getContent()) {
+    switch(tape[activeIndex].getContent()) {
       case 'X': {
-        list[activeIndex].setContent('X');
+        tape[activeIndex].setContent('X');
         R();
         q = 1;
         break;
       }
       case '1': {
-        list[activeIndex].setContent('B');
+        tape[activeIndex].setContent('B');
         R();
         q = 13;
         break;
@@ -361,15 +358,15 @@ class _STMPenguranganScreen extends State<STMPenguranganScreen> {
   }
 
   void q1() {
-    switch(list[activeIndex].getContent()) {
+    switch(tape[activeIndex].getContent()) {
       case '0': {
-        list[activeIndex].setContent('B');
+        tape[activeIndex].setContent('B');
         R();
         q = 2;
         break;
       }
       case '1': {
-        list[activeIndex].setContent('B');
+        tape[activeIndex].setContent('B');
         L();
         q = 8;
         break;
@@ -378,15 +375,15 @@ class _STMPenguranganScreen extends State<STMPenguranganScreen> {
   }
 
   void q2() {
-    switch(list[activeIndex].getContent()) {
+    switch(tape[activeIndex].getContent()) {
       case '0': {
-        list[activeIndex].setContent('0');
+        tape[activeIndex].setContent('0');
         R();
         q = 2;
         break;
       }
       case '1': {
-        list[activeIndex].setContent('1');
+        tape[activeIndex].setContent('1');
         R();
         q = 3;
         break;
@@ -395,21 +392,21 @@ class _STMPenguranganScreen extends State<STMPenguranganScreen> {
   }
 
   void q3() {
-    switch(list[activeIndex].getContent()) {
+    switch(tape[activeIndex].getContent()) {
       case 'X': {
-        list[activeIndex].setContent('X');
+        tape[activeIndex].setContent('X');
         R();
         q = 10;
         break;
       }
       case 'Y': {
-        list[activeIndex].setContent('Y');
+        tape[activeIndex].setContent('Y');
         R();
         q = 4;
         break;
       }
       case 'B': {
-        list[activeIndex].setContent('B');
+        tape[activeIndex].setContent('B');
         L();
         q = 9;
         break;
@@ -418,23 +415,23 @@ class _STMPenguranganScreen extends State<STMPenguranganScreen> {
   }
 
   void q4() {
-    switch(list[activeIndex].getContent()) {
+    switch(tape[activeIndex].getContent()) {
       case '0': {
-        list[activeIndex].setContent('0');
+        tape[activeIndex].setContent('0');
         R();
         q = 4;
         break;
       }
       case 'B': {
-        list[activeIndex].setContent('0');
-        list[activeIndex].setIsCurrent(false);
-        list[activeIndex + 3].setContent('B');
-        list.add(
+        tape[activeIndex].setContent('0');
+        tape[activeIndex].setIsCurrent(false);
+        tape[activeIndex + 3].setContent('B');
+        tape.add(
           Item('-1', false)
         );
         activeIndex--;
         jumpToItem();
-        list[activeIndex].setIsCurrent(true);
+        tape[activeIndex].setIsCurrent(true);
         q = 5;
         break;
       }
@@ -442,15 +439,15 @@ class _STMPenguranganScreen extends State<STMPenguranganScreen> {
   }
 
   void q5() {
-    switch(list[activeIndex].getContent()) {
+    switch(tape[activeIndex].getContent()) {
       case '0': {
-        list[activeIndex].setContent('0');
+        tape[activeIndex].setContent('0');
         L();
         q = 5;
         break;
       }
       case 'Y': {
-        list[activeIndex].setContent('Y');
+        tape[activeIndex].setContent('Y');
         L();
         q = 6;
         break;
@@ -459,9 +456,9 @@ class _STMPenguranganScreen extends State<STMPenguranganScreen> {
   }
 
   void q6() {
-    switch(list[activeIndex].getContent()) {
+    switch(tape[activeIndex].getContent()) {
       case '1': {
-        list[activeIndex].setContent('1');
+        tape[activeIndex].setContent('1');
         L();
         q = 7;
         break;
@@ -470,15 +467,15 @@ class _STMPenguranganScreen extends State<STMPenguranganScreen> {
   }
 
   void q7() {
-    switch(list[activeIndex].getContent()) {
+    switch(tape[activeIndex].getContent()) {
       case '0': {
-        list[activeIndex].setContent('0');
+        tape[activeIndex].setContent('0');
         L();
         q = 7;
         break;
       }
       case 'B': {
-        list[activeIndex].setContent('B');
+        tape[activeIndex].setContent('B');
         R();
         q = 1;
         break;
@@ -487,15 +484,15 @@ class _STMPenguranganScreen extends State<STMPenguranganScreen> {
   }
 
   void q8() {
-    switch(list[activeIndex].getContent()) {
+    switch(tape[activeIndex].getContent()) {
       case 'B': {
-        list[activeIndex].setContent('B');
+        tape[activeIndex].setContent('B');
         L();
         q = 8;
         break;
       }
       case 'X': {
-        list[activeIndex].setContent('B');
+        tape[activeIndex].setContent('B');
         R();
         q = 14;
         break;
@@ -504,9 +501,9 @@ class _STMPenguranganScreen extends State<STMPenguranganScreen> {
   }
 
   void q9() {
-    switch(list[activeIndex].getContent()) {
+    switch(tape[activeIndex].getContent()) {
       case '1': {
-        list[activeIndex].setContent('B');
+        tape[activeIndex].setContent('B');
         L();
         q = 15;
         break;
@@ -515,15 +512,15 @@ class _STMPenguranganScreen extends State<STMPenguranganScreen> {
   }
 
   void q10() {
-    switch(list[activeIndex].getContent()) {
+    switch(tape[activeIndex].getContent()) {
       case '0': {
-        list[activeIndex].setContent('0');
+        tape[activeIndex].setContent('0');
         R();
         q = 10;
         break;
       }
       case 'B': {
-        list[activeIndex].setContent('B');
+        tape[activeIndex].setContent('B');
         L();
         q = 11;
         break;
@@ -532,15 +529,15 @@ class _STMPenguranganScreen extends State<STMPenguranganScreen> {
   }
 
   void q11() {
-    switch(list[activeIndex].getContent()) {
+    switch(tape[activeIndex].getContent()) {
       case '0': {
-        list[activeIndex].setContent('B');
+        tape[activeIndex].setContent('B');
         L();
         q = 12;
         break;
       }
       case 'X': {
-        list[activeIndex].setContent('X');
+        tape[activeIndex].setContent('X');
         L();
         q = 17;
         break;
@@ -549,15 +546,15 @@ class _STMPenguranganScreen extends State<STMPenguranganScreen> {
   }
 
   void q12() {
-    switch(list[activeIndex].getContent()) {
+    switch(tape[activeIndex].getContent()) {
       case '0': {
-        list[activeIndex].setContent('0');
+        tape[activeIndex].setContent('0');
         L();
         q = 12;
         break;
       }
       case 'X': {
-        list[activeIndex].setContent('X');
+        tape[activeIndex].setContent('X');
         L();
         q = 6;
         break;
@@ -566,15 +563,15 @@ class _STMPenguranganScreen extends State<STMPenguranganScreen> {
   }
 
   void q13() {
-    switch(list[activeIndex].getContent()) {
+    switch(tape[activeIndex].getContent()) {
       case 'X': {
-        list[activeIndex].setContent('Y');
+        tape[activeIndex].setContent('Y');
         R();
         q = 24;
         break;
       }
       case 'B': {
-        list[activeIndex].setContent('B');
+        tape[activeIndex].setContent('B');
         R();
         q = 25;
         break;
@@ -583,21 +580,21 @@ class _STMPenguranganScreen extends State<STMPenguranganScreen> {
   }
 
   void q14() {
-    switch(list[activeIndex].getContent()) {
+    switch(tape[activeIndex].getContent()) {
       case 'B': {
-        list[activeIndex].setContent('B');
+        tape[activeIndex].setContent('B');
         R();
         q = 14;
         break;
       }
       case 'X': {
-        list[activeIndex].setContent('Y');
+        tape[activeIndex].setContent('Y');
         R();
         q = 23;
         break;
       }
       case 'Y': {
-        list[activeIndex].setContent('X');
+        tape[activeIndex].setContent('X');
         R();
         q = 23;
         break;
@@ -606,15 +603,15 @@ class _STMPenguranganScreen extends State<STMPenguranganScreen> {
   }
 
   void q15() {
-    switch(list[activeIndex].getContent()) {
+    switch(tape[activeIndex].getContent()) {
       case '0': {
-        list[activeIndex].setContent('0');
+        tape[activeIndex].setContent('0');
         L();
         q = 15;
         break;
       }
       case 'B': {
-        list[activeIndex].setContent('0');
+        tape[activeIndex].setContent('0');
         R();
         q = 16;
         break;
@@ -623,15 +620,15 @@ class _STMPenguranganScreen extends State<STMPenguranganScreen> {
   }
 
   void q16() {
-    switch(list[activeIndex].getContent()) {
+    switch(tape[activeIndex].getContent()) {
       case '0': {
-        list[activeIndex].setContent('0');
+        tape[activeIndex].setContent('0');
         R();
         q = 16;
         break;
       }
       case 'B': {
-        list[activeIndex].setContent('B');
+        tape[activeIndex].setContent('B');
         R();
         q = 25;
         break;
@@ -640,9 +637,9 @@ class _STMPenguranganScreen extends State<STMPenguranganScreen> {
   }
 
   void q17() {
-    switch(list[activeIndex].getContent()) {
+    switch(tape[activeIndex].getContent()) {
       case '1': {
-        list[activeIndex].setContent('1');
+        tape[activeIndex].setContent('1');
         L();
         q = 18;
         break;
@@ -651,21 +648,21 @@ class _STMPenguranganScreen extends State<STMPenguranganScreen> {
   }
 
   void q18() {
-    switch(list[activeIndex].getContent()) {
+    switch(tape[activeIndex].getContent()) {
       case 'B': {
-        list[activeIndex].setContent('B');
+        tape[activeIndex].setContent('B');
         L();
         q = 18;
         break;
       }
       case '0': {
-        list[activeIndex].setContent('0');
+        tape[activeIndex].setContent('0');
         L();
         q = 18;
         break;
       }
       case 'X': {
-        list[activeIndex].setContent('X');
+        tape[activeIndex].setContent('X');
         R();
         q = 19;
         break;
@@ -674,15 +671,15 @@ class _STMPenguranganScreen extends State<STMPenguranganScreen> {
   }
 
   void q19() {
-    switch(list[activeIndex].getContent()) {
+    switch(tape[activeIndex].getContent()) {
       case '0': {
-        list[activeIndex].setContent('0');
+        tape[activeIndex].setContent('0');
         R();
         q = 19;
         break;
       }
       case 'B': {
-        list[activeIndex].setContent('0');
+        tape[activeIndex].setContent('0');
         R();
         q = 20;
         break;
@@ -691,21 +688,21 @@ class _STMPenguranganScreen extends State<STMPenguranganScreen> {
   }
 
   void q20() {
-    switch(list[activeIndex].getContent()) {
+    switch(tape[activeIndex].getContent()) {
       case 'B': {
-        list[activeIndex].setContent('B');
+        tape[activeIndex].setContent('B');
         R();
         q = 20;
         break;
       }
       case '1': {
-        list[activeIndex].setContent('B');
+        tape[activeIndex].setContent('B');
         R();
         q = 21;
         break;
       }
       case '0': {
-        list[activeIndex].setContent('B');
+        tape[activeIndex].setContent('B');
         L();
         q = 18;
         break;
@@ -714,9 +711,9 @@ class _STMPenguranganScreen extends State<STMPenguranganScreen> {
   }
 
   void q21() {
-    switch(list[activeIndex].getContent()) {
+    switch(tape[activeIndex].getContent()) {
       case 'X': {
-        list[activeIndex].setContent('B');
+        tape[activeIndex].setContent('B');
         R();
         q = 22;
         break;
@@ -725,9 +722,9 @@ class _STMPenguranganScreen extends State<STMPenguranganScreen> {
   }
 
   void q22() {
-    switch(list[activeIndex].getContent()) {
+    switch(tape[activeIndex].getContent()) {
       case 'B': {
-        list[activeIndex].setContent('B');
+        tape[activeIndex].setContent('B');
         R();
         q = 25;
         break;
@@ -736,15 +733,15 @@ class _STMPenguranganScreen extends State<STMPenguranganScreen> {
   }
 
   void q23() {
-    switch(list[activeIndex].getContent()) {
+    switch(tape[activeIndex].getContent()) {
       case '0': {
-        list[activeIndex].setContent('0');
+        tape[activeIndex].setContent('0');
         R();
         q = 23;
         break;
       }
       case 'B': {
-        list[activeIndex].setContent('B');
+        tape[activeIndex].setContent('B');
         R();
         q = 25;
         break;
@@ -753,15 +750,15 @@ class _STMPenguranganScreen extends State<STMPenguranganScreen> {
   }
 
   void q24() {
-    switch(list[activeIndex].getContent()) {
+    switch(tape[activeIndex].getContent()) {
       case '0': {
-        list[activeIndex].setContent('0');
+        tape[activeIndex].setContent('0');
         R();
         q = 24;
         break;
       }
       case 'B': {
-        list[activeIndex].setContent('B');
+        tape[activeIndex].setContent('B');
         R();
         q = 25;
         break;
@@ -770,9 +767,9 @@ class _STMPenguranganScreen extends State<STMPenguranganScreen> {
   }
 
   void q25() {
-    int xCount = list.where((item) => item.getContent() == 'X').toList().length;
-    int yCount = list.where((item) => item.getContent() == 'Y').toList().length;
-    hasil = list.where((item) => item.getContent() == '0').toList().length;
+    int xCount = tape.where((item) => item.getContent() == 'X').toList().length;
+    int yCount = tape.where((item) => item.getContent() == 'Y').toList().length;
+    hasil = tape.where((item) => item.getContent() == '0').toList().length;
     if(hasil == 0) {
       hasil = 0;
     } else {
@@ -793,17 +790,17 @@ class _STMPenguranganScreen extends State<STMPenguranganScreen> {
   }
 
   void R() {
-    list[activeIndex].setIsCurrent(false);
+    tape[activeIndex].setIsCurrent(false);
     activeIndex++;
     jumpToItem();
-    list[activeIndex].setIsCurrent(true);
+    tape[activeIndex].setIsCurrent(true);
   }
 
   void L() {
-    list[activeIndex].setIsCurrent(false);
+    tape[activeIndex].setIsCurrent(false);
     activeIndex--;
     jumpToItem();
-    list[activeIndex].setIsCurrent(true);
+    tape[activeIndex].setIsCurrent(true);
   }
 
   @override

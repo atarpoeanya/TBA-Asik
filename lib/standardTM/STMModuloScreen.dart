@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:tubes/model/Item.dart';
 
 class STMModuloScreen extends StatefulWidget {
-  final String A, B;
+  final int A, B;
   final double width;
 
   STMModuloScreen({
@@ -17,7 +17,7 @@ class STMModuloScreen extends StatefulWidget {
 
 class _STMModuloScreen extends State<STMModuloScreen> {
   final controller = ScrollController();
-  List<Item> list = [];
+  List<Item> tape = [];
   int activeIndex = 3;
   double padding = 16.0;
   int total = 0;
@@ -44,83 +44,80 @@ class _STMModuloScreen extends State<STMModuloScreen> {
     }
 
     for(int i = 0; i < (total - 2) / 2; i++) {
-      list.add(
+      tape.add(
         Item('-1', false)
       );
       activeIndex++;
     }
 
-    int A = int.parse(this.widget.A);
-    int B = int.parse(this.widget.B);
-
-    list.add(
+    tape.add(
       Item('B', false)
     );
-    list.add(
+    tape.add(
       Item('B', false)
     );
-    list.add(
+    tape.add(
       Item('B', false)
     );
     
-    if(A < 0) {
-      list.add(
+    if(this.widget.A < 0) {
+      tape.add(
         Item('Y', false)
       );
-      int tempA = A * -1;
+      int tempA = this.widget.A * -1;
       for(int i = 0; i < tempA; i++) {
-        list.add(
+        tape.add(
           Item('0', false)
         );
       }
-    } else if(A > 0) {
-      list.add(
+    } else if(this.widget.A > 0) {
+      tape.add(
         Item('X', false)
       );
-      for(int i = 0; i < A; i++) {
-        list.add(
+      for(int i = 0; i < this.widget.A; i++) {
+        tape.add(
           Item('0', false)
         );
       }
     }
 
-    list.add(
+    tape.add(
       Item('1', false)
     );
     
-    if(B < 0) {
-      list.add(
+    if(this.widget.B < 0) {
+      tape.add(
         Item('Y', false)
       );
-      int tempB = B * -1;
+      int tempB = this.widget.B * -1;
       for(int i = 0; i < tempB; i++) {
-        list.add(
+        tape.add(
           Item('0', false)
         );
       }
-    } else if(B > 0) {
-      list.add(
+    } else if(this.widget.B > 0) {
+      tape.add(
         Item('X', false)
       );
-      for(int i = 0; i < B; i++) {
-        list.add(
+      for(int i = 0; i < this.widget.B; i++) {
+        tape.add(
           Item('0', false)
         );
       }
     }
 
-    list.add(
+    tape.add(
       Item('B', false)
     );
-    list.add(
+    tape.add(
       Item('B', false)
     );
-    list.add(
+    tape.add(
       Item('B', false)
     );
 
     for(int i = 0; i < (total - 2) / 2; i++) {
-      list.add(
+      tape.add(
         Item('-1', false)
       );
     }
@@ -152,7 +149,7 @@ class _STMModuloScreen extends State<STMModuloScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(this.widget.A + ' % ' + this.widget.B),
+            Text(this.widget.A.toString() + ' % ' + this.widget.B.toString()),
             Container(
               margin: EdgeInsets.only(
                 top: 16.0,
@@ -160,10 +157,10 @@ class _STMModuloScreen extends State<STMModuloScreen> {
               height: 50.0,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
-                itemCount: list.length,
+                itemCount: tape.length,
                 controller: controller,
                 itemBuilder: (context, index) {
-                  if(list[index].getContent() == '-1') {
+                  if(tape[index].getContent() == '-1') {
                     return Container(
                       child: Center(
                         child: Text(
@@ -184,7 +181,7 @@ class _STMModuloScreen extends State<STMModuloScreen> {
                     return Container(
                       child: Center(
                         child: Text(
-                          list[index].getContent(),
+                          tape[index].getContent(),
                           style: TextStyle(
                             color: Colors.white,
                           ),
@@ -193,7 +190,7 @@ class _STMModuloScreen extends State<STMModuloScreen> {
                       width: 50.0,
                       height: 50.0,
                       decoration: BoxDecoration(
-                        color: list[index].getIsCurrent() == true ? Colors.lightBlue : Colors.lightGreen,
+                        color: tape[index].getIsCurrent() == true ? Colors.lightBlue : Colors.lightGreen,
                         border: Border.all(color: Colors.white, width: 0.5),
                       ),
                     );
@@ -204,7 +201,7 @@ class _STMModuloScreen extends State<STMModuloScreen> {
             TextButton(
               onPressed: () {
                 setState(() {
-                  list[activeIndex].setIsCurrent(true);
+                  tape[activeIndex].setIsCurrent(true);
                   jumpToItem();
                   q = 0;               
                 });
@@ -319,9 +316,9 @@ class _STMModuloScreen extends State<STMModuloScreen> {
   }
 
   void q0() {
-    switch(list[activeIndex].getContent()) {
+    switch(tape[activeIndex].getContent()) {
       case '': {
-        list[activeIndex].setContent('');
+        tape[activeIndex].setContent('');
         ();
         q = ;
         break;
@@ -330,9 +327,9 @@ class _STMModuloScreen extends State<STMModuloScreen> {
   }
 
   void q1() {
-    switch(list[activeIndex].getContent()) {
+    switch(tape[activeIndex].getContent()) {
       case '': {
-        list[activeIndex].setContent('');
+        tape[activeIndex].setContent('');
         ();
         q = ;
         break;
@@ -341,9 +338,9 @@ class _STMModuloScreen extends State<STMModuloScreen> {
   }
 
   void q2() {
-    switch(list[activeIndex].getContent()) {
+    switch(tape[activeIndex].getContent()) {
       case '': {
-        list[activeIndex].setContent('');
+        tape[activeIndex].setContent('');
         ();
         q = ;
         break;
@@ -352,9 +349,9 @@ class _STMModuloScreen extends State<STMModuloScreen> {
   }
 
   void q3() {
-    switch(list[activeIndex].getContent()) {
+    switch(tape[activeIndex].getContent()) {
       case '': {
-        list[activeIndex].setContent('');
+        tape[activeIndex].setContent('');
         ();
         q = ;
         break;
@@ -363,9 +360,9 @@ class _STMModuloScreen extends State<STMModuloScreen> {
   }
 
   void q4() {
-    switch(list[activeIndex].getContent()) {
+    switch(tape[activeIndex].getContent()) {
       case '': {
-        list[activeIndex].setContent('');
+        tape[activeIndex].setContent('');
         ();
         q = ;
         break;
@@ -374,9 +371,9 @@ class _STMModuloScreen extends State<STMModuloScreen> {
   }
 
   void q5() {
-    switch(list[activeIndex].getContent()) {
+    switch(tape[activeIndex].getContent()) {
       case '': {
-        list[activeIndex].setContent('');
+        tape[activeIndex].setContent('');
         ();
         q = ;
         break;
@@ -385,9 +382,9 @@ class _STMModuloScreen extends State<STMModuloScreen> {
   }
 
   void q6() {
-    switch(list[activeIndex].getContent()) {
+    switch(tape[activeIndex].getContent()) {
       case '': {
-        list[activeIndex].setContent('');
+        tape[activeIndex].setContent('');
         ();
         q = ;
         break;
@@ -396,9 +393,9 @@ class _STMModuloScreen extends State<STMModuloScreen> {
   }
 
   void q7() {
-    switch(list[activeIndex].getContent()) {
+    switch(tape[activeIndex].getContent()) {
       case '': {
-        list[activeIndex].setContent('');
+        tape[activeIndex].setContent('');
         ();
         q = ;
         break;
@@ -407,9 +404,9 @@ class _STMModuloScreen extends State<STMModuloScreen> {
   }
 
   void q8() {
-    switch(list[activeIndex].getContent()) {
+    switch(tape[activeIndex].getContent()) {
       case '': {
-        list[activeIndex].setContent('');
+        tape[activeIndex].setContent('');
         ();
         q = ;
         break;
@@ -418,9 +415,9 @@ class _STMModuloScreen extends State<STMModuloScreen> {
   }
 
   void q9() {
-    switch(list[activeIndex].getContent()) {
+    switch(tape[activeIndex].getContent()) {
       case '': {
-        list[activeIndex].setContent('');
+        tape[activeIndex].setContent('');
         ();
         q = ;
         break;
@@ -429,9 +426,9 @@ class _STMModuloScreen extends State<STMModuloScreen> {
   }
 
   void q10() {
-    switch(list[activeIndex].getContent()) {
+    switch(tape[activeIndex].getContent()) {
       case '': {
-        list[activeIndex].setContent('');
+        tape[activeIndex].setContent('');
         ();
         q = ;
         break;
@@ -440,9 +437,9 @@ class _STMModuloScreen extends State<STMModuloScreen> {
   }
 
   void q11() {
-    switch(list[activeIndex].getContent()) {
+    switch(tape[activeIndex].getContent()) {
       case '': {
-        list[activeIndex].setContent('');
+        tape[activeIndex].setContent('');
         ();
         q = ;
         break;
@@ -451,9 +448,9 @@ class _STMModuloScreen extends State<STMModuloScreen> {
   }
 
   void q12() {
-    switch(list[activeIndex].getContent()) {
+    switch(tape[activeIndex].getContent()) {
       case '': {
-        list[activeIndex].setContent('');
+        tape[activeIndex].setContent('');
         ();
         q = ;
         break;
@@ -462,9 +459,9 @@ class _STMModuloScreen extends State<STMModuloScreen> {
   }
 
   void q13() {
-    switch(list[activeIndex].getContent()) {
+    switch(tape[activeIndex].getContent()) {
       case '': {
-        list[activeIndex].setContent('');
+        tape[activeIndex].setContent('');
         ();
         q = ;
         break;
@@ -473,9 +470,9 @@ class _STMModuloScreen extends State<STMModuloScreen> {
   }
 
   void q14() {
-    switch(list[activeIndex].getContent()) {
+    switch(tape[activeIndex].getContent()) {
       case '': {
-        list[activeIndex].setContent('');
+        tape[activeIndex].setContent('');
         ();
         q = ;
         break;
@@ -484,9 +481,9 @@ class _STMModuloScreen extends State<STMModuloScreen> {
   }
 
   void q15() {
-    switch(list[activeIndex].getContent()) {
+    switch(tape[activeIndex].getContent()) {
       case '': {
-        list[activeIndex].setContent('');
+        tape[activeIndex].setContent('');
         ();
         q = ;
         break;
@@ -495,9 +492,9 @@ class _STMModuloScreen extends State<STMModuloScreen> {
   }
 
   void q16() {
-    switch(list[activeIndex].getContent()) {
+    switch(tape[activeIndex].getContent()) {
       case '': {
-        list[activeIndex].setContent('');
+        tape[activeIndex].setContent('');
         ();
         q = ;
         break;
@@ -506,9 +503,9 @@ class _STMModuloScreen extends State<STMModuloScreen> {
   }
 
   void q17() {
-    switch(list[activeIndex].getContent()) {
+    switch(tape[activeIndex].getContent()) {
       case '': {
-        list[activeIndex].setContent('');
+        tape[activeIndex].setContent('');
         ();
         q = ;
         break;
@@ -517,9 +514,9 @@ class _STMModuloScreen extends State<STMModuloScreen> {
   }
 
   void q18() {
-    switch(list[activeIndex].getContent()) {
+    switch(tape[activeIndex].getContent()) {
       case '': {
-        list[activeIndex].setContent('');
+        tape[activeIndex].setContent('');
         ();
         q = ;
         break;
@@ -528,9 +525,9 @@ class _STMModuloScreen extends State<STMModuloScreen> {
   }
 
   void q19() {
-    switch(list[activeIndex].getContent()) {
+    switch(tape[activeIndex].getContent()) {
       case '': {
-        list[activeIndex].setContent('');
+        tape[activeIndex].setContent('');
         ();
         q = ;
         break;
@@ -539,9 +536,9 @@ class _STMModuloScreen extends State<STMModuloScreen> {
   }
 
   void q20() {
-    switch(list[activeIndex].getContent()) {
+    switch(tape[activeIndex].getContent()) {
       case '': {
-        list[activeIndex].setContent('');
+        tape[activeIndex].setContent('');
         ();
         q = ;
         break;
@@ -550,9 +547,9 @@ class _STMModuloScreen extends State<STMModuloScreen> {
   }
 
   void q21() {
-    switch(list[activeIndex].getContent()) {
+    switch(tape[activeIndex].getContent()) {
       case '': {
-        list[activeIndex].setContent('');
+        tape[activeIndex].setContent('');
         ();
         q = ;
         break;
@@ -561,9 +558,9 @@ class _STMModuloScreen extends State<STMModuloScreen> {
   }
 
   void q22() {
-    switch(list[activeIndex].getContent()) {
+    switch(tape[activeIndex].getContent()) {
       case '': {
-        list[activeIndex].setContent('');
+        tape[activeIndex].setContent('');
         ();
         q = ;
         break;
@@ -572,9 +569,9 @@ class _STMModuloScreen extends State<STMModuloScreen> {
   }
 
   void q23() {
-    switch(list[activeIndex].getContent()) {
+    switch(tape[activeIndex].getContent()) {
       case '': {
-        list[activeIndex].setContent('');
+        tape[activeIndex].setContent('');
         ();
         q = ;
         break;
@@ -583,9 +580,9 @@ class _STMModuloScreen extends State<STMModuloScreen> {
   }
 
   void q24() {
-    switch(list[activeIndex].getContent()) {
+    switch(tape[activeIndex].getContent()) {
       case '': {
-        list[activeIndex].setContent('');
+        tape[activeIndex].setContent('');
         ();
         q = ;
         break;
@@ -594,9 +591,9 @@ class _STMModuloScreen extends State<STMModuloScreen> {
   }
 
   void q25() {
-    switch(list[activeIndex].getContent()) {
+    switch(tape[activeIndex].getContent()) {
       case '': {
-        list[activeIndex].setContent('');
+        tape[activeIndex].setContent('');
         ();
         q = ;
         break;
@@ -605,9 +602,9 @@ class _STMModuloScreen extends State<STMModuloScreen> {
   }
 
   void q26() {
-    switch(list[activeIndex].getContent()) {
+    switch(tape[activeIndex].getContent()) {
       case '': {
-        list[activeIndex].setContent('');
+        tape[activeIndex].setContent('');
         ();
         q = ;
         break;
@@ -616,9 +613,9 @@ class _STMModuloScreen extends State<STMModuloScreen> {
   }
 
   void q27() {
-    switch(list[activeIndex].getContent()) {
+    switch(tape[activeIndex].getContent()) {
       case '': {
-        list[activeIndex].setContent('');
+        tape[activeIndex].setContent('');
         ();
         q = ;
         break;
@@ -627,9 +624,9 @@ class _STMModuloScreen extends State<STMModuloScreen> {
   }
 
   void q28() {
-    switch(list[activeIndex].getContent()) {
+    switch(tape[activeIndex].getContent()) {
       case '': {
-        list[activeIndex].setContent('');
+        tape[activeIndex].setContent('');
         ();
         q = ;
         break;
@@ -638,9 +635,9 @@ class _STMModuloScreen extends State<STMModuloScreen> {
   }
 
   void q29() {
-    switch(list[activeIndex].getContent()) {
+    switch(tape[activeIndex].getContent()) {
       case '': {
-        list[activeIndex].setContent('');
+        tape[activeIndex].setContent('');
         ();
         q = ;
         break;
@@ -649,9 +646,9 @@ class _STMModuloScreen extends State<STMModuloScreen> {
   }
 
   void q30() {
-    switch(list[activeIndex].getContent()) {
+    switch(tape[activeIndex].getContent()) {
       case '': {
-        list[activeIndex].setContent('');
+        tape[activeIndex].setContent('');
         ();
         q = ;
         break;
@@ -660,9 +657,9 @@ class _STMModuloScreen extends State<STMModuloScreen> {
   }
 
   void q31() {
-    switch(list[activeIndex].getContent()) {
+    switch(tape[activeIndex].getContent()) {
       case '': {
-        list[activeIndex].setContent('');
+        tape[activeIndex].setContent('');
         ();
         q = ;
         break;
@@ -671,9 +668,9 @@ class _STMModuloScreen extends State<STMModuloScreen> {
   }
 
   void q32() {
-    switch(list[activeIndex].getContent()) {
+    switch(tape[activeIndex].getContent()) {
       case '': {
-        list[activeIndex].setContent('');
+        tape[activeIndex].setContent('');
         ();
         q = ;
         break;
@@ -682,9 +679,9 @@ class _STMModuloScreen extends State<STMModuloScreen> {
   }
 
   void q33() {
-    switch(list[activeIndex].getContent()) {
+    switch(tape[activeIndex].getContent()) {
       case '': {
-        list[activeIndex].setContent('');
+        tape[activeIndex].setContent('');
         ();
         q = ;
         break;
@@ -693,9 +690,9 @@ class _STMModuloScreen extends State<STMModuloScreen> {
   }
 
   void q34() {
-    switch(list[activeIndex].getContent()) {
+    switch(tape[activeIndex].getContent()) {
       case '': {
-        list[activeIndex].setContent('');
+        tape[activeIndex].setContent('');
         ();
         q = ;
         break;
@@ -704,9 +701,9 @@ class _STMModuloScreen extends State<STMModuloScreen> {
   }
 
   void q35() {
-    switch(list[activeIndex].getContent()) {
+    switch(tape[activeIndex].getContent()) {
       case '': {
-        list[activeIndex].setContent('');
+        tape[activeIndex].setContent('');
         ();
         q = ;
         break;
@@ -715,9 +712,9 @@ class _STMModuloScreen extends State<STMModuloScreen> {
   }
 
   void q36() {
-    int xCount = list.where((item) => item.getContent() == 'X').toList().length;
-    int yCount = list.where((item) => item.getContent() == 'Y').toList().length;
-    int zeroCount = list.where((item) => item.getContent() == '0').toList().length;
+    int xCount = tape.where((item) => item.getContent() == 'X').toList().length;
+    int yCount = tape.where((item) => item.getContent() == 'Y').toList().length;
+    int zeroCount = tape.where((item) => item.getContent() == '0').toList().length;
     if(xCount == 1 && yCount == 1) {
       hasil = 'Tidak dapat diselesaikan';
     } else if(xCount == 1) {
@@ -730,17 +727,17 @@ class _STMModuloScreen extends State<STMModuloScreen> {
   }
 
   void R() {
-    list[activeIndex].setIsCurrent(false);
+    tape[activeIndex].setIsCurrent(false);
     activeIndex++;
     jumpToItem();
-    list[activeIndex].setIsCurrent(true);
+    tape[activeIndex].setIsCurrent(true);
   }
 
   void L() {
-    list[activeIndex].setIsCurrent(false);
+    tape[activeIndex].setIsCurrent(false);
     activeIndex--;
     jumpToItem();
-    list[activeIndex].setIsCurrent(true);
+    tape[activeIndex].setIsCurrent(true);
   }
 
   @override

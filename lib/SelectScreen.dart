@@ -17,8 +17,7 @@ import 'package:tubes/standardTM/STMPenjumlahanScreen.dart';
 import 'package:tubes/standardTM/STMPerkalianScreen.dart';
 
 class SelectScreen extends StatelessWidget {
-  final int type;
-  final String A, B;
+  final int type, A, B;
 
   SelectScreen({
     required this.type,
@@ -119,21 +118,51 @@ class SelectScreen extends StatelessWidget {
                       MaterialPageRoute(
                         builder: (context) {
                           if(type == 1) {
-                            return MTTMPenjumlahanScreen();
+                            return MTTMPenjumlahanScreen(
+                              A: A,
+                              B: B,
+                              width: MediaQuery.of(context).size.width,
+                            );
                           } else if(type == 2) {
-                            return MTTMPenguranganScreen();
+                            return MTTMPenguranganScreen(
+                              A: A,
+                              B: B,
+                              width: MediaQuery.of(context).size.width,
+                            );
                           } else if(type == 3) {
-                            return MTTMPerkalianScreen();
+                            return MTTMPerkalianScreen(
+                              A: A,
+                              B: B,
+                              width: MediaQuery.of(context).size.width,
+                            );
                           } else if(type == 4) {
-                            return MTTMPembagianScreen();
+                            return MTTMPembagianScreen(
+                              A: A,
+                              B: B,
+                              width: MediaQuery.of(context).size.width,
+                            );
                           } else if(type == 5) {
-                            return MTTMFaktorialScreen();
+                            return MTTMFaktorialScreen(
+                              A: A,
+                              width: MediaQuery.of(context).size.width,
+                            );
                           } else if(type == 6) {
-                            return MTTMModuloScreen();
+                            return MTTMModuloScreen(
+                              A: A,
+                              B: B,
+                              width: MediaQuery.of(context).size.width,
+                            );
                           } else if(type == 7) {
-                            return MTTMPangkatScreen();
+                            return MTTMPangkatScreen(
+                              A: A,
+                              B: B,
+                              width: MediaQuery.of(context).size.width,
+                            );
                           } else {
-                            return MTTMLogaritmaBinerScreen();
+                            return MTTMLogaritmaBinerScreen(
+                              A: A,
+                              width: MediaQuery.of(context).size.width,
+                            );
                           }
                         }
                       )
