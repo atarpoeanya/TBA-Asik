@@ -289,10 +289,22 @@ class _STMFaktorialScreen extends State<STMFaktorialScreen> {
 
   void q0() {
     switch(tape[activeIndex].getContent()) {
-      case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+      case 'X': {
+        tape[activeIndex].setContent('B');
+        R();
+        q = 1;
+        break;
+      }
+      case '1': {
+        tape[activeIndex].setContent('Y');
+        R();
+        q = 31;
+        break;
+      }
+      case 'Y': {
+        tape[activeIndex].setContent('B');
+        R();
+        q = 30;
         break;
       }
     }
@@ -300,6 +312,12 @@ class _STMFaktorialScreen extends State<STMFaktorialScreen> {
 
   void q1() {
     switch(tape[activeIndex].getContent()) {
+      case '': {
+        tape[activeIndex].setContent('');
+        ();
+        q = ;
+        break;
+      }
       case '': {
         tape[activeIndex].setContent('');
         ();
@@ -663,6 +681,16 @@ class _STMFaktorialScreen extends State<STMFaktorialScreen> {
     }
     q = -1;
     done = true;
+  }
+
+  void state(String content, String move, int destQ) {
+    tape[activeIndex].setContent(content);
+    if(move == 'R') {
+      R();
+    } else if(move == 'L') {
+      L();
+    }
+    q = destQ;
   }
 
   void R() {

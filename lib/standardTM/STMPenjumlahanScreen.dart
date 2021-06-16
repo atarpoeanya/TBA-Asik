@@ -343,15 +343,11 @@ class _STMPenjumlahanScreen extends State<STMPenjumlahanScreen> {
   void q0() {
     switch(tape[activeIndex].getContent()) {
       case 'X': {
-        tape[activeIndex].setContent('X');
-        R();
-        q = 1;
+        state('X', 'R', 1);
         break;
       }
       case '1': {
-        tape[activeIndex].setContent('B');
-        R();
-        q = 13;
+        state('B', 'R', 13);
         break;
       }
     }
@@ -360,15 +356,11 @@ class _STMPenjumlahanScreen extends State<STMPenjumlahanScreen> {
   void q1() {
     switch(tape[activeIndex].getContent()) {
       case '0': {
-        tape[activeIndex].setContent('B');
-        R();
-        q = 2;
+        state('B', 'R', 2);
         break;
       }
       case '1': {
-        tape[activeIndex].setContent('B');
-        L();
-        q = 8;
+        state('B', 'L', 8);
         break;
       }
     }
@@ -377,15 +369,11 @@ class _STMPenjumlahanScreen extends State<STMPenjumlahanScreen> {
   void q2() {
     switch(tape[activeIndex].getContent()) {
       case '0': {
-        tape[activeIndex].setContent('0');
-        R();
-        q = 2;
+        state('0', 'R', 2);
         break;
       }
       case '1': {
-        tape[activeIndex].setContent('1');
-        R();
-        q = 3;
+        state('1', 'R', 3);
         break;
       }
     }
@@ -394,21 +382,15 @@ class _STMPenjumlahanScreen extends State<STMPenjumlahanScreen> {
   void q3() {
     switch(tape[activeIndex].getContent()) {
       case 'X': {
-        tape[activeIndex].setContent('X');
-        R();
-        q = 4;
+        state('X', 'R', 4);
         break;
       }
       case 'Y': {
-        tape[activeIndex].setContent('Y');
-        R();
-        q = 10;
+        state('Y', 'R', 10);
         break;
       }
       case 'B': {
-        tape[activeIndex].setContent('B');
-        L();
-        q = 9;
+        state('B', 'L', 9);
         break;
       }
     }
@@ -417,22 +399,15 @@ class _STMPenjumlahanScreen extends State<STMPenjumlahanScreen> {
   void q4() {
     switch(tape[activeIndex].getContent()) {
       case '0': {
-        tape[activeIndex].setContent('0');
-        R();
-        q = 4;
+        state('0', 'R', 4);
         break;
       }
       case 'B': {
-        tape[activeIndex].setContent('0');
-        tape[activeIndex].setIsCurrent(false);
         tape[activeIndex + 3].setContent('B');
         tape.add(
           Item('-1', false)
         );
-        activeIndex--;
-        jumpToItem();
-        tape[activeIndex].setIsCurrent(true);
-        q = 5;
+        state('0', 'L', 5);
         break;
       }
     }
@@ -441,15 +416,11 @@ class _STMPenjumlahanScreen extends State<STMPenjumlahanScreen> {
   void q5() {
     switch(tape[activeIndex].getContent()) {
       case '0': {
-        tape[activeIndex].setContent('0');
-        L();
-        q = 5;
+        state('0', 'L', 5);
         break;
       }
       case 'X': {
-        tape[activeIndex].setContent('X');
-        L();
-        q = 6;
+        state('X', 'L', 6);
         break;
       }
     }
@@ -458,9 +429,7 @@ class _STMPenjumlahanScreen extends State<STMPenjumlahanScreen> {
   void q6() {
     switch(tape[activeIndex].getContent()) {
       case '1': {
-        tape[activeIndex].setContent('1');
-        L();
-        q = 7;
+        state('1', 'L', 7);
         break;
       }
     }
@@ -469,15 +438,11 @@ class _STMPenjumlahanScreen extends State<STMPenjumlahanScreen> {
   void q7() {
     switch(tape[activeIndex].getContent()) {
       case '0': {
-        tape[activeIndex].setContent('0');
-        L();
-        q = 7;
+        state('0', 'L', 7);
         break;
       }
       case 'B': {
-        tape[activeIndex].setContent('B');
-        R();
-        q = 1;
+        state('B', 'R', 1);
         break;
       }
     }
@@ -486,15 +451,11 @@ class _STMPenjumlahanScreen extends State<STMPenjumlahanScreen> {
   void q8() {
     switch(tape[activeIndex].getContent()) {
       case 'B': {
-        tape[activeIndex].setContent('B');
-        L();
-        q = 8;
+        state('B', 'L', 8);
         break;
       }
       case 'X': {
-        tape[activeIndex].setContent('B');
-        R();
-        q = 14;
+        state('B', 'R', 14);
         break;
       }
     }
@@ -503,9 +464,7 @@ class _STMPenjumlahanScreen extends State<STMPenjumlahanScreen> {
   void q9() {
     switch(tape[activeIndex].getContent()) {
       case '1': {
-        tape[activeIndex].setContent('B');
-        L();
-        q = 15;
+        state('B', 'L', 15);
         break;
       }
     }
@@ -514,15 +473,11 @@ class _STMPenjumlahanScreen extends State<STMPenjumlahanScreen> {
   void q10() {
     switch(tape[activeIndex].getContent()) {
       case '0': {
-        tape[activeIndex].setContent('0');
-        R();
-        q = 10;
+        state('0', 'R', 10);
         break;
       }
       case 'B': {
-        tape[activeIndex].setContent('B');
-        L();
-        q = 11;
+        state('B', 'L', 11);
         break;
       }
     }
@@ -531,15 +486,11 @@ class _STMPenjumlahanScreen extends State<STMPenjumlahanScreen> {
   void q11() {
     switch(tape[activeIndex].getContent()) {
       case '0': {
-        tape[activeIndex].setContent('B');
-        L();
-        q = 12;
+        state('B', 'L', 12);
         break;
       }
       case 'Y': {
-        tape[activeIndex].setContent('Y');
-        L();
-        q = 17;
+        state('Y', 'L', 17);
         break;
       }
     }
@@ -548,15 +499,11 @@ class _STMPenjumlahanScreen extends State<STMPenjumlahanScreen> {
   void q12() {
     switch(tape[activeIndex].getContent()) {
       case '0': {
-        tape[activeIndex].setContent('0');
-        L();
-        q = 12;
+        state('0', 'L', 12);
         break;
       }
       case 'Y': {
-        tape[activeIndex].setContent('Y');
-        L();
-        q = 6;
+        state('Y', 'L', 6);
         break;
       }
     }
@@ -565,15 +512,11 @@ class _STMPenjumlahanScreen extends State<STMPenjumlahanScreen> {
   void q13() {
     switch(tape[activeIndex].getContent()) {
       case 'X': {
-        tape[activeIndex].setContent('X');
-        R();
-        q = 24;
+        state('X', 'R', 24);
         break;
       }
       case 'B': {
-        tape[activeIndex].setContent('B');
-        R();
-        q = 25;
+        state('B', 'R', 25);
         break;
       }
     }
@@ -582,21 +525,15 @@ class _STMPenjumlahanScreen extends State<STMPenjumlahanScreen> {
   void q14() {
     switch(tape[activeIndex].getContent()) {
       case 'B': {
-        tape[activeIndex].setContent('B');
-        R();
-        q = 14;
+        state('B', 'R', 14);
         break;
       }
       case 'X': {
-        tape[activeIndex].setContent('X');
-        R();
-        q = 23;
+        state('X', 'R', 23);
         break;
       }
       case 'Y': {
-        tape[activeIndex].setContent('Y');
-        R();
-        q = 23;
+        state('Y', 'R', 23);
         break;
       }
     }
@@ -605,15 +542,11 @@ class _STMPenjumlahanScreen extends State<STMPenjumlahanScreen> {
   void q15() {
     switch(tape[activeIndex].getContent()) {
       case '0': {
-        tape[activeIndex].setContent('0');
-        L();
-        q = 15;
+        state('0', 'L', 15);
         break;
       }
       case 'B': {
-        tape[activeIndex].setContent('0');
-        R();
-        q = 16;
+        state('0', 'R', 16);
         break;
       }
     }
@@ -622,15 +555,11 @@ class _STMPenjumlahanScreen extends State<STMPenjumlahanScreen> {
   void q16() {
     switch(tape[activeIndex].getContent()) {
       case '0': {
-        tape[activeIndex].setContent('0');
-        R();
-        q = 16;
+        state('0', 'R', 16);
         break;
       }
       case 'B': {
-        tape[activeIndex].setContent('B');
-        R();
-        q = 25;
+        state('B', 'R', 25);
         break;
       }
     }
@@ -639,9 +568,7 @@ class _STMPenjumlahanScreen extends State<STMPenjumlahanScreen> {
   void q17() {
     switch(tape[activeIndex].getContent()) {
       case '1': {
-        tape[activeIndex].setContent('1');
-        L();
-        q = 18;
+        state('1', 'L', 18);
         break;
       }
     }
@@ -650,21 +577,15 @@ class _STMPenjumlahanScreen extends State<STMPenjumlahanScreen> {
   void q18() {
     switch(tape[activeIndex].getContent()) {
       case 'B': {
-        tape[activeIndex].setContent('B');
-        L();
-        q = 18;
+        state('B', 'L', 18);
         break;
       }
       case '0': {
-        tape[activeIndex].setContent('0');
-        L();
-        q = 18;
+        state('0', 'L', 18);
         break;
       }
       case 'X': {
-        tape[activeIndex].setContent('X');
-        R();
-        q = 19;
+        state('X', 'R', 19);
         break;
       }
     }
@@ -673,15 +594,11 @@ class _STMPenjumlahanScreen extends State<STMPenjumlahanScreen> {
   void q19() {
     switch(tape[activeIndex].getContent()) {
       case '0': {
-        tape[activeIndex].setContent('0');
-        R();
-        q = 19;
+        state('0', 'R', 19);
         break;
       }
       case 'B': {
-        tape[activeIndex].setContent('0');
-        R();
-        q = 20;
+        state('0', 'R', 20);
         break;
       }
     }
@@ -690,21 +607,15 @@ class _STMPenjumlahanScreen extends State<STMPenjumlahanScreen> {
   void q20() {
     switch(tape[activeIndex].getContent()) {
       case 'B': {
-        tape[activeIndex].setContent('B');
-        R();
-        q = 20;
+        state('B', 'R', 20);
         break;
       }
       case '1': {
-        tape[activeIndex].setContent('B');
-        R();
-        q = 21;
+        state('B', 'R', 21);
         break;
       }
       case '0': {
-        tape[activeIndex].setContent('B');
-        L();
-        q = 18;
+        state('B', 'L', 18);
         break;
       }
     }
@@ -713,9 +624,7 @@ class _STMPenjumlahanScreen extends State<STMPenjumlahanScreen> {
   void q21() {
     switch(tape[activeIndex].getContent()) {
       case 'Y': {
-        tape[activeIndex].setContent('B');
-        R();
-        q = 22;
+        state('B', 'R', 22);
         break;
       }
     }
@@ -724,9 +633,7 @@ class _STMPenjumlahanScreen extends State<STMPenjumlahanScreen> {
   void q22() {
     switch(tape[activeIndex].getContent()) {
       case 'B': {
-        tape[activeIndex].setContent('B');
-        R();
-        q = 25;
+        state('B', 'R', 25);
         break;
       }
     }
@@ -735,15 +642,11 @@ class _STMPenjumlahanScreen extends State<STMPenjumlahanScreen> {
   void q23() {
     switch(tape[activeIndex].getContent()) {
       case '0': {
-        tape[activeIndex].setContent('0');
-        R();
-        q = 23;
+        state('0', 'R', 23);
         break;
       }
       case 'B': {
-        tape[activeIndex].setContent('B');
-        R();
-        q = 25;
+        state('B', 'R', 25);
         break;
       }
     }
@@ -752,15 +655,11 @@ class _STMPenjumlahanScreen extends State<STMPenjumlahanScreen> {
   void q24() {
     switch(tape[activeIndex].getContent()) {
       case '0': {
-        tape[activeIndex].setContent('0');
-        R();
-        q = 24;
+        state('0', 'R', 24);
         break;
       }
       case 'B': {
-        tape[activeIndex].setContent('B');
-        R();
-        q = 25;
+        state('B', 'R', 25);
         break;
       }
     }
@@ -787,6 +686,16 @@ class _STMPenjumlahanScreen extends State<STMPenjumlahanScreen> {
     }
     q = -1;
     done = true;
+  }
+
+  void state(String content, String move, int destQ) {
+    tape[activeIndex].setContent(content);
+    if(move == 'R') {
+      R();
+    } else if(move == 'L') {
+      L();
+    }
+    q = destQ;
   }
 
   void R() {

@@ -726,6 +726,16 @@ class _STMModuloScreen extends State<STMModuloScreen> {
     done = true;
   }
 
+  void state(String content, String move, int destQ) {
+    tape[activeIndex].setContent(content);
+    if(move == 'R') {
+      R();
+    } else if(move == 'L') {
+      L();
+    }
+    q = destQ;
+  }
+
   void R() {
     tape[activeIndex].setIsCurrent(false);
     activeIndex++;

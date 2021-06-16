@@ -302,21 +302,15 @@ class _STMPerkalianScreen extends State<STMPerkalianScreen> {
   void q0() {
     switch(tape[activeIndex].getContent()) {
       case 'X': {
-        tape[activeIndex].setContent('B');
-        R();
-        q = 1;
+        state('B', 'R', 1);
         break;
       }
       case 'Y': {
-        tape[activeIndex].setContent('B');
-        R();
-        q = 4;
+        state('B', 'R', 4);
         break;
       }
       case '1': {
-        tape[activeIndex].setContent('B');
-        R();
-        q = 24;
+        state('B', 'R', 24);
         break;
       }
     }
@@ -325,15 +319,11 @@ class _STMPerkalianScreen extends State<STMPerkalianScreen> {
   void q1() {
     switch(tape[activeIndex].getContent()) {
       case '0': {
-        tape[activeIndex].setContent('0');
-        R();
-        q = 1;
+        state('0', 'R', 1);
         break;
       }
       case '1': {
-        tape[activeIndex].setContent('1');
-        R();
-        q = 2;
+        state('1', 'R', 2);
         break;
       }
     }
@@ -342,21 +332,15 @@ class _STMPerkalianScreen extends State<STMPerkalianScreen> {
   void q2() {
     switch(tape[activeIndex].getContent()) {
       case 'X': {
-        tape[activeIndex].setContent('B');
-        R();
-        q = 6;
+        state('B', 'R', 6);
         break;
       }
       case 'Y': {
-        tape[activeIndex].setContent('B');
-        R();
-        q = 3;
+        state('B', 'R', 3);
         break;
       }
       case 'B': {
-        tape[activeIndex].setContent('B');
-        L();
-        q = 26;
+        state('B', 'L', 26);
         break;
       }
     }
@@ -365,15 +349,11 @@ class _STMPerkalianScreen extends State<STMPerkalianScreen> {
   void q3() {
     switch(tape[activeIndex].getContent()) {
       case '0': {
-        tape[activeIndex].setContent('0');
-        R();
-        q = 3;
+        state('0', 'R', 3);
         break;
       }
       case 'B': {
-        tape[activeIndex].setContent('Y');
-        L();
-        q = 7;
+        state('Y', 'L', 7);
         break;
       }
     }
@@ -382,15 +362,11 @@ class _STMPerkalianScreen extends State<STMPerkalianScreen> {
   void q4() {
     switch(tape[activeIndex].getContent()) {
       case '0': {
-        tape[activeIndex].setContent('0');
-        R();
-        q = 4;
+        state('0', 'R', 4);
         break;
       }
       case '1': {
-        tape[activeIndex].setContent('1');
-        R();
-        q = 5;
+        state('1', 'R', 5);
         break;
       }
     }
@@ -399,21 +375,15 @@ class _STMPerkalianScreen extends State<STMPerkalianScreen> {
   void q5() {
     switch(tape[activeIndex].getContent()) {
       case 'Y': {
-        tape[activeIndex].setContent('B');
-        R();
-        q = 6;
+        state('B', 'R', 6);
         break;
       }
       case 'X': {
-        tape[activeIndex].setContent('B');
-        R();
-        q = 3;
+        state('B', 'R', 3);
         break;
       }
       case 'B': {
-        tape[activeIndex].setContent('B');
-        L();
-        q = 26;
+        state('B', 'L', 26);
         break;
       }
     }
@@ -422,15 +392,11 @@ class _STMPerkalianScreen extends State<STMPerkalianScreen> {
   void q6() {
     switch(tape[activeIndex].getContent()) {
       case '0': {
-        tape[activeIndex].setContent('0');
-        R();
-        q = 6;
+        state('0', 'R', 6);
         break;
       }
       case 'B': {
-        tape[activeIndex].setContent('X');
-        L();
-        q = 7;
+        state('X', 'L', 7);
         break;
       }
     }
@@ -439,15 +405,11 @@ class _STMPerkalianScreen extends State<STMPerkalianScreen> {
   void q7() {
     switch(tape[activeIndex].getContent()) {
       case '0': {
-        tape[activeIndex].setContent('0');
-        L();
-        q = 7;
+        state('0', 'L', 7);
         break;
       }
       case 'B': {
-        tape[activeIndex].setContent('B');
-        L();
-        q = 8;
+        state('B', 'L', 8);
         break;
       }
     }
@@ -456,9 +418,7 @@ class _STMPerkalianScreen extends State<STMPerkalianScreen> {
   void q8() {
     switch(tape[activeIndex].getContent()) {
       case '1': {
-        tape[activeIndex].setContent('1');
-        L();
-        q = 9;
+        state('1', 'L', 9);
         break;
       }
     }
@@ -467,15 +427,11 @@ class _STMPerkalianScreen extends State<STMPerkalianScreen> {
   void q9() {
     switch(tape[activeIndex].getContent()) {
       case '0': {
-        tape[activeIndex].setContent('0');
-        L();
-        q = 9;
+        state('0', 'L', 9);
         break;
       }
       case 'B': {
-        tape[activeIndex].setContent('B');
-        R();
-        q = 10;
+        state('B', 'R', 10);
         break;
       }
     }
@@ -484,15 +440,11 @@ class _STMPerkalianScreen extends State<STMPerkalianScreen> {
   void q10() {
     switch(tape[activeIndex].getContent()) {
       case '0': {
-        tape[activeIndex].setContent('B');
-        R();
-        q = 11;
+        state('B', 'R', 11);
         break;
       }
       case '1': {
-        tape[activeIndex].setContent('B');
-        R();
-        q = 21;
+        state('B', 'R', 21);
         break;
       }
     }
@@ -501,15 +453,11 @@ class _STMPerkalianScreen extends State<STMPerkalianScreen> {
   void q11() {
     switch(tape[activeIndex].getContent()) {
       case '0': {
-        tape[activeIndex].setContent('0');
-        R();
-        q = 11;
+        state('0', 'R', 11);
         break;
       }
       case '1': {
-        tape[activeIndex].setContent('1');
-        R();
-        q = 12;
+        state('1', 'R', 12);
         break;
       }
     }
@@ -518,9 +466,7 @@ class _STMPerkalianScreen extends State<STMPerkalianScreen> {
   void q12() {
     switch(tape[activeIndex].getContent()) {
       case 'B': {
-        tape[activeIndex].setContent('B');
-        R();
-        q = 13;
+        state('B', 'R', 13);
         break;
       }
     }
@@ -529,21 +475,15 @@ class _STMPerkalianScreen extends State<STMPerkalianScreen> {
   void q13() {
     switch(tape[activeIndex].getContent()) {
       case '0': {
-        tape[activeIndex].setContent('Z');
-        R();
-        q = 14;
+        state('Z', 'R', 14);
         break;
       }
       case 'X': {
-        tape[activeIndex].setContent('X');
-        L();
-        q = 18;
+        state('X', 'L', 18);
         break;
       }
       case 'Y': {
-        tape[activeIndex].setContent('Y');
-        L();
-        q = 18;
+        state('Y', 'L', 18);
         break;
       }
     }
@@ -552,21 +492,15 @@ class _STMPerkalianScreen extends State<STMPerkalianScreen> {
   void q14() {
     switch(tape[activeIndex].getContent()) {
       case '0': {
-        tape[activeIndex].setContent('0');
-        R();
-        q = 14;
+        state('0', 'R', 14);
         break;
       }
       case 'X': {
-        tape[activeIndex].setContent('X');
-        R();
-        q = 15;
+        state('X', 'R', 15);
         break;
       }
       case 'Y': {
-        tape[activeIndex].setContent('Y');
-        R();
-        q = 15;
+        state('Y', 'R', 15);
         break;
       }
     }
@@ -575,15 +509,11 @@ class _STMPerkalianScreen extends State<STMPerkalianScreen> {
   void q15() {
     switch(tape[activeIndex].getContent()) {
       case '0': {
-        tape[activeIndex].setContent('0');
-        R();
-        q = 15;
+        state('0', 'R', 15);
         break;
       }
       case 'B': {
-        tape[activeIndex].setContent('0');
-        L();
-        q = 16;
+        state('0', 'L', 16);
         break;
       }
     }
@@ -592,21 +522,15 @@ class _STMPerkalianScreen extends State<STMPerkalianScreen> {
   void q16() {
     switch(tape[activeIndex].getContent()) {
       case '0': {
-        tape[activeIndex].setContent('0');
-        L();
-        q = 16;
+        state('0', 'L', 16);
         break;
       }
       case 'X': {
-        tape[activeIndex].setContent('X');
-        L();
-        q = 17;
+        state('X', 'L', 17);
         break;
       }
       case 'Y': {
-        tape[activeIndex].setContent('Y');
-        L();
-        q = 17;
+        state('Y', 'L', 17);
         break;
       }
     }
@@ -615,15 +539,11 @@ class _STMPerkalianScreen extends State<STMPerkalianScreen> {
   void q17() {
     switch(tape[activeIndex].getContent()) {
       case '0': {
-        tape[activeIndex].setContent('0');
-        L();
-        q = 17;
+        state('0', 'L', 17);
         break;
       }
       case 'Z': {
-        tape[activeIndex].setContent('Z');
-        R();
-        q = 13;
+        state('Z', 'R', 13);
         break;
       }
     }
@@ -632,15 +552,11 @@ class _STMPerkalianScreen extends State<STMPerkalianScreen> {
   void q18() {
     switch(tape[activeIndex].getContent()) {
       case 'Z': {
-        tape[activeIndex].setContent('0');
-        L();
-        q = 18;
+        state('0', 'L', 18);
         break;
       }
       case 'B': {
-        tape[activeIndex].setContent('B');
-        L();
-        q = 19;
+        state('B', 'L', 19);
         break;
       }
     }
@@ -649,9 +565,7 @@ class _STMPerkalianScreen extends State<STMPerkalianScreen> {
   void q19() {
     switch(tape[activeIndex].getContent()) {
       case '1': {
-        tape[activeIndex].setContent('1');
-        L();
-        q = 20;
+        state('1', 'L', 20);
         break;
       }
     }
@@ -660,15 +574,11 @@ class _STMPerkalianScreen extends State<STMPerkalianScreen> {
   void q20() {
     switch(tape[activeIndex].getContent()) {
       case '0': {
-        tape[activeIndex].setContent('0');
-        L();
-        q = 20;
+        state('0', 'L', 20);
         break;
       }
       case 'B': {
-        tape[activeIndex].setContent('B');
-        R();
-        q = 10;
+        state('B', 'R', 10);
         break;
       }
     }
@@ -677,9 +587,7 @@ class _STMPerkalianScreen extends State<STMPerkalianScreen> {
   void q21() {
     switch(tape[activeIndex].getContent()) {
       case 'B': {
-        tape[activeIndex].setContent('B');
-        R();
-        q = 22;
+        state('B', 'R', 22);
         break;
       }
     }
@@ -688,21 +596,15 @@ class _STMPerkalianScreen extends State<STMPerkalianScreen> {
   void q22() {
     switch(tape[activeIndex].getContent()) {
       case '0': {
-        tape[activeIndex].setContent('B');
-        R();
-        q = 22;
+        state('B', 'R', 22);
         break;
       }
       case 'X': {
-        tape[activeIndex].setContent('X');
-        R();
-        q = 23;
+        state('X', 'R', 23);
         break;
       }
       case 'Y': {
-        tape[activeIndex].setContent('Y');
-        R();
-        q = 23;
+        state('Y', 'R', 23);
         break;
       }
     }
@@ -711,15 +613,11 @@ class _STMPerkalianScreen extends State<STMPerkalianScreen> {
   void q23() {
     switch(tape[activeIndex].getContent()) {
       case '0': {
-        tape[activeIndex].setContent('0');
-        R();
-        q = 23;
+        state('0', 'R', 23);
         break;
       }
       case 'B': {
-        tape[activeIndex].setContent('B');
-        R();
-        q = 28;
+        state('B', 'R', 28);
         break;
       }
     }
@@ -728,21 +626,15 @@ class _STMPerkalianScreen extends State<STMPerkalianScreen> {
   void q24() {
     switch(tape[activeIndex].getContent()) {
       case 'X': {
-        tape[activeIndex].setContent('B');
-        R();
-        q = 25;
+        state('B', 'R', 25);
         break;
       }
       case 'Y': {
-        tape[activeIndex].setContent('B');
-        R();
-        q = 25;
+        state('B', 'R', 25);
         break;
       }
       case 'B': {
-        tape[activeIndex].setContent('B');
-        R();
-        q = 28;
+        state('B', 'R', 28);
         break;
       }
     }
@@ -751,15 +643,11 @@ class _STMPerkalianScreen extends State<STMPerkalianScreen> {
   void q25() {
     switch(tape[activeIndex].getContent()) {
       case '0': {
-        tape[activeIndex].setContent('B');
-        R();
-        q = 25;
+        state('B', 'R', 25);
         break;
       }
       case 'B': {
-        tape[activeIndex].setContent('B');
-        R();
-        q = 28;
+        state('B', 'R', 28);
         break;
       }
     }
@@ -768,9 +656,7 @@ class _STMPerkalianScreen extends State<STMPerkalianScreen> {
   void q26() {
     switch(tape[activeIndex].getContent()) {
       case '1': {
-        tape[activeIndex].setContent('B');
-        L();
-        q = 27;
+        state('B', 'L', 27);
         break;
       }
     }
@@ -779,15 +665,11 @@ class _STMPerkalianScreen extends State<STMPerkalianScreen> {
   void q27() {
     switch(tape[activeIndex].getContent()) {
       case '0': {
-        tape[activeIndex].setContent('B');
-        L();
-        q = 27;
+        state('B', 'L', 27);
         break;
       }
       case 'B': {
-        tape[activeIndex].setContent('B');
-        R();
-        q = 28;
+        state('B', 'R', 28);
         break;
       }
     }
@@ -806,6 +688,16 @@ class _STMPerkalianScreen extends State<STMPerkalianScreen> {
     }
     q = -1;
     done = true;
+  }
+
+  void state(String content, String move, int destQ) {
+    tape[activeIndex].setContent(content);
+    if(move == 'R') {
+      R();
+    } else if(move == 'L') {
+      L();
+    }
+    q = destQ;
   }
 
   void R() {
