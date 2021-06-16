@@ -39,36 +39,39 @@ class _InputScreen extends State<InputScreen> {
             ),
           ),
         ),
-        body: Padding(
-          padding: EdgeInsets.all(16.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                'A + B',
-                textAlign: TextAlign.center,
-              ),
-              bilanganA(),
-              bilanganB(),
-              TextButton(
-                onPressed: () {
-                  final isValid = formKey.currentState?.validate();
-                  if(isValid != null && isValid) {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => SelectScreen(
-                          type: this.widget.type,
-                          A: int.parse(_controllerA.text),
-                          B: int.parse(_controllerB.text),
-                        ),
-                      )
-                    );
-                  }
-                },
-                child: const Text('Lanjut'),
-              ),
-            ],
+        body: Form(
+          key: formKey,
+          child: Padding(
+            padding: EdgeInsets.all(16.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  'A + B',
+                  textAlign: TextAlign.center,
+                ),
+                bilanganA(),
+                bilanganB(),
+                TextButton(
+                  onPressed: () {
+                    final isValid = formKey.currentState?.validate();
+                    if(isValid != null && isValid) {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => SelectScreen(
+                            type: this.widget.type,
+                            A: int.parse(_controllerA.text),
+                            B: int.parse(_controllerB.text),
+                          ),
+                        )
+                      );
+                    }
+                  },
+                  child: const Text('Lanjut'),
+                ),
+              ],
+            ),
           ),
         ),
       );
@@ -91,36 +94,39 @@ class _InputScreen extends State<InputScreen> {
             ),
           ),
         ),
-        body: Padding(
-          padding: EdgeInsets.all(16.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                'A - B',
-                textAlign: TextAlign.center,
-              ),
-              bilanganA(),
-              bilanganB(),
-              TextButton(
-                onPressed: () {
-                  final isValid = formKey.currentState?.validate();
-                  if(isValid != null && isValid) {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => SelectScreen(
-                          type: this.widget.type,
-                          A: int.parse(_controllerA.text),
-                          B: int.parse(_controllerB.text),
-                        ),
-                      )
-                    );
-                  }
-                },
-                child: const Text('Lanjut'),
-              ),
-            ],
+        body: Form(
+          key: formKey,
+          child: Padding(
+            padding: EdgeInsets.all(16.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  'A - B',
+                  textAlign: TextAlign.center,
+                ),
+                bilanganA(),
+                bilanganB(),
+                TextButton(
+                  onPressed: () {
+                    final isValid = formKey.currentState?.validate();
+                    if(isValid != null && isValid) {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => SelectScreen(
+                            type: this.widget.type,
+                            A: int.parse(_controllerA.text),
+                            B: int.parse(_controllerB.text),
+                          ),
+                        )
+                      );
+                    }
+                  },
+                  child: const Text('Lanjut'),
+                ),
+              ],
+            ),
           ),
         ),
       );
@@ -143,36 +149,39 @@ class _InputScreen extends State<InputScreen> {
             ),
           ),
         ),
-        body: Padding(
-          padding: EdgeInsets.all(16.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                'A * B',
-                textAlign: TextAlign.center,
-              ),
-              bilanganA(),
-              bilanganB(),
-              TextButton(
-                onPressed: () {
-                  final isValid = formKey.currentState?.validate();
-                  if(isValid != null && isValid) {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => SelectScreen(
-                          type: this.widget.type,
-                          A: int.parse(_controllerA.text),
-                          B: int.parse(_controllerB.text),
-                        ),
-                      )
-                    );
-                  }
-                },
-                child: const Text('Lanjut'),
-              ),
-            ],
+        body: Form(
+          key: formKey,
+          child: Padding(
+            padding: EdgeInsets.all(16.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  'A * B',
+                  textAlign: TextAlign.center,
+                ),
+                bilanganA(),
+                bilanganB(),
+                TextButton(
+                  onPressed: () {
+                    final isValid = formKey.currentState?.validate();
+                    if(isValid != null && isValid) {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => SelectScreen(
+                            type: this.widget.type,
+                            A: int.parse(_controllerA.text),
+                            B: int.parse(_controllerB.text),
+                          ),
+                        )
+                      );
+                    }
+                  },
+                  child: const Text('Lanjut'),
+                ),
+              ],
+            ),
           ),
         ),
       );
@@ -195,36 +204,39 @@ class _InputScreen extends State<InputScreen> {
             ),
           ),
         ),
-        body: Padding(
-          padding: EdgeInsets.all(16.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                'A / B',
-                textAlign: TextAlign.center,
-              ),
-              bilanganA(),
-              bilanganB(),
-              TextButton(
-                onPressed: () {
-                  final isValid = formKey.currentState?.validate();
-                  if(isValid != null && isValid) {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => SelectScreen(
-                          type: this.widget.type,
-                          A: int.parse(_controllerA.text),
-                          B: int.parse(_controllerB.text),
-                        ),
-                      )
-                    );
-                  }
-                },
-                child: const Text('Lanjut'),
-              ),
-            ],
+        body: Form(
+          key: formKey,
+          child: Padding(
+            padding: EdgeInsets.all(16.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  'A / B',
+                  textAlign: TextAlign.center,
+                ),
+                bilanganA(),
+                bilanganB(),
+                TextButton(
+                  onPressed: () {
+                    final isValid = formKey.currentState?.validate();
+                    if(isValid != null && isValid) {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => SelectScreen(
+                            type: this.widget.type,
+                            A: int.parse(_controllerA.text),
+                            B: int.parse(_controllerB.text),
+                          ),
+                        )
+                      );
+                    }
+                  },
+                  child: const Text('Lanjut'),
+                ),
+              ],
+            ),
           ),
         ),
       );
@@ -247,35 +259,38 @@ class _InputScreen extends State<InputScreen> {
             ),
           ),
         ),
-        body: Padding(
-          padding: EdgeInsets.all(16.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                'A!',
-                textAlign: TextAlign.center,
-              ),
-              bilanganA(),
-              TextButton(
-                onPressed: () {
-                  final isValid = formKey.currentState?.validate();
-                  if(isValid != null && isValid) {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => SelectScreen(
-                          type: this.widget.type,
-                          A: int.parse(_controllerA.text),
-                          B: -1,
-                        ),
-                      )
-                    );
-                  }
-                },
-                child: const Text('Lanjut'),
-              ),
-            ],
+        body: Form(
+          key: formKey,
+          child: Padding(
+            padding: EdgeInsets.all(16.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  'A!',
+                  textAlign: TextAlign.center,
+                ),
+                bilanganA(),
+                TextButton(
+                  onPressed: () {
+                    final isValid = formKey.currentState?.validate();
+                    if(isValid != null && isValid) {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => SelectScreen(
+                            type: this.widget.type,
+                            A: int.parse(_controllerA.text),
+                            B: -1,
+                          ),
+                        )
+                      );
+                    }
+                  },
+                  child: const Text('Lanjut'),
+                ),
+              ],
+            ),
           ),
         ),
       );
@@ -298,36 +313,39 @@ class _InputScreen extends State<InputScreen> {
             ),
           ),
         ),
-        body: Padding(
-          padding: EdgeInsets.all(16.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                'A % B',
-                textAlign: TextAlign.center,
-              ),
-              bilanganA(),
-              bilanganB(),
-              TextButton(
-                onPressed: () {
-                  final isValid = formKey.currentState?.validate();
-                  if(isValid != null && isValid) {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => SelectScreen(
-                          type: this.widget.type,
-                          A: int.parse(_controllerA.text),
-                          B: int.parse(_controllerB.text),
-                        ),
-                      )
-                    );
-                  }
-                },
-                child: const Text('Lanjut'),
-              ),
-            ],
+        body: Form(
+          key: formKey,
+          child: Padding(
+            padding: EdgeInsets.all(16.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  'A % B',
+                  textAlign: TextAlign.center,
+                ),
+                bilanganA(),
+                bilanganB(),
+                TextButton(
+                  onPressed: () {
+                    final isValid = formKey.currentState?.validate();
+                    if(isValid != null && isValid) {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => SelectScreen(
+                            type: this.widget.type,
+                            A: int.parse(_controllerA.text),
+                            B: int.parse(_controllerB.text),
+                          ),
+                        )
+                      );
+                    }
+                  },
+                  child: const Text('Lanjut'),
+                ),
+              ],
+            ),
           ),
         ),
       );
@@ -350,36 +368,39 @@ class _InputScreen extends State<InputScreen> {
             ),
           ),
         ),
-        body: Padding(
-          padding: EdgeInsets.all(16.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                'A ^ B',
-                textAlign: TextAlign.center,
-              ),
-              bilanganA(),
-              bilanganB(),
-              TextButton(
-                onPressed: () {
-                  final isValid = formKey.currentState?.validate();
-                  if(isValid != null && isValid) {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => SelectScreen(
-                          type: this.widget.type,
-                          A: int.parse(_controllerA.text),
-                          B: int.parse(_controllerB.text),
-                        ),
-                      )
-                    );
-                  }
-                },
-                child: const Text('Lanjut'),
-              ),
-            ],
+        body: Form(
+          key: formKey,
+          child: Padding(
+            padding: EdgeInsets.all(16.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  'A ^ B',
+                  textAlign: TextAlign.center,
+                ),
+                bilanganA(),
+                bilanganB(),
+                TextButton(
+                  onPressed: () {
+                    final isValid = formKey.currentState?.validate();
+                    if(isValid != null && isValid) {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => SelectScreen(
+                            type: this.widget.type,
+                            A: int.parse(_controllerA.text),
+                            B: int.parse(_controllerB.text),
+                          ),
+                        )
+                      );
+                    }
+                  },
+                  child: const Text('Lanjut'),
+                ),
+              ],
+            ),
           ),
         ),
       );
