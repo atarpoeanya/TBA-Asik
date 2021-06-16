@@ -17,10 +17,13 @@ class MTTMFaktorialScreen extends StatefulWidget {
 class _MTTMFaktorialScreen extends State<MTTMFaktorialScreen> {
   final controller1 = ScrollController();
   final controller2 = ScrollController();
+  final controller3 = ScrollController();
   List<Item> tape1 = [];
   List<Item> tape2 = [];
+  List<Item> tape3 = [];
   int activeIndex1 = 3;
   int activeIndex2 = 3;
+  int activeIndex3 = 3;
   double padding = 16.0;
   int total = 0;
   bool done = false;
@@ -52,6 +55,9 @@ class _MTTMFaktorialScreen extends State<MTTMFaktorialScreen> {
       tape2.add(
         Item('-1', false)
       );
+      tape3.add(
+        Item('-1', false)
+      );
       activeIndex1++;
       activeIndex2++;
     }
@@ -75,12 +81,25 @@ class _MTTMFaktorialScreen extends State<MTTMFaktorialScreen> {
     tape2.add(
       Item('B', false)
     );
+
+    tape3.add(
+      Item('B', false)
+    );
+    tape3.add(
+      Item('B', false)
+    );
+    tape3.add(
+      Item('B', false)
+    );
     
     if(this.widget.A < 0) {
       tape1.add(
         Item('Y', false)
       );
       tape2.add(
+        Item('B', false)
+      );
+      tape3.add(
         Item('B', false)
       );
       int tempA = this.widget.A * -1;
@@ -91,6 +110,9 @@ class _MTTMFaktorialScreen extends State<MTTMFaktorialScreen> {
         tape2.add(
           Item('B', false)
         );
+        tape3.add(
+          Item('B', false)
+        );
       }
     } else if(this.widget.A > 0) {
       tape1.add(
@@ -99,11 +121,17 @@ class _MTTMFaktorialScreen extends State<MTTMFaktorialScreen> {
       tape2.add(
         Item('B', false)
       );
+      tape3.add(
+        Item('B', false)
+      );
       for(int i = 0; i < this.widget.A; i++) {
         tape1.add(
           Item('0', false)
         );
         tape2.add(
+          Item('B', false)
+        );
+        tape3.add(
           Item('B', false)
         );
       }
@@ -115,39 +143,9 @@ class _MTTMFaktorialScreen extends State<MTTMFaktorialScreen> {
     tape2.add(
       Item('B', false)
     );
-    
-    if(this.widget.B < 0) {
-      tape1.add(
-        Item('Y', false)
-      );
-      tape2.add(
-        Item('B', false)
-      );
-      int tempB = this.widget.B * -1;
-      for(int i = 0; i < tempB; i++) {
-        tape1.add(
-          Item('0', false)
-        );
-        tape2.add(
-          Item('B', false)
-        );
-      }
-    } else if(this.widget.B > 0) {
-      tape1.add(
-        Item('X', false)
-      );
-      tape2.add(
-        Item('B', false)
-      );
-      for(int i = 0; i < this.widget.B; i++) {
-        tape1.add(
-          Item('0', false)
-        );
-        tape2.add(
-          Item('B', false)
-        );
-      }
-    }
+    tape3.add(
+      Item('B', false)
+    );
 
     tape1.add(
       Item('B', false)
@@ -166,6 +164,16 @@ class _MTTMFaktorialScreen extends State<MTTMFaktorialScreen> {
       Item('B', false)
     );
     tape2.add(
+      Item('B', false)
+    );
+
+    tape3.add(
+      Item('B', false)
+    );
+    tape3.add(
+      Item('B', false)
+    );
+    tape3.add(
       Item('B', false)
     );
 
@@ -174,6 +182,9 @@ class _MTTMFaktorialScreen extends State<MTTMFaktorialScreen> {
         Item('-1', false)
       );
       tape2.add(
+        Item('-1', false)
+      );
+      tape3.add(
         Item('-1', false)
       );
     }
@@ -205,7 +216,7 @@ class _MTTMFaktorialScreen extends State<MTTMFaktorialScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(this.widget.A.toString() + ' + ' + this.widget.B.toString()),
+            Text(this.widget.A.toString() + '!'),
             Container(
               margin: EdgeInsets.only(
                 top: 16.0,
@@ -302,13 +313,63 @@ class _MTTMFaktorialScreen extends State<MTTMFaktorialScreen> {
                 }
               ),
             ),
+            Container(
+              margin: EdgeInsets.only(
+                top: 16.0,
+              ),
+              height: 50.0,
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: tape3.length,
+                controller: controller3,
+                itemBuilder: (context, index) {
+                  if(tape3[index].getContent() == '-1') {
+                    return Container(
+                      child: Center(
+                        child: Text(
+                          '',
+                          style: TextStyle(
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                      width: 50.0,
+                      height: 50.0,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        border: Border.all(color: Colors.white, width: 0.5),
+                      ),
+                    );
+                  } else {
+                    return Container(
+                      child: Center(
+                        child: Text(
+                          tape3[index].getContent(),
+                          style: TextStyle(
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                      width: 50.0,
+                      height: 50.0,
+                      decoration: BoxDecoration(
+                        color: tape3[index].getIsCurrent() == true ? Colors.lightBlue : Colors.lightGreen,
+                        border: Border.all(color: Colors.white, width: 0.5),
+                      ),
+                    );
+                  }
+                }
+              ),
+            ),
             TextButton(
               onPressed: () {
                 setState(() {
                   tape1[activeIndex1].setIsCurrent(true);
                   tape2[activeIndex2].setIsCurrent(true);
+                  tape3[activeIndex3].setIsCurrent(true);
                   jumpToItem1();
                   jumpToItem2();
+                  jumpToItem3();
                   q = 0;               
                 });
                 runTM();
@@ -339,6 +400,18 @@ class _MTTMFaktorialScreen extends State<MTTMFaktorialScreen> {
     int l = activeIndex2 - total~/2.0;
     double value = 50.0 * l;
     controller2.animateTo(
+      value,
+      duration: Duration(
+        milliseconds: 500
+      ),
+      curve: Curves.ease,
+    );
+  }
+
+  void jumpToItem3() {
+    int l = activeIndex3 - total~/2.0;
+    double value = 50.0 * l;
+    controller3.animateTo(
       value,
       duration: Duration(
         milliseconds: 500
@@ -529,9 +602,9 @@ class _MTTMFaktorialScreen extends State<MTTMFaktorialScreen> {
   }
 
   void q10() {
-    int xCount = tape2.where((item) => item.getContent() == 'X').toList().length;
-    int yCount = tape2.where((item) => item.getContent() == 'Y').toList().length;
-    int zeroCount = tape2.where((item) => item.getContent() == '0').toList().length;
+    int xCount = tape3.where((item) => item.getContent() == 'X').toList().length;
+    int yCount = tape3.where((item) => item.getContent() == 'Y').toList().length;
+    int zeroCount = tape3.where((item) => item.getContent() == '0').toList().length;
     if(xCount == 1 && yCount == 1) {
       hasil = 'Tidak dapat diselesaikan';
     } else if(xCount == 1) {
@@ -560,23 +633,38 @@ class _MTTMFaktorialScreen extends State<MTTMFaktorialScreen> {
   }
 
   void R2() {
-    tape1[activeIndex2].setIsCurrent(false);
+    tape2[activeIndex2].setIsCurrent(false);
     activeIndex2++;
     jumpToItem2();
-    tape1[activeIndex2].setIsCurrent(true);
+    tape2[activeIndex2].setIsCurrent(true);
   }
 
   void L2() {
-    tape1[activeIndex2].setIsCurrent(false);
+    tape2[activeIndex2].setIsCurrent(false);
     activeIndex2--;
     jumpToItem2();
-    tape1[activeIndex2].setIsCurrent(true);
+    tape2[activeIndex2].setIsCurrent(true);
+  }
+
+  void R3() {
+    tape3[activeIndex3].setIsCurrent(false);
+    activeIndex3++;
+    jumpToItem3();
+    tape3[activeIndex3].setIsCurrent(true);
+  }
+
+  void L3() {
+    tape3[activeIndex3].setIsCurrent(false);
+    activeIndex3--;
+    jumpToItem3();
+    tape3[activeIndex3].setIsCurrent(true);
   }
 
   @override
   void dispose() {
     controller1.dispose();
     controller2.dispose();
+    controller3.dispose();
     timer.cancel();
     super.dispose();
   }

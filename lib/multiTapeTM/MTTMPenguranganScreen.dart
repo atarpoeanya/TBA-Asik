@@ -277,7 +277,7 @@ class _MTTMPenguranganScreen extends State<MTTMPenguranganScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(this.widget.A.toString() + ' + ' + this.widget.B.toString()),
+            Text(this.widget.A.toString() + ' - ' + this.widget.B.toString()),
             Container(
               margin: EdgeInsets.only(
                 top: 16.0,
