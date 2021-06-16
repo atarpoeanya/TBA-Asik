@@ -517,6 +517,10 @@ class _STMPembagianScreen extends State<STMPembagianScreen> {
         break;
       }
       case 'B': {
+        tape[activeIndex + 3].setContent('B');
+        tape.add(
+          Item('-1', false)
+        );
         state('0', 'L', 16);
         break;
       }
@@ -629,6 +633,10 @@ class _STMPembagianScreen extends State<STMPembagianScreen> {
         break;
       }
       case 'B': {
+        tape[activeIndex + 3].setContent('B');
+        tape.add(
+          Item('-1', false)
+        );
         state('Y', 'R', 28);
         break;
       }
@@ -638,6 +646,10 @@ class _STMPembagianScreen extends State<STMPembagianScreen> {
   void q24() {
     switch(tape[activeIndex].getContent()) {
       case 'B': {
+        tape[activeIndex + 3].setContent('B');
+        tape.add(
+          Item('-1', false)
+        );
         state('Y', 'R', 28);
         break;
       }
@@ -681,6 +693,10 @@ class _STMPembagianScreen extends State<STMPembagianScreen> {
         break;
       }
       case 'B': {
+        tape[activeIndex + 3].setContent('B');
+        tape.add(
+          Item('-1', false)
+        );
         state('Y', 'R', 28);
         break;
       }
@@ -690,6 +706,10 @@ class _STMPembagianScreen extends State<STMPembagianScreen> {
   void q28() {
     switch(tape[activeIndex].getContent()) {
       case 'B': {
+        tape[activeIndex + 3].setContent('B');
+        tape.add(
+          Item('-1', false)
+        );
         state('X', 'R', 29);
         break;
       }

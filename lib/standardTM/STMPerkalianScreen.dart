@@ -353,6 +353,10 @@ class _STMPerkalianScreen extends State<STMPerkalianScreen> {
         break;
       }
       case 'B': {
+        tape[activeIndex + 3].setContent('B');
+        tape.add(
+          Item('-1', false)
+        );
         state('Y', 'L', 7);
         break;
       }
@@ -396,6 +400,10 @@ class _STMPerkalianScreen extends State<STMPerkalianScreen> {
         break;
       }
       case 'B': {
+        tape[activeIndex + 3].setContent('B');
+        tape.add(
+          Item('-1', false)
+        );
         state('X', 'L', 7);
         break;
       }
@@ -513,6 +521,10 @@ class _STMPerkalianScreen extends State<STMPerkalianScreen> {
         break;
       }
       case 'B': {
+        tape[activeIndex + 3].setContent('B');
+        tape.add(
+          Item('-1', false)
+        );
         state('0', 'L', 16);
         break;
       }

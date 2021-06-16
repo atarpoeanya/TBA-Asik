@@ -318,9 +318,7 @@ class _STMModuloScreen extends State<STMModuloScreen> {
   void q0() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -329,9 +327,7 @@ class _STMModuloScreen extends State<STMModuloScreen> {
   void q1() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -340,9 +336,7 @@ class _STMModuloScreen extends State<STMModuloScreen> {
   void q2() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -351,9 +345,7 @@ class _STMModuloScreen extends State<STMModuloScreen> {
   void q3() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -362,9 +354,7 @@ class _STMModuloScreen extends State<STMModuloScreen> {
   void q4() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -373,9 +363,7 @@ class _STMModuloScreen extends State<STMModuloScreen> {
   void q5() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -384,9 +372,7 @@ class _STMModuloScreen extends State<STMModuloScreen> {
   void q6() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -395,9 +381,7 @@ class _STMModuloScreen extends State<STMModuloScreen> {
   void q7() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -406,9 +390,7 @@ class _STMModuloScreen extends State<STMModuloScreen> {
   void q8() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -417,9 +399,7 @@ class _STMModuloScreen extends State<STMModuloScreen> {
   void q9() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -428,9 +408,7 @@ class _STMModuloScreen extends State<STMModuloScreen> {
   void q10() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -439,9 +417,7 @@ class _STMModuloScreen extends State<STMModuloScreen> {
   void q11() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -450,9 +426,7 @@ class _STMModuloScreen extends State<STMModuloScreen> {
   void q12() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -461,9 +435,7 @@ class _STMModuloScreen extends State<STMModuloScreen> {
   void q13() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -472,9 +444,7 @@ class _STMModuloScreen extends State<STMModuloScreen> {
   void q14() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -483,9 +453,7 @@ class _STMModuloScreen extends State<STMModuloScreen> {
   void q15() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -494,9 +462,7 @@ class _STMModuloScreen extends State<STMModuloScreen> {
   void q16() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -505,9 +471,7 @@ class _STMModuloScreen extends State<STMModuloScreen> {
   void q17() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -516,9 +480,7 @@ class _STMModuloScreen extends State<STMModuloScreen> {
   void q18() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -527,9 +489,7 @@ class _STMModuloScreen extends State<STMModuloScreen> {
   void q19() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -538,9 +498,7 @@ class _STMModuloScreen extends State<STMModuloScreen> {
   void q20() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -549,9 +507,7 @@ class _STMModuloScreen extends State<STMModuloScreen> {
   void q21() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -560,9 +516,7 @@ class _STMModuloScreen extends State<STMModuloScreen> {
   void q22() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -571,9 +525,7 @@ class _STMModuloScreen extends State<STMModuloScreen> {
   void q23() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -582,9 +534,7 @@ class _STMModuloScreen extends State<STMModuloScreen> {
   void q24() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -593,9 +543,7 @@ class _STMModuloScreen extends State<STMModuloScreen> {
   void q25() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -604,9 +552,7 @@ class _STMModuloScreen extends State<STMModuloScreen> {
   void q26() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -615,9 +561,7 @@ class _STMModuloScreen extends State<STMModuloScreen> {
   void q27() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -626,9 +570,7 @@ class _STMModuloScreen extends State<STMModuloScreen> {
   void q28() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -637,9 +579,7 @@ class _STMModuloScreen extends State<STMModuloScreen> {
   void q29() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -648,9 +588,7 @@ class _STMModuloScreen extends State<STMModuloScreen> {
   void q30() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -659,9 +597,7 @@ class _STMModuloScreen extends State<STMModuloScreen> {
   void q31() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -670,9 +606,7 @@ class _STMModuloScreen extends State<STMModuloScreen> {
   void q32() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -681,9 +615,7 @@ class _STMModuloScreen extends State<STMModuloScreen> {
   void q33() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -692,9 +624,7 @@ class _STMModuloScreen extends State<STMModuloScreen> {
   void q34() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -703,9 +633,7 @@ class _STMModuloScreen extends State<STMModuloScreen> {
   void q35() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }

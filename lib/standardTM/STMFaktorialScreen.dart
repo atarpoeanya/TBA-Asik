@@ -289,22 +289,8 @@ class _STMFaktorialScreen extends State<STMFaktorialScreen> {
 
   void q0() {
     switch(tape[activeIndex].getContent()) {
-      case 'X': {
-        tape[activeIndex].setContent('B');
-        R();
-        q = 1;
-        break;
-      }
-      case '1': {
-        tape[activeIndex].setContent('Y');
-        R();
-        q = 31;
-        break;
-      }
-      case 'Y': {
-        tape[activeIndex].setContent('B');
-        R();
-        q = 30;
+      case '': {
+        state('', '', );
         break;
       }
     }
@@ -313,15 +299,7 @@ class _STMFaktorialScreen extends State<STMFaktorialScreen> {
   void q1() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
-        break;
-      }
-      case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -330,9 +308,7 @@ class _STMFaktorialScreen extends State<STMFaktorialScreen> {
   void q2() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -341,9 +317,7 @@ class _STMFaktorialScreen extends State<STMFaktorialScreen> {
   void q3() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -352,9 +326,7 @@ class _STMFaktorialScreen extends State<STMFaktorialScreen> {
   void q4() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -363,9 +335,7 @@ class _STMFaktorialScreen extends State<STMFaktorialScreen> {
   void q5() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -374,9 +344,7 @@ class _STMFaktorialScreen extends State<STMFaktorialScreen> {
   void q6() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -385,9 +353,7 @@ class _STMFaktorialScreen extends State<STMFaktorialScreen> {
   void q7() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -396,9 +362,7 @@ class _STMFaktorialScreen extends State<STMFaktorialScreen> {
   void q8() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -407,9 +371,7 @@ class _STMFaktorialScreen extends State<STMFaktorialScreen> {
   void q9() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -418,9 +380,7 @@ class _STMFaktorialScreen extends State<STMFaktorialScreen> {
   void q10() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -429,9 +389,7 @@ class _STMFaktorialScreen extends State<STMFaktorialScreen> {
   void q11() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -440,9 +398,7 @@ class _STMFaktorialScreen extends State<STMFaktorialScreen> {
   void q12() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -451,9 +407,7 @@ class _STMFaktorialScreen extends State<STMFaktorialScreen> {
   void q13() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -462,9 +416,7 @@ class _STMFaktorialScreen extends State<STMFaktorialScreen> {
   void q14() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -473,9 +425,7 @@ class _STMFaktorialScreen extends State<STMFaktorialScreen> {
   void q15() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -484,9 +434,7 @@ class _STMFaktorialScreen extends State<STMFaktorialScreen> {
   void q16() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -495,9 +443,7 @@ class _STMFaktorialScreen extends State<STMFaktorialScreen> {
   void q17() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -506,9 +452,7 @@ class _STMFaktorialScreen extends State<STMFaktorialScreen> {
   void q18() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -517,9 +461,7 @@ class _STMFaktorialScreen extends State<STMFaktorialScreen> {
   void q19() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -528,9 +470,7 @@ class _STMFaktorialScreen extends State<STMFaktorialScreen> {
   void q20() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -539,9 +479,7 @@ class _STMFaktorialScreen extends State<STMFaktorialScreen> {
   void q21() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -550,9 +488,7 @@ class _STMFaktorialScreen extends State<STMFaktorialScreen> {
   void q22() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -561,9 +497,7 @@ class _STMFaktorialScreen extends State<STMFaktorialScreen> {
   void q23() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -572,9 +506,7 @@ class _STMFaktorialScreen extends State<STMFaktorialScreen> {
   void q24() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -583,9 +515,7 @@ class _STMFaktorialScreen extends State<STMFaktorialScreen> {
   void q25() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -594,9 +524,7 @@ class _STMFaktorialScreen extends State<STMFaktorialScreen> {
   void q26() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -605,9 +533,7 @@ class _STMFaktorialScreen extends State<STMFaktorialScreen> {
   void q27() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -616,9 +542,7 @@ class _STMFaktorialScreen extends State<STMFaktorialScreen> {
   void q28() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -627,9 +551,7 @@ class _STMFaktorialScreen extends State<STMFaktorialScreen> {
   void q29() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -638,9 +560,7 @@ class _STMFaktorialScreen extends State<STMFaktorialScreen> {
   void q30() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -649,9 +569,7 @@ class _STMFaktorialScreen extends State<STMFaktorialScreen> {
   void q31() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -660,9 +578,7 @@ class _STMFaktorialScreen extends State<STMFaktorialScreen> {
   void q32() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }

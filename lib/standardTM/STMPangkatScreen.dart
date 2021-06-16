@@ -336,9 +336,7 @@ class _STMPangkatScreen extends State<STMPangkatScreen> {
   void q0() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -347,9 +345,7 @@ class _STMPangkatScreen extends State<STMPangkatScreen> {
   void q1() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -358,9 +354,7 @@ class _STMPangkatScreen extends State<STMPangkatScreen> {
   void q2() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -369,9 +363,7 @@ class _STMPangkatScreen extends State<STMPangkatScreen> {
   void q3() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -380,9 +372,7 @@ class _STMPangkatScreen extends State<STMPangkatScreen> {
   void q4() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -391,9 +381,7 @@ class _STMPangkatScreen extends State<STMPangkatScreen> {
   void q5() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -402,9 +390,7 @@ class _STMPangkatScreen extends State<STMPangkatScreen> {
   void q6() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -413,9 +399,7 @@ class _STMPangkatScreen extends State<STMPangkatScreen> {
   void q7() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -424,9 +408,7 @@ class _STMPangkatScreen extends State<STMPangkatScreen> {
   void q8() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -435,9 +417,7 @@ class _STMPangkatScreen extends State<STMPangkatScreen> {
   void q9() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -446,9 +426,7 @@ class _STMPangkatScreen extends State<STMPangkatScreen> {
   void q10() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -457,9 +435,7 @@ class _STMPangkatScreen extends State<STMPangkatScreen> {
   void q11() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -468,9 +444,7 @@ class _STMPangkatScreen extends State<STMPangkatScreen> {
   void q12() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -479,9 +453,7 @@ class _STMPangkatScreen extends State<STMPangkatScreen> {
   void q13() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -490,9 +462,7 @@ class _STMPangkatScreen extends State<STMPangkatScreen> {
   void q14() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -501,9 +471,7 @@ class _STMPangkatScreen extends State<STMPangkatScreen> {
   void q15() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -512,9 +480,7 @@ class _STMPangkatScreen extends State<STMPangkatScreen> {
   void q16() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -523,9 +489,7 @@ class _STMPangkatScreen extends State<STMPangkatScreen> {
   void q17() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -534,9 +498,7 @@ class _STMPangkatScreen extends State<STMPangkatScreen> {
   void q18() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -545,9 +507,7 @@ class _STMPangkatScreen extends State<STMPangkatScreen> {
   void q19() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -556,9 +516,7 @@ class _STMPangkatScreen extends State<STMPangkatScreen> {
   void q20() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -567,9 +525,7 @@ class _STMPangkatScreen extends State<STMPangkatScreen> {
   void q21() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -578,9 +534,7 @@ class _STMPangkatScreen extends State<STMPangkatScreen> {
   void q22() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -589,9 +543,7 @@ class _STMPangkatScreen extends State<STMPangkatScreen> {
   void q23() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -600,9 +552,7 @@ class _STMPangkatScreen extends State<STMPangkatScreen> {
   void q24() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -611,9 +561,7 @@ class _STMPangkatScreen extends State<STMPangkatScreen> {
   void q25() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -622,9 +570,7 @@ class _STMPangkatScreen extends State<STMPangkatScreen> {
   void q26() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -633,9 +579,7 @@ class _STMPangkatScreen extends State<STMPangkatScreen> {
   void q27() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -644,9 +588,7 @@ class _STMPangkatScreen extends State<STMPangkatScreen> {
   void q28() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -655,9 +597,7 @@ class _STMPangkatScreen extends State<STMPangkatScreen> {
   void q29() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -666,9 +606,7 @@ class _STMPangkatScreen extends State<STMPangkatScreen> {
   void q30() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -677,9 +615,7 @@ class _STMPangkatScreen extends State<STMPangkatScreen> {
   void q31() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -688,9 +624,7 @@ class _STMPangkatScreen extends State<STMPangkatScreen> {
   void q32() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -699,9 +633,7 @@ class _STMPangkatScreen extends State<STMPangkatScreen> {
   void q33() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -710,9 +642,7 @@ class _STMPangkatScreen extends State<STMPangkatScreen> {
   void q34() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -721,9 +651,7 @@ class _STMPangkatScreen extends State<STMPangkatScreen> {
   void q35() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -732,9 +660,7 @@ class _STMPangkatScreen extends State<STMPangkatScreen> {
   void q36() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -743,9 +669,7 @@ class _STMPangkatScreen extends State<STMPangkatScreen> {
   void q37() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -754,9 +678,7 @@ class _STMPangkatScreen extends State<STMPangkatScreen> {
   void q38() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -765,9 +687,7 @@ class _STMPangkatScreen extends State<STMPangkatScreen> {
   void q39() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -776,9 +696,7 @@ class _STMPangkatScreen extends State<STMPangkatScreen> {
   void q40() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -787,9 +705,7 @@ class _STMPangkatScreen extends State<STMPangkatScreen> {
   void q41() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -798,9 +714,7 @@ class _STMPangkatScreen extends State<STMPangkatScreen> {
   void q42() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -809,9 +723,7 @@ class _STMPangkatScreen extends State<STMPangkatScreen> {
   void q43() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -820,9 +732,7 @@ class _STMPangkatScreen extends State<STMPangkatScreen> {
   void q44() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }

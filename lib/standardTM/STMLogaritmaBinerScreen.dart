@@ -266,9 +266,7 @@ class _STMLogaritmaBinerScreen extends State<STMLogaritmaBinerScreen> {
   void q0() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -277,9 +275,7 @@ class _STMLogaritmaBinerScreen extends State<STMLogaritmaBinerScreen> {
   void q1() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -288,9 +284,7 @@ class _STMLogaritmaBinerScreen extends State<STMLogaritmaBinerScreen> {
   void q2() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -299,9 +293,7 @@ class _STMLogaritmaBinerScreen extends State<STMLogaritmaBinerScreen> {
   void q3() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -310,9 +302,7 @@ class _STMLogaritmaBinerScreen extends State<STMLogaritmaBinerScreen> {
   void q4() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -321,9 +311,7 @@ class _STMLogaritmaBinerScreen extends State<STMLogaritmaBinerScreen> {
   void q5() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -332,9 +320,7 @@ class _STMLogaritmaBinerScreen extends State<STMLogaritmaBinerScreen> {
   void q6() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -343,9 +329,7 @@ class _STMLogaritmaBinerScreen extends State<STMLogaritmaBinerScreen> {
   void q7() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -354,9 +338,7 @@ class _STMLogaritmaBinerScreen extends State<STMLogaritmaBinerScreen> {
   void q8() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -365,9 +347,7 @@ class _STMLogaritmaBinerScreen extends State<STMLogaritmaBinerScreen> {
   void q9() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -376,9 +356,7 @@ class _STMLogaritmaBinerScreen extends State<STMLogaritmaBinerScreen> {
   void q10() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -387,9 +365,7 @@ class _STMLogaritmaBinerScreen extends State<STMLogaritmaBinerScreen> {
   void q11() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -398,9 +374,7 @@ class _STMLogaritmaBinerScreen extends State<STMLogaritmaBinerScreen> {
   void q12() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -409,9 +383,7 @@ class _STMLogaritmaBinerScreen extends State<STMLogaritmaBinerScreen> {
   void q13() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -420,9 +392,7 @@ class _STMLogaritmaBinerScreen extends State<STMLogaritmaBinerScreen> {
   void q14() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -431,9 +401,7 @@ class _STMLogaritmaBinerScreen extends State<STMLogaritmaBinerScreen> {
   void q15() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -442,9 +410,7 @@ class _STMLogaritmaBinerScreen extends State<STMLogaritmaBinerScreen> {
   void q16() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -453,9 +419,7 @@ class _STMLogaritmaBinerScreen extends State<STMLogaritmaBinerScreen> {
   void q17() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -464,9 +428,7 @@ class _STMLogaritmaBinerScreen extends State<STMLogaritmaBinerScreen> {
   void q18() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -475,9 +437,7 @@ class _STMLogaritmaBinerScreen extends State<STMLogaritmaBinerScreen> {
   void q19() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -486,9 +446,7 @@ class _STMLogaritmaBinerScreen extends State<STMLogaritmaBinerScreen> {
   void q20() {
     switch(tape[activeIndex].getContent()) {
       case '': {
-        tape[activeIndex].setContent('');
-        ();
-        q = ;
+        state('', '', );
         break;
       }
     }
