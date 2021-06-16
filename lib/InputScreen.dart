@@ -20,7 +20,7 @@ class _InputScreen extends State<InputScreen> {
 
   @override
   Widget build(BuildContext context) {
-    if(this.widget.type == 1) {
+    if (this.widget.type == 1) {
       return Scaffold(
         appBar: AppBar(
           leading: IconButton(
@@ -55,17 +55,16 @@ class _InputScreen extends State<InputScreen> {
                 TextButton(
                   onPressed: () {
                     final isValid = formKey.currentState?.validate();
-                    if(isValid != null && isValid) {
+                    if (isValid != null && isValid) {
                       Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => SelectScreen(
-                            type: this.widget.type,
-                            A: int.parse(_controllerA.text),
-                            B: int.parse(_controllerB.text),
-                          ),
-                        )
-                      );
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => SelectScreen(
+                              type: this.widget.type,
+                              A: int.parse(_controllerA.text),
+                              B: int.parse(_controllerB.text),
+                            ),
+                          ));
                     }
                   },
                   child: const Text('Lanjut'),
@@ -75,7 +74,7 @@ class _InputScreen extends State<InputScreen> {
           ),
         ),
       );
-    } else if(this.widget.type == 2) {
+    } else if (this.widget.type == 2) {
       return Scaffold(
         appBar: AppBar(
           leading: IconButton(
@@ -110,17 +109,16 @@ class _InputScreen extends State<InputScreen> {
                 TextButton(
                   onPressed: () {
                     final isValid = formKey.currentState?.validate();
-                    if(isValid != null && isValid) {
+                    if (isValid != null && isValid) {
                       Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => SelectScreen(
-                            type: this.widget.type,
-                            A: int.parse(_controllerA.text),
-                            B: int.parse(_controllerB.text),
-                          ),
-                        )
-                      );
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => SelectScreen(
+                              type: this.widget.type,
+                              A: int.parse(_controllerA.text),
+                              B: int.parse(_controllerB.text),
+                            ),
+                          ));
                     }
                   },
                   child: const Text('Lanjut'),
@@ -130,7 +128,7 @@ class _InputScreen extends State<InputScreen> {
           ),
         ),
       );
-    } else if(this.widget.type == 3) {
+    } else if (this.widget.type == 3) {
       return Scaffold(
         appBar: AppBar(
           leading: IconButton(
@@ -165,17 +163,16 @@ class _InputScreen extends State<InputScreen> {
                 TextButton(
                   onPressed: () {
                     final isValid = formKey.currentState?.validate();
-                    if(isValid != null && isValid) {
+                    if (isValid != null && isValid) {
                       Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => SelectScreen(
-                            type: this.widget.type,
-                            A: int.parse(_controllerA.text),
-                            B: int.parse(_controllerB.text),
-                          ),
-                        )
-                      );
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => SelectScreen(
+                              type: this.widget.type,
+                              A: int.parse(_controllerA.text),
+                              B: int.parse(_controllerB.text),
+                            ),
+                          ));
                     }
                   },
                   child: const Text('Lanjut'),
@@ -185,7 +182,7 @@ class _InputScreen extends State<InputScreen> {
           ),
         ),
       );
-    } else if(this.widget.type == 4) {
+    } else if (this.widget.type == 4) {
       return Scaffold(
         appBar: AppBar(
           leading: IconButton(
@@ -220,17 +217,16 @@ class _InputScreen extends State<InputScreen> {
                 TextButton(
                   onPressed: () {
                     final isValid = formKey.currentState?.validate();
-                    if(isValid != null && isValid) {
+                    if (isValid != null && isValid) {
                       Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => SelectScreen(
-                            type: this.widget.type,
-                            A: int.parse(_controllerA.text),
-                            B: int.parse(_controllerB.text),
-                          ),
-                        )
-                      );
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => SelectScreen(
+                              type: this.widget.type,
+                              A: int.parse(_controllerA.text),
+                              B: int.parse(_controllerB.text),
+                            ),
+                          ));
                     }
                   },
                   child: const Text('Lanjut'),
@@ -240,7 +236,7 @@ class _InputScreen extends State<InputScreen> {
           ),
         ),
       );
-    } else if(this.widget.type == 5) {
+    } else if (this.widget.type == 5) {
       return Scaffold(
         appBar: AppBar(
           leading: IconButton(
@@ -274,17 +270,16 @@ class _InputScreen extends State<InputScreen> {
                 TextButton(
                   onPressed: () {
                     final isValid = formKey.currentState?.validate();
-                    if(isValid != null && isValid) {
+                    if (isValid != null && isValid) {
                       Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => SelectScreen(
-                            type: this.widget.type,
-                            A: int.parse(_controllerA.text),
-                            B: -1,
-                          ),
-                        )
-                      );
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => SelectScreen(
+                              type: this.widget.type,
+                              A: int.parse(_controllerA.text),
+                              B: -1,
+                            ),
+                          ));
                     }
                   },
                   child: const Text('Lanjut'),
@@ -294,7 +289,7 @@ class _InputScreen extends State<InputScreen> {
           ),
         ),
       );
-    } else if(this.widget.type == 6) {
+    } else if (this.widget.type == 6) {
       return Scaffold(
         appBar: AppBar(
           leading: IconButton(
@@ -329,17 +324,16 @@ class _InputScreen extends State<InputScreen> {
                 TextButton(
                   onPressed: () {
                     final isValid = formKey.currentState?.validate();
-                    if(isValid != null && isValid) {
+                    if (isValid != null && isValid) {
                       Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => SelectScreen(
-                            type: this.widget.type,
-                            A: int.parse(_controllerA.text),
-                            B: int.parse(_controllerB.text),
-                          ),
-                        )
-                      );
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => SelectScreen(
+                              type: this.widget.type,
+                              A: int.parse(_controllerA.text),
+                              B: int.parse(_controllerB.text),
+                            ),
+                          ));
                     }
                   },
                   child: const Text('Lanjut'),
@@ -349,7 +343,7 @@ class _InputScreen extends State<InputScreen> {
           ),
         ),
       );
-    } else if(this.widget.type == 7) {
+    } else if (this.widget.type == 7) {
       return Scaffold(
         appBar: AppBar(
           leading: IconButton(
@@ -384,17 +378,16 @@ class _InputScreen extends State<InputScreen> {
                 TextButton(
                   onPressed: () {
                     final isValid = formKey.currentState?.validate();
-                    if(isValid != null && isValid) {
+                    if (isValid != null && isValid) {
                       Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => SelectScreen(
-                            type: this.widget.type,
-                            A: int.parse(_controllerA.text),
-                            B: int.parse(_controllerB.text),
-                          ),
-                        )
-                      );
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => SelectScreen(
+                              type: this.widget.type,
+                              A: int.parse(_controllerA.text),
+                              B: int.parse(_controllerB.text),
+                            ),
+                          ));
                     }
                   },
                   child: const Text('Lanjut'),
@@ -438,17 +431,16 @@ class _InputScreen extends State<InputScreen> {
                 TextButton(
                   onPressed: () {
                     final isValid = formKey.currentState?.validate();
-                    if(isValid != null && isValid) {
+                    if (isValid != null && isValid) {
                       Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => SelectScreen(
-                            type: this.widget.type,
-                            A: int.parse(_controllerA.text),
-                            B: -1,
-                          ),
-                        )
-                      );
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => SelectScreen(
+                              type: this.widget.type,
+                              A: int.parse(_controllerA.text),
+                              B: -1,
+                            ),
+                          ));
                     }
                   },
                   child: const Text('Lanjut'),
@@ -462,58 +454,58 @@ class _InputScreen extends State<InputScreen> {
   }
 
   Widget bilanganA() => TextFormField(
-    controller: _controllerA,
-    keyboardType: TextInputType.numberWithOptions(
-      signed: true,
-    ),
-    inputFormatters: [
-      FilteringTextInputFormatter.allow(RegExp(r'[\d+\-]')),
-    ],
-    decoration: InputDecoration(
-      hintText: 'Masukkan bilangan A',
-      labelText: 'Bilangan A',
-      border: OutlineInputBorder(),
-    ),
-    validator: (value) {
-      if(value == null) {
-        return 'Masukkan bilangan A';
-      } else {
-        int? a = int.tryParse(value);
-        if(a == null) {
-          return 'Masukkan bilangan yang valid';
-        } else {
-          return null;
-        }
-      }
-    },
-  );
+        controller: _controllerA,
+        keyboardType: TextInputType.numberWithOptions(
+          signed: true,
+        ),
+        inputFormatters: [
+          FilteringTextInputFormatter.allow(RegExp(r'[\d+\-]')),
+        ],
+        decoration: InputDecoration(
+          hintText: 'Masukkan bilangan A',
+          labelText: 'Bilangan A',
+          border: OutlineInputBorder(),
+        ),
+        validator: (value) {
+          if (value == null) {
+            return 'Masukkan bilangan A';
+          } else {
+            int? a = int.tryParse(value);
+            if (a == null) {
+              return 'Masukkan bilangan yang valid';
+            } else {
+              return null;
+            }
+          }
+        },
+      );
 
   Widget bilanganB() => TextFormField(
-    controller: _controllerB,
-    keyboardType: TextInputType.numberWithOptions(
-      signed: true,
-    ),
-    inputFormatters: [
-      FilteringTextInputFormatter.allow(RegExp(r'[\d+\-]')),
-    ],
-    decoration: InputDecoration(
-      hintText: 'Masukkan bilangan B',
-      labelText: 'Bilangan B',
-      border: OutlineInputBorder(),
-    ),
-    validator: (value) {
-      if(value == null) {
-        return 'Masukkan bilangan B';
-      } else {
-        int? b = int.tryParse(value);
-        if(b == null) {
-          return 'Masukkan bilangan yang valid';
-        } else {
-          return null;
-        }
-      }
-    },
-  );
+        controller: _controllerB,
+        keyboardType: TextInputType.numberWithOptions(
+          signed: true,
+        ),
+        inputFormatters: [
+          FilteringTextInputFormatter.allow(RegExp(r'[\d+\-]')),
+        ],
+        decoration: InputDecoration(
+          hintText: 'Masukkan bilangan B',
+          labelText: 'Bilangan B',
+          border: OutlineInputBorder(),
+        ),
+        validator: (value) {
+          if (value == null) {
+            return 'Masukkan bilangan B';
+          } else {
+            int? b = int.tryParse(value);
+            if (b == null) {
+              return 'Masukkan bilangan yang valid';
+            } else {
+              return null;
+            }
+          }
+        },
+      );
 
   @override
   void dispose() {

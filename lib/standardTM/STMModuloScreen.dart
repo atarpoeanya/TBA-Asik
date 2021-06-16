@@ -317,8 +317,16 @@ class _STMModuloScreen extends State<STMModuloScreen> {
 
   void q0() {
     switch(tape[activeIndex].getContent()) {
-      case '': {
-        state('', '', );
+      case 'X': {
+        state('X', 'R', 1);
+        break;
+      }
+      case '1': {
+        state('B', 'R', 27);
+        break;
+      }
+      case 'Y': {
+        state('B', 'R', 26);
         break;
       }
     }
@@ -326,8 +334,12 @@ class _STMModuloScreen extends State<STMModuloScreen> {
 
   void q1() {
     switch(tape[activeIndex].getContent()) {
-      case '': {
-        state('', '', );
+      case '0': {
+        state('0', 'R', 1);
+        break;
+      }
+      case '1': {
+        state('1', 'R', 2);
         break;
       }
     }
@@ -335,8 +347,16 @@ class _STMModuloScreen extends State<STMModuloScreen> {
 
   void q2() {
     switch(tape[activeIndex].getContent()) {
-      case '': {
-        state('', '', );
+      case 'X': {
+        state('B', 'R', 4);
+        break;
+      }
+      case 'Y': {
+        state('B', 'L', 3);
+        break;
+      }
+      case 'B': {
+        state('B', 'L', 29);
         break;
       }
     }
@@ -344,8 +364,8 @@ class _STMModuloScreen extends State<STMModuloScreen> {
 
   void q3() {
     switch(tape[activeIndex].getContent()) {
-      case '': {
-        state('', '', );
+      case '1': {
+        state('B', 'L', 31);
         break;
       }
     }
@@ -353,8 +373,16 @@ class _STMModuloScreen extends State<STMModuloScreen> {
 
   void q4() {
     switch(tape[activeIndex].getContent()) {
-      case '': {
-        state('', '', );
+      case 'Z': {
+        state('Z', 'R', 4);
+        break;
+      }
+      case 'B': {
+        state('B', 'L', 9);
+        break;
+      }
+      case '0': {
+        state('Z', 'L', 5);
         break;
       }
     }
@@ -362,8 +390,12 @@ class _STMModuloScreen extends State<STMModuloScreen> {
 
   void q5() {
     switch(tape[activeIndex].getContent()) {
-      case '': {
-        state('', '', );
+      case 'Z': {
+        state('Z', 'L', 5);
+        break;
+      }
+      case 'B': {
+        state('B', 'L', 6);
         break;
       }
     }
@@ -371,8 +403,8 @@ class _STMModuloScreen extends State<STMModuloScreen> {
 
   void q6() {
     switch(tape[activeIndex].getContent()) {
-      case '': {
-        state('', '', );
+      case '1': {
+        state('1', 'L', 7);
         break;
       }
     }
@@ -380,8 +412,16 @@ class _STMModuloScreen extends State<STMModuloScreen> {
 
   void q7() {
     switch(tape[activeIndex].getContent()) {
-      case '': {
-        state('', '', );
+      case 'Z': {
+        state('Z', 'L', 7);
+        break;
+      }
+      case '0': {
+        state('Z', 'R', 8);
+        break;
+      }
+      case 'X': {
+        state('X', 'R', 10);
         break;
       }
     }
@@ -389,8 +429,12 @@ class _STMModuloScreen extends State<STMModuloScreen> {
 
   void q8() {
     switch(tape[activeIndex].getContent()) {
-      case '': {
-        state('', '', );
+      case 'Z': {
+        state('Z', 'R', 8);
+        break;
+      }
+      case '1': {
+        state('1', 'R', 9);
         break;
       }
     }
@@ -398,8 +442,12 @@ class _STMModuloScreen extends State<STMModuloScreen> {
 
   void q9() {
     switch(tape[activeIndex].getContent()) {
-      case '': {
-        state('', '', );
+      case 'Z': {
+        state('0', 'L', 9);
+        break;
+      }
+      case 'B': {
+        state('B', 'R', 4);
         break;
       }
     }
@@ -407,8 +455,12 @@ class _STMModuloScreen extends State<STMModuloScreen> {
 
   void q10() {
     switch(tape[activeIndex].getContent()) {
-      case '': {
-        state('', '', );
+      case 'Z': {
+        state('Z', 'R', 10);
+        break;
+      }
+      case '1': {
+        state('1', 'R', 11);
         break;
       }
     }
@@ -416,8 +468,8 @@ class _STMModuloScreen extends State<STMModuloScreen> {
 
   void q11() {
     switch(tape[activeIndex].getContent()) {
-      case '': {
-        state('', '', );
+      case 'B': {
+        state('B', 'R', 12);
         break;
       }
     }
@@ -425,8 +477,16 @@ class _STMModuloScreen extends State<STMModuloScreen> {
 
   void q12() {
     switch(tape[activeIndex].getContent()) {
-      case '': {
-        state('', '', );
+      case 'Z': {
+        state('Z', 'R', 12);
+        break;
+      }
+      case 'B': {
+        state('B', 'L', 13);
+        break;
+      }
+      case '0': {
+        state('0', 'L', 13);
         break;
       }
     }
@@ -434,8 +494,8 @@ class _STMModuloScreen extends State<STMModuloScreen> {
 
   void q13() {
     switch(tape[activeIndex].getContent()) {
-      case '': {
-        state('', '', );
+      case 'Z': {
+        state('0', 'L', 14);
         break;
       }
     }
@@ -443,8 +503,12 @@ class _STMModuloScreen extends State<STMModuloScreen> {
 
   void q14() {
     switch(tape[activeIndex].getContent()) {
-      case '': {
-        state('', '', );
+      case 'Z': {
+        state('0', 'L', 15);
+        break;
+      }
+      case 'B': {
+        state('B', 'L', 22);
         break;
       }
     }
@@ -452,8 +516,12 @@ class _STMModuloScreen extends State<STMModuloScreen> {
 
   void q15() {
     switch(tape[activeIndex].getContent()) {
-      case '': {
-        state('', '', );
+      case 'Z': {
+        state('Z', 'L', 15);
+        break;
+      }
+      case 'B': {
+        state('B', 'L', 16);
         break;
       }
     }
@@ -461,8 +529,8 @@ class _STMModuloScreen extends State<STMModuloScreen> {
 
   void q16() {
     switch(tape[activeIndex].getContent()) {
-      case '': {
-        state('', '', );
+      case '1': {
+        state('1', 'L', 17);
         break;
       }
     }
@@ -470,8 +538,16 @@ class _STMModuloScreen extends State<STMModuloScreen> {
 
   void q17() {
     switch(tape[activeIndex].getContent()) {
-      case '': {
-        state('', '', );
+      case 'Z': {
+        state('Z', 'L', 17);
+        break;
+      }
+      case 'X': {
+        state('X', 'R', 18);
+        break;
+      }
+      case '0': {
+        state('0', 'R', 18);
         break;
       }
     }
@@ -479,8 +555,8 @@ class _STMModuloScreen extends State<STMModuloScreen> {
 
   void q18() {
     switch(tape[activeIndex].getContent()) {
-      case '': {
-        state('', '', );
+      case 'Z': {
+        state('0', 'R', 19);
         break;
       }
     }
@@ -488,8 +564,12 @@ class _STMModuloScreen extends State<STMModuloScreen> {
 
   void q19() {
     switch(tape[activeIndex].getContent()) {
-      case '': {
-        state('', '', );
+      case 'Z': {
+        state('Z', 'R', 19);
+        break;
+      }
+      case '1': {
+        state('1', 'R', 20);
         break;
       }
     }
@@ -497,8 +577,8 @@ class _STMModuloScreen extends State<STMModuloScreen> {
 
   void q20() {
     switch(tape[activeIndex].getContent()) {
-      case '': {
-        state('', '', );
+      case 'B': {
+        state('B', 'R', 21);
         break;
       }
     }
@@ -506,8 +586,16 @@ class _STMModuloScreen extends State<STMModuloScreen> {
 
   void q21() {
     switch(tape[activeIndex].getContent()) {
-      case '': {
-        state('', '', );
+      case 'Z': {
+        state('Z', 'R', 21);
+        break;
+      }
+      case 'B': {
+        state('B', 'L', 14);
+        break;
+      }
+      case '0': {
+        state('0', 'L', 14);
         break;
       }
     }
@@ -515,8 +603,8 @@ class _STMModuloScreen extends State<STMModuloScreen> {
 
   void q22() {
     switch(tape[activeIndex].getContent()) {
-      case '': {
-        state('', '', );
+      case '1': {
+        state('B', 'L', 23);
         break;
       }
     }
@@ -524,8 +612,16 @@ class _STMModuloScreen extends State<STMModuloScreen> {
 
   void q23() {
     switch(tape[activeIndex].getContent()) {
-      case '': {
-        state('', '', );
+      case 'Z': {
+        state('B', 'L', 23);
+        break;
+      }
+      case '0': {
+        state('0', 'R', 24);
+        break;
+      }
+      case 'X': {
+        state('B', 'R', 24);
         break;
       }
     }
@@ -533,8 +629,12 @@ class _STMModuloScreen extends State<STMModuloScreen> {
 
   void q24() {
     switch(tape[activeIndex].getContent()) {
-      case '': {
-        state('', '', );
+      case 'B': {
+        state('B', 'R', 24);
+        break;
+      }
+      case '0': {
+        state('B', 'R', 25);
         break;
       }
     }
@@ -542,8 +642,12 @@ class _STMModuloScreen extends State<STMModuloScreen> {
 
   void q25() {
     switch(tape[activeIndex].getContent()) {
-      case '': {
-        state('', '', );
+      case '0': {
+        state('B', 'R', 25);
+        break;
+      }
+      case 'B': {
+        state('B', 'R', 36);
         break;
       }
     }
@@ -551,8 +655,12 @@ class _STMModuloScreen extends State<STMModuloScreen> {
 
   void q26() {
     switch(tape[activeIndex].getContent()) {
-      case '': {
-        state('', '', );
+      case '0': {
+        state('B', 'R', 26);
+        break;
+      }
+      case '1': {
+        state('B', 'R', 27);
         break;
       }
     }
@@ -560,8 +668,16 @@ class _STMModuloScreen extends State<STMModuloScreen> {
 
   void q27() {
     switch(tape[activeIndex].getContent()) {
-      case '': {
-        state('', '', );
+      case 'X': {
+        state('B', 'R', 28);
+        break;
+      }
+      case 'Y': {
+        state('B', 'R', 28);
+        break;
+      }
+      case 'B': {
+        state('B', 'R', 28);
         break;
       }
     }
@@ -569,8 +685,12 @@ class _STMModuloScreen extends State<STMModuloScreen> {
 
   void q28() {
     switch(tape[activeIndex].getContent()) {
-      case '': {
-        state('', '', );
+      case '0': {
+        state('B', 'R', 28);
+        break;
+      }
+      case 'B': {
+        state('Y', 'R', 34);
         break;
       }
     }
@@ -578,8 +698,8 @@ class _STMModuloScreen extends State<STMModuloScreen> {
 
   void q29() {
     switch(tape[activeIndex].getContent()) {
-      case '': {
-        state('', '', );
+      case '1': {
+        state('B', 'L', 30);
         break;
       }
     }
@@ -587,8 +707,12 @@ class _STMModuloScreen extends State<STMModuloScreen> {
 
   void q30() {
     switch(tape[activeIndex].getContent()) {
-      case '': {
-        state('', '', );
+      case '0': {
+        state('B', 'L', 30);
+        break;
+      }
+      case 'X': {
+        state('Y', 'R', 34);
         break;
       }
     }
@@ -596,8 +720,12 @@ class _STMModuloScreen extends State<STMModuloScreen> {
 
   void q31() {
     switch(tape[activeIndex].getContent()) {
-      case '': {
-        state('', '', );
+      case '0': {
+        state('B', 'L', 31);
+        break;
+      }
+      case 'X': {
+        state('B', 'R', 32);
         break;
       }
     }
@@ -605,8 +733,12 @@ class _STMModuloScreen extends State<STMModuloScreen> {
 
   void q32() {
     switch(tape[activeIndex].getContent()) {
-      case '': {
-        state('', '', );
+      case 'B': {
+        state('B', 'R', 32);
+        break;
+      }
+      case '0': {
+        state('B', 'R', 33);
         break;
       }
     }
@@ -614,8 +746,12 @@ class _STMModuloScreen extends State<STMModuloScreen> {
 
   void q33() {
     switch(tape[activeIndex].getContent()) {
-      case '': {
-        state('', '', );
+      case '0': {
+        state('B', 'R', 33);
+        break;
+      }
+      case 'B': {
+        state('Y', 'R', 34);
         break;
       }
     }
@@ -623,8 +759,8 @@ class _STMModuloScreen extends State<STMModuloScreen> {
 
   void q34() {
     switch(tape[activeIndex].getContent()) {
-      case '': {
-        state('', '', );
+      case 'B': {
+        state('X', 'R', 35);
         break;
       }
     }
@@ -632,8 +768,8 @@ class _STMModuloScreen extends State<STMModuloScreen> {
 
   void q35() {
     switch(tape[activeIndex].getContent()) {
-      case '': {
-        state('', '', );
+      case 'B': {
+        state('B', 'R', 36);
         break;
       }
     }

@@ -29,104 +29,96 @@ class HomeScreen extends StatelessWidget {
                 TextButton(
                   onPressed: () {
                     Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => InputScreen(
-                          type: 1,
-                        ),
-                      )
-                    );
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => InputScreen(
+                            type: 1,
+                          ),
+                        ));
                   },
                   child: const Text('Penjumlahan'),
                 ),
                 TextButton(
                   onPressed: () {
                     Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => InputScreen(
-                          type: 2,
-                        ),
-                      )
-                    );
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => InputScreen(
+                            type: 2,
+                          ),
+                        ));
                   },
                   child: const Text('Pengurangan'),
                 ),
                 TextButton(
                   onPressed: () {
                     Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => InputScreen(
-                          type: 3,
-                        ),
-                      )
-                    );
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => InputScreen(
+                            type: 3,
+                          ),
+                        ));
                   },
                   child: const Text('Perkalian'),
                 ),
                 TextButton(
                   onPressed: () {
                     Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => InputScreen(
-                          type: 4,
-                        ),
-                      )
-                    );
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => InputScreen(
+                            type: 4,
+                          ),
+                        ));
                   },
                   child: const Text('Pembagian'),
                 ),
                 TextButton(
                   onPressed: () {
                     Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => InputScreen(
-                          type: 5,
-                        ),
-                      )
-                    );
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => InputScreen(
+                            type: 5,
+                          ),
+                        ));
                   },
                   child: const Text('Faktorial'),
                 ),
                 TextButton(
                   onPressed: () {
                     Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => InputScreen(
-                          type: 6,
-                        ),
-                      )
-                    );
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => InputScreen(
+                            type: 6,
+                          ),
+                        ));
                   },
                   child: const Text('Modulo'),
                 ),
                 TextButton(
                   onPressed: () {
                     Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => InputScreen(
-                          type: 7,
-                        ),
-                      )
-                    );
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => InputScreen(
+                            type: 7,
+                          ),
+                        ));
                   },
                   child: const Text('Pangkat'),
                 ),
                 TextButton(
                   onPressed: () {
                     Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => InputScreen(
-                          type: 8,
-                        ),
-                      )
-                    );
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => InputScreen(
+                            type: 8,
+                          ),
+                        ));
                   },
                   child: const Text('Logaritma biner'),
                 ),
