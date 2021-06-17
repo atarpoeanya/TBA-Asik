@@ -65,10 +65,7 @@ class _STMLogaritmaBinerScreen extends State<STMLogaritmaBinerScreen> {
     }
 
     tape.add(Item('1', false));
-
-    tape.add(Item('B', false));
-    tape.add(Item('B', false));
-    tape.add(Item('B', false));
+    for (int i = 0; i < 100; i++) tape.add(Item('B', false));
 
     for (int i = 0; i < (total - 2) / 2; i++) {
       tape.add(Item('-1', false));
@@ -101,7 +98,7 @@ class _STMLogaritmaBinerScreen extends State<STMLogaritmaBinerScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(this.widget.A.toString() + '!'),
+            Text('log\u{2082}' + this.widget.A.toString()),
             Container(
               margin: EdgeInsets.only(
                 top: 16.0,
@@ -335,7 +332,7 @@ class _STMLogaritmaBinerScreen extends State<STMLogaritmaBinerScreen> {
     switch (tape[activeIndex].getContent()) {
       case '0':
         {
-          state('0', '0', 6);
+          state('0', 'L', 6);
           break;
         }
       case 'B':
@@ -400,7 +397,7 @@ class _STMLogaritmaBinerScreen extends State<STMLogaritmaBinerScreen> {
         }
       case '0':
         {
-          state('0', 'R', 1);
+          state('0', 'R', 11);
           break;
         }
     }
