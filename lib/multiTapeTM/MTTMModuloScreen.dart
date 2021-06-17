@@ -372,8 +372,6 @@ class _MTTMModuloScreen extends State<MTTMModuloScreen> {
             q8();
           } else if(q == 9) {
             q9();
-          } else if(q == 10) {
-            q10();
           }
         } else {
           timer.cancel();
@@ -385,12 +383,19 @@ class _MTTMModuloScreen extends State<MTTMModuloScreen> {
   void q0() {
     String a = tape1[activeIndex1].getContent();
     String b = tape2[activeIndex2].getContent();
-    if(a == '' && b == '') {
-      tape1[activeIndex1].setContent('');
-      tape2[activeIndex2].setContent('');
-      1();
-      2();
-      q = ;
+    switch(a + b) {
+      case 'XB': {
+        state('BB', 'RS', 1);
+        break;
+      }
+      case '1B': {
+        state('BY', 'SR', 7);
+        break;
+      }
+      case 'YB': {
+        state('BY', 'SR', 7);
+        break;
+      }
     }
   }
 
@@ -398,12 +403,12 @@ class _MTTMModuloScreen extends State<MTTMModuloScreen> {
     String a = tape1[activeIndex1].getContent();
     String b = tape2[activeIndex2].getContent();
     switch(a + b) {
-      case '': {
-        tape1[activeIndex1].setContent('');
-        tape2[activeIndex2].setContent('');
-        1();
-        2();
-        q = ;
+      case '0B': {
+        state('B0', 'RR', 1);
+        break;
+      }
+      case '1B': {
+        state('BB', 'RS', 2);
         break;
       }
     }
@@ -413,12 +418,16 @@ class _MTTMModuloScreen extends State<MTTMModuloScreen> {
     String a = tape1[activeIndex1].getContent();
     String b = tape2[activeIndex2].getContent();
     switch(a + b) {
-      case '': {
-        tape1[activeIndex1].setContent('');
-        tape2[activeIndex2].setContent('');
-        1();
-        2();
-        q = ;
+      case 'XB': {
+        state('BB', 'RL', 3);
+        break;
+      }
+      case 'YB': {
+        state('BB', 'SL', 8);
+        break;
+      }
+      case 'BB': {
+        state('BB', 'SL', 8);
         break;
       }
     }
@@ -428,12 +437,20 @@ class _MTTMModuloScreen extends State<MTTMModuloScreen> {
     String a = tape1[activeIndex1].getContent();
     String b = tape2[activeIndex2].getContent();
     switch(a + b) {
-      case '': {
-        tape1[activeIndex1].setContent('');
-        tape2[activeIndex2].setContent('');
-        1();
-        2();
-        q = ;
+      case '00': {
+        state('0B', 'RL', 3);
+        break;
+      }
+      case 'B0': {
+        state('B0', 'LS', 4);
+        break;
+      }
+      case '0B': {
+        state('0B', 'LR', 5);
+        break;
+      }
+      case 'BB': {
+        state('BB', 'SS', 9);
         break;
       }
     }
@@ -443,12 +460,20 @@ class _MTTMModuloScreen extends State<MTTMModuloScreen> {
     String a = tape1[activeIndex1].getContent();
     String b = tape2[activeIndex2].getContent();
     switch(a + b) {
-      case '': {
-        tape1[activeIndex1].setContent('');
-        tape2[activeIndex2].setContent('');
-        1();
-        2();
-        q = ;
+      case '00': {
+        state('0B', 'LL', 4);
+        break;
+      }
+      case 'B0': {
+        state('B0', 'RS', 3);
+        break;
+      }
+      case '0B': {
+        state('0B', 'RR', 6);
+        break;
+      }
+      case 'BB': {
+        state('BB', 'SS', 9);
         break;
       }
     }
@@ -458,12 +483,12 @@ class _MTTMModuloScreen extends State<MTTMModuloScreen> {
     String a = tape1[activeIndex1].getContent();
     String b = tape2[activeIndex2].getContent();
     switch(a + b) {
-      case '': {
-        tape1[activeIndex1].setContent('');
-        tape2[activeIndex2].setContent('');
-        1();
-        2();
-        q = ;
+      case '0B': {
+        state('00', 'LR', 5);
+        break;
+      }
+      case 'BB': {
+        state('BB', 'LR', 9);
         break;
       }
     }
@@ -473,12 +498,12 @@ class _MTTMModuloScreen extends State<MTTMModuloScreen> {
     String a = tape1[activeIndex1].getContent();
     String b = tape2[activeIndex2].getContent();
     switch(a + b) {
-      case '': {
-        tape1[activeIndex1].setContent('');
-        tape2[activeIndex2].setContent('');
-        1();
-        2();
-        q = ;
+      case '0B': {
+        state('00', 'RR', 6);
+        break;
+      }
+      case 'BB': {
+        state('BB', 'RR', 9);
         break;
       }
     }
@@ -488,12 +513,8 @@ class _MTTMModuloScreen extends State<MTTMModuloScreen> {
     String a = tape1[activeIndex1].getContent();
     String b = tape2[activeIndex2].getContent();
     switch(a + b) {
-      case '': {
-        tape1[activeIndex1].setContent('');
-        tape2[activeIndex2].setContent('');
-        1();
-        2();
-        q = ;
+      case 'BB': {
+        state('BX', 'SR', 9);
         break;
       }
     }
@@ -503,71 +524,68 @@ class _MTTMModuloScreen extends State<MTTMModuloScreen> {
     String a = tape1[activeIndex1].getContent();
     String b = tape2[activeIndex2].getContent();
     switch(a + b) {
-      case '': {
-        tape1[activeIndex1].setContent('');
-        tape2[activeIndex2].setContent('');
-        1();
-        2();
-        q = ;
+      case 'B0': {
+        state('BB', 'SL', 8);
+        break;
+      }
+      case 'BB': {
+        state('BY', 'SR', 7);
         break;
       }
     }
   }
 
   void q9() {
-    String a = tape1[activeIndex1].getContent();
-    String b = tape2[activeIndex2].getContent();
-    switch(a + b) {
-      case '': {
-        tape1[activeIndex1].setContent('');
-        tape2[activeIndex2].setContent('');
-        1();
-        2();
-        q = ;
-        break;
-      }
-    }
-  }
-
-  void q10() {
     int xCount = tape2.where((item) => item.getContent() == 'X').toList().length;
     int yCount = tape2.where((item) => item.getContent() == 'Y').toList().length;
     int zeroCount = tape2.where((item) => item.getContent() == '0').toList().length;
     if(xCount == 1 && yCount == 1) {
       hasil = 'Tidak dapat diselesaikan';
-    } else if(xCount == 1) {
-      hasil = zeroCount.toString();
-    } else if(yCount == 1) {
-      hasil = (zeroCount * -1).toString();
     } else {
-      hasil = '0';
+      hasil = zeroCount.toString();
     }
     q = -1;
     done = true;
   }
 
-  void R1() {
+  void state(String content, String move, int destQ) {
+    tape1[activeIndex1].setContent(content[0]);
+    tape2[activeIndex2].setContent(content[1]);
+    if(move[0] == 'R') {
+      r1();
+    } else if(move[0] == 'L') {
+      l1();
+    }
+    if(move[1] == 'R') {
+      r2();
+    } else if(move[1] == 'L') {
+      l2();
+    }
+    q = destQ;
+  }
+
+  void r1() {
     tape1[activeIndex1].setIsCurrent(false);
     activeIndex1++;
     jumpToItem1();
     tape1[activeIndex1].setIsCurrent(true);
   }
 
-  void L1() {
+  void l1() {
     tape1[activeIndex1].setIsCurrent(false);
     activeIndex1--;
     jumpToItem1();
     tape1[activeIndex1].setIsCurrent(true);
   }
 
-  void R2() {
+  void r2() {
     tape1[activeIndex2].setIsCurrent(false);
     activeIndex2++;
     jumpToItem2();
     tape1[activeIndex2].setIsCurrent(true);
   }
 
-  void L2() {
+  void l2() {
     tape1[activeIndex2].setIsCurrent(false);
     activeIndex2--;
     jumpToItem2();

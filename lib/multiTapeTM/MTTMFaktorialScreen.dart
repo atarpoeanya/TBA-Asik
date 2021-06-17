@@ -446,6 +446,18 @@ class _MTTMFaktorialScreen extends State<MTTMFaktorialScreen> {
             q9();
           } else if(q == 10) {
             q10();
+          } else if(q == 11) {
+            q11();
+          } else if(q == 12) {
+            q12();
+          } else if(q == 13) {
+            q13();
+          } else if(q == 14) {
+            q14();
+          } else if(q == 15) {
+            q15();
+          } else if(q == 16) {
+            q16();
           }
         } else {
           timer.cancel();
@@ -457,25 +469,34 @@ class _MTTMFaktorialScreen extends State<MTTMFaktorialScreen> {
   void q0() {
     String a = tape1[activeIndex1].getContent();
     String b = tape2[activeIndex2].getContent();
-    if(a == '' && b == '') {
-      tape1[activeIndex1].setContent('');
-      tape2[activeIndex2].setContent('');
-      1();
-      2();
-      q = ;
+    String c = tape3[activeIndex3].getContent();
+    switch(a + b + c) {
+      case 'XBB': {
+        state('BBB', 'RSS', 1);
+        break;
+      }
+      case '1BB': {
+        state('BBY', 'SSR', 15);
+        break;
+      }
+      case 'YBB': {
+        state('BBY', 'SSR', 15);
+        break;
+      }
     }
   }
 
   void q1() {
     String a = tape1[activeIndex1].getContent();
     String b = tape2[activeIndex2].getContent();
-    switch(a + b) {
-      case '': {
-        tape1[activeIndex1].setContent('');
-        tape2[activeIndex2].setContent('');
-        1();
-        2();
-        q = ;
+    String c = tape3[activeIndex3].getContent();
+    switch(a + b + c) {
+      case '0BB': {
+        state('00B', 'RRS', 1);
+        break;
+      }
+      case '1BB': {
+        state('BBB', 'LSS', 2);
         break;
       }
     }
@@ -484,13 +505,10 @@ class _MTTMFaktorialScreen extends State<MTTMFaktorialScreen> {
   void q2() {
     String a = tape1[activeIndex1].getContent();
     String b = tape2[activeIndex2].getContent();
-    switch(a + b) {
-      case '': {
-        tape1[activeIndex1].setContent('');
-        tape2[activeIndex2].setContent('');
-        1();
-        2();
-        q = ;
+    String c = tape3[activeIndex3].getContent();
+    switch(a + b + c) {
+      case '0BB': {
+        state('BBB', 'LLS', 3);
         break;
       }
     }
@@ -499,13 +517,18 @@ class _MTTMFaktorialScreen extends State<MTTMFaktorialScreen> {
   void q3() {
     String a = tape1[activeIndex1].getContent();
     String b = tape2[activeIndex2].getContent();
-    switch(a + b) {
-      case '': {
-        tape1[activeIndex1].setContent('');
-        tape2[activeIndex2].setContent('');
-        1();
-        2();
-        q = ;
+    String c = tape3[activeIndex3].getContent();
+    switch(a + b + c) {
+      case '00B': {
+        state('000', 'SLR', 3);
+        break;
+      }
+      case '0BB': {
+        state('0BB', 'LRS', 4);
+        break;
+      }
+      case 'B0B': {
+        state('B0B', 'RSS', 5);
         break;
       }
     }
@@ -514,13 +537,18 @@ class _MTTMFaktorialScreen extends State<MTTMFaktorialScreen> {
   void q4() {
     String a = tape1[activeIndex1].getContent();
     String b = tape2[activeIndex2].getContent();
-    switch(a + b) {
-      case '': {
-        tape1[activeIndex1].setContent('');
-        tape2[activeIndex2].setContent('');
-        1();
-        2();
-        q = ;
+    String c = tape3[activeIndex3].getContent();
+    switch(a + b + c) {
+      case '00B': {
+        state('000', 'SRR', 4);
+        break;
+      }
+      case '0BB': {
+        state('0BB', 'LLS', 3);
+        break;
+      }
+      case 'B0B': {
+        state('B0B', 'RSS', 6);
         break;
       }
     }
@@ -529,13 +557,14 @@ class _MTTMFaktorialScreen extends State<MTTMFaktorialScreen> {
   void q5() {
     String a = tape1[activeIndex1].getContent();
     String b = tape2[activeIndex2].getContent();
-    switch(a + b) {
-      case '': {
-        tape1[activeIndex1].setContent('');
-        tape2[activeIndex2].setContent('');
-        1();
-        2();
-        q = ;
+    String c = tape3[activeIndex3].getContent();
+    switch(a + b + c) {
+      case '00B': {
+        state('0BB', 'SLS', 5);
+        break;
+      }
+      case '0BB': {
+        state('BBB', 'RSL', 7);
         break;
       }
     }
@@ -544,13 +573,14 @@ class _MTTMFaktorialScreen extends State<MTTMFaktorialScreen> {
   void q6() {
     String a = tape1[activeIndex1].getContent();
     String b = tape2[activeIndex2].getContent();
-    switch(a + b) {
-      case '': {
-        tape1[activeIndex1].setContent('');
-        tape2[activeIndex2].setContent('');
-        1();
-        2();
-        q = ;
+    String c = tape3[activeIndex3].getContent();
+    switch(a + b + c) {
+      case '00B': {
+        state('0BB', 'SRS', 6);
+        break;
+      }
+      case '0BB': {
+        state('BBB', 'RSL', 8);
         break;
       }
     }
@@ -559,13 +589,18 @@ class _MTTMFaktorialScreen extends State<MTTMFaktorialScreen> {
   void q7() {
     String a = tape1[activeIndex1].getContent();
     String b = tape2[activeIndex2].getContent();
-    switch(a + b) {
-      case '': {
-        tape1[activeIndex1].setContent('');
-        tape2[activeIndex2].setContent('');
-        1();
-        2();
-        q = ;
+    String c = tape3[activeIndex3].getContent();
+    switch(a + b + c) {
+      case '0B0': {
+        state('00B', 'SRL', 7);
+        break;
+      }
+      case 'BB0': {
+        state('BB0', 'SSR', 16);
+        break;
+      }
+      case '0BB': {
+        state('0BB', 'SLR', 9);
         break;
       }
     }
@@ -574,13 +609,18 @@ class _MTTMFaktorialScreen extends State<MTTMFaktorialScreen> {
   void q8() {
     String a = tape1[activeIndex1].getContent();
     String b = tape2[activeIndex2].getContent();
-    switch(a + b) {
-      case '': {
-        tape1[activeIndex1].setContent('');
-        tape2[activeIndex2].setContent('');
-        1();
-        2();
-        q = ;
+    String c = tape3[activeIndex3].getContent();
+    switch(a + b + c) {
+      case '0B0': {
+        state('00B', 'SLL', 8);
+        break;
+      }
+      case 'BB0': {
+        state('BB0', 'SSR', 16);
+        break;
+      }
+      case '0BB': {
+        state('0BB', 'SRR', 10);
         break;
       }
     }
@@ -589,71 +629,198 @@ class _MTTMFaktorialScreen extends State<MTTMFaktorialScreen> {
   void q9() {
     String a = tape1[activeIndex1].getContent();
     String b = tape2[activeIndex2].getContent();
-    switch(a + b) {
-      case '': {
-        tape1[activeIndex1].setContent('');
-        tape2[activeIndex2].setContent('');
-        1();
-        2();
-        q = ;
+    String c = tape3[activeIndex3].getContent();
+    switch(a + b + c) {
+      case '00B': {
+        state('000', 'SLR', 9);
+        break;
+      }
+      case '0BB': {
+        state('0BB', 'RRS', 10);
+        break;
+      }
+      case 'B0B': {
+        state('B0B', 'LSS', 11);
         break;
       }
     }
   }
 
   void q10() {
+    String a = tape1[activeIndex1].getContent();
+    String b = tape2[activeIndex2].getContent();
+    String c = tape3[activeIndex3].getContent();
+    switch(a + b + c) {
+      case '00B': {
+        state('000', 'SRR', 10);
+        break;
+      }
+      case '0BB': {
+        state('0BB', 'RLS', 9);
+        break;
+      }
+      case 'B0B': {
+        state('B0B', 'LSS', 12);
+        break;
+      }
+    }
+  }
+
+  void q11() {
+    String a = tape1[activeIndex1].getContent();
+    String b = tape2[activeIndex2].getContent();
+    String c = tape3[activeIndex3].getContent();
+    switch(a + b + c) {
+      case '00B': {
+        state('0BB', 'SLS', 11);
+        break;
+      }
+      case '0BB': {
+        state('BBB', 'LSL', 13);
+        break;
+      }
+    }
+  }
+
+  void q12() {
+    String a = tape1[activeIndex1].getContent();
+    String b = tape2[activeIndex2].getContent();
+    String c = tape3[activeIndex3].getContent();
+    switch(a + b + c) {
+      case '00B': {
+        state('0BB', 'SRS', 12);
+        break;
+      }
+      case '0BB': {
+        state('BBB', 'LSL', 14);
+        break;
+      }
+    }
+  }
+
+  void q13() {
+    String a = tape1[activeIndex1].getContent();
+    String b = tape2[activeIndex2].getContent();
+    String c = tape3[activeIndex3].getContent();
+    switch(a + b + c) {
+      case '0B0': {
+        state('00B', 'SRL', 13);
+        break;
+      }
+      case '0BB': {
+        state('0BB', 'SLR', 3);
+        break;
+      }
+      case 'BB0': {
+        state('BB0', 'SSR', 16);
+        break;
+      }
+    }
+  }
+
+  void q14() {
+    String a = tape1[activeIndex1].getContent();
+    String b = tape2[activeIndex2].getContent();
+    String c = tape3[activeIndex3].getContent();
+    switch(a + b + c) {
+      case '0B0': {
+        state('00B', 'SLL', 14);
+        break;
+      }
+      case '0BB': {
+        state('0BB', 'SRR', 4);
+        break;
+      }
+      case 'BB0': {
+        state('BB0', 'SSR', 16);
+        break;
+      }
+    }
+  }
+
+  void q15() {
+    String a = tape1[activeIndex1].getContent();
+    String b = tape2[activeIndex2].getContent();
+    String c = tape3[activeIndex3].getContent();
+    switch(a + b + c) {
+      case 'BBB': {
+        state('BBX', 'SSR', 16);
+        break;
+      }
+    }
+  }
+
+  void q16() {
     int xCount = tape3.where((item) => item.getContent() == 'X').toList().length;
     int yCount = tape3.where((item) => item.getContent() == 'Y').toList().length;
     int zeroCount = tape3.where((item) => item.getContent() == '0').toList().length;
     if(xCount == 1 && yCount == 1) {
       hasil = 'Tidak dapat diselesaikan';
-    } else if(xCount == 1) {
-      hasil = zeroCount.toString();
-    } else if(yCount == 1) {
-      hasil = (zeroCount * -1).toString();
     } else {
-      hasil = '0';
+      hasil = zeroCount.toString();
     }
     q = -1;
     done = true;
   }
 
-  void R1() {
+  void state(String content, String move, int destQ) {
+    tape1[activeIndex1].setContent(content[0]);
+    tape2[activeIndex2].setContent(content[1]);
+    tape3[activeIndex3].setContent(content[2]);
+    if(move[0] == 'R') {
+      r1();
+    } else if(move[0] == 'L') {
+      l1();
+    }
+    if(move[1] == 'R') {
+      r2();
+    } else if(move[1] == 'L') {
+      l2();
+    }
+    if(move[2] == 'R') {
+      r3();
+    } else if(move[2] == 'L') {
+      l3();
+    }
+    q = destQ;
+  }
+
+  void r1() {
     tape1[activeIndex1].setIsCurrent(false);
     activeIndex1++;
     jumpToItem1();
     tape1[activeIndex1].setIsCurrent(true);
   }
 
-  void L1() {
+  void l1() {
     tape1[activeIndex1].setIsCurrent(false);
     activeIndex1--;
     jumpToItem1();
     tape1[activeIndex1].setIsCurrent(true);
   }
 
-  void R2() {
+  void r2() {
     tape2[activeIndex2].setIsCurrent(false);
     activeIndex2++;
     jumpToItem2();
     tape2[activeIndex2].setIsCurrent(true);
   }
 
-  void L2() {
+  void l2() {
     tape2[activeIndex2].setIsCurrent(false);
     activeIndex2--;
     jumpToItem2();
     tape2[activeIndex2].setIsCurrent(true);
   }
 
-  void R3() {
+  void r3() {
     tape3[activeIndex3].setIsCurrent(false);
     activeIndex3++;
     jumpToItem3();
     tape3[activeIndex3].setIsCurrent(true);
   }
 
-  void L3() {
+  void l3() {
     tape3[activeIndex3].setIsCurrent(false);
     activeIndex3--;
     jumpToItem3();

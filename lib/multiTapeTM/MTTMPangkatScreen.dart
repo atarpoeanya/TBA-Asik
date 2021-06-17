@@ -610,6 +610,20 @@ class _MTTMPangkatScreen extends State<MTTMPangkatScreen> {
             q9();
           } else if(q == 10) {
             q10();
+          } else if(q == 11) {
+            q11();
+          } else if(q == 12) {
+            q12();
+          } else if(q == 13) {
+            q13();
+          } else if(q == 14) {
+            q14();
+          } else if(q == 15) {
+            q15();
+          } else if(q == 16) {
+            q16();
+          } else if(q == 17) {
+            q17();
           }
         } else {
           timer.cancel();
@@ -621,25 +635,36 @@ class _MTTMPangkatScreen extends State<MTTMPangkatScreen> {
   void q0() {
     String a = tape1[activeIndex1].getContent();
     String b = tape2[activeIndex2].getContent();
-    if(a == '' && b == '') {
-      tape1[activeIndex1].setContent('');
-      tape2[activeIndex2].setContent('');
-      1();
-      2();
-      q = ;
+    String c = tape3[activeIndex3].getContent();
+    String d = tape4[activeIndex4].getContent();
+    switch(a + b + c + d) {
+      case 'XBBB': {
+        state('BBBB', 'RSSS', 1);
+        break;
+      }
+      case '1BBB': {
+        state('BBBY', 'SSSR', 15);
+        break;
+      }
+      case 'YBBB': {
+        state('BBBY', 'SSSR', 15);
+        break;
+      }
     }
   }
 
   void q1() {
     String a = tape1[activeIndex1].getContent();
     String b = tape2[activeIndex2].getContent();
-    switch(a + b) {
+    String c = tape3[activeIndex3].getContent();
+    String d = tape4[activeIndex4].getContent();
+    switch(a + b + c + d) {
       case '': {
-        tape1[activeIndex1].setContent('');
-        tape2[activeIndex2].setContent('');
-        1();
-        2();
-        q = ;
+        state('', '', );
+        break;
+      }
+      case '': {
+        state('', '', );
         break;
       }
     }
@@ -648,13 +673,11 @@ class _MTTMPangkatScreen extends State<MTTMPangkatScreen> {
   void q2() {
     String a = tape1[activeIndex1].getContent();
     String b = tape2[activeIndex2].getContent();
-    switch(a + b) {
+    String c = tape3[activeIndex3].getContent();
+    String d = tape4[activeIndex4].getContent();
+    switch(a + b + c + d) {
       case '': {
-        tape1[activeIndex1].setContent('');
-        tape2[activeIndex2].setContent('');
-        1();
-        2();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -663,13 +686,11 @@ class _MTTMPangkatScreen extends State<MTTMPangkatScreen> {
   void q3() {
     String a = tape1[activeIndex1].getContent();
     String b = tape2[activeIndex2].getContent();
-    switch(a + b) {
+    String c = tape3[activeIndex3].getContent();
+    String d = tape4[activeIndex4].getContent();
+    switch(a + b + c + d) {
       case '': {
-        tape1[activeIndex1].setContent('');
-        tape2[activeIndex2].setContent('');
-        1();
-        2();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -678,13 +699,11 @@ class _MTTMPangkatScreen extends State<MTTMPangkatScreen> {
   void q4() {
     String a = tape1[activeIndex1].getContent();
     String b = tape2[activeIndex2].getContent();
-    switch(a + b) {
+    String c = tape3[activeIndex3].getContent();
+    String d = tape4[activeIndex4].getContent();
+    switch(a + b + c + d) {
       case '': {
-        tape1[activeIndex1].setContent('');
-        tape2[activeIndex2].setContent('');
-        1();
-        2();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -693,13 +712,11 @@ class _MTTMPangkatScreen extends State<MTTMPangkatScreen> {
   void q5() {
     String a = tape1[activeIndex1].getContent();
     String b = tape2[activeIndex2].getContent();
-    switch(a + b) {
+    String c = tape3[activeIndex3].getContent();
+    String d = tape4[activeIndex4].getContent();
+    switch(a + b + c + d) {
       case '': {
-        tape1[activeIndex1].setContent('');
-        tape2[activeIndex2].setContent('');
-        1();
-        2();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -708,13 +725,11 @@ class _MTTMPangkatScreen extends State<MTTMPangkatScreen> {
   void q6() {
     String a = tape1[activeIndex1].getContent();
     String b = tape2[activeIndex2].getContent();
-    switch(a + b) {
+    String c = tape3[activeIndex3].getContent();
+    String d = tape4[activeIndex4].getContent();
+    switch(a + b + c + d) {
       case '': {
-        tape1[activeIndex1].setContent('');
-        tape2[activeIndex2].setContent('');
-        1();
-        2();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -723,13 +738,11 @@ class _MTTMPangkatScreen extends State<MTTMPangkatScreen> {
   void q7() {
     String a = tape1[activeIndex1].getContent();
     String b = tape2[activeIndex2].getContent();
-    switch(a + b) {
+    String c = tape3[activeIndex3].getContent();
+    String d = tape4[activeIndex4].getContent();
+    switch(a + b + c + d) {
       case '': {
-        tape1[activeIndex1].setContent('');
-        tape2[activeIndex2].setContent('');
-        1();
-        2();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -738,13 +751,11 @@ class _MTTMPangkatScreen extends State<MTTMPangkatScreen> {
   void q8() {
     String a = tape1[activeIndex1].getContent();
     String b = tape2[activeIndex2].getContent();
-    switch(a + b) {
+    String c = tape3[activeIndex3].getContent();
+    String d = tape4[activeIndex4].getContent();
+    switch(a + b + c + d) {
       case '': {
-        tape1[activeIndex1].setContent('');
-        tape2[activeIndex2].setContent('');
-        1();
-        2();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -753,85 +764,198 @@ class _MTTMPangkatScreen extends State<MTTMPangkatScreen> {
   void q9() {
     String a = tape1[activeIndex1].getContent();
     String b = tape2[activeIndex2].getContent();
-    switch(a + b) {
+    String c = tape3[activeIndex3].getContent();
+    String d = tape4[activeIndex4].getContent();
+    switch(a + b + c + d) {
       case '': {
-        tape1[activeIndex1].setContent('');
-        tape2[activeIndex2].setContent('');
-        1();
-        2();
-        q = ;
+        state('', '', );
         break;
       }
     }
   }
 
   void q10() {
+    String a = tape1[activeIndex1].getContent();
+    String b = tape2[activeIndex2].getContent();
+    String c = tape3[activeIndex3].getContent();
+    String d = tape4[activeIndex4].getContent();
+    switch(a + b + c + d) {
+      case '': {
+        state('', '', );
+        break;
+      }
+    }
+  }
+
+  void q11() {
+    String a = tape1[activeIndex1].getContent();
+    String b = tape2[activeIndex2].getContent();
+    String c = tape3[activeIndex3].getContent();
+    String d = tape4[activeIndex4].getContent();
+    switch(a + b + c + d) {
+      case '': {
+        state('', '', );
+        break;
+      }
+    }
+  }
+
+  void q12() {
+    String a = tape1[activeIndex1].getContent();
+    String b = tape2[activeIndex2].getContent();
+    String c = tape3[activeIndex3].getContent();
+    String d = tape4[activeIndex4].getContent();
+    switch(a + b + c + d) {
+      case '': {
+        state('', '', );
+        break;
+      }
+    }
+  }
+
+  void q13() {
+    String a = tape1[activeIndex1].getContent();
+    String b = tape2[activeIndex2].getContent();
+    String c = tape3[activeIndex3].getContent();
+    String d = tape4[activeIndex4].getContent();
+    switch(a + b + c + d) {
+      case '': {
+        state('', '', );
+        break;
+      }
+    }
+  }
+
+  void q14() {
+    String a = tape1[activeIndex1].getContent();
+    String b = tape2[activeIndex2].getContent();
+    String c = tape3[activeIndex3].getContent();
+    String d = tape4[activeIndex4].getContent();
+    switch(a + b + c + d) {
+      case '': {
+        state('', '', );
+        break;
+      }
+    }
+  }
+
+  void q15() {
+    String a = tape1[activeIndex1].getContent();
+    String b = tape2[activeIndex2].getContent();
+    String c = tape3[activeIndex3].getContent();
+    String d = tape4[activeIndex4].getContent();
+    switch(a + b + c + d) {
+      case '': {
+        state('', '', );
+        break;
+      }
+    }
+  }
+
+  void q16() {
+    String a = tape1[activeIndex1].getContent();
+    String b = tape2[activeIndex2].getContent();
+    String c = tape3[activeIndex3].getContent();
+    String d = tape4[activeIndex4].getContent();
+    switch(a + b + c + d) {
+      case '': {
+        state('', '', );
+        break;
+      }
+    }
+  }
+
+  void q17() {
     int xCount = tape4.where((item) => item.getContent() == 'X').toList().length;
     int yCount = tape4.where((item) => item.getContent() == 'Y').toList().length;
     int zeroCount = tape4.where((item) => item.getContent() == '0').toList().length;
     if(xCount == 1 && yCount == 1) {
       hasil = 'Tidak dapat diselesaikan';
-    } else if(xCount == 1) {
-      hasil = zeroCount.toString();
-    } else if(yCount == 1) {
-      hasil = (zeroCount * -1).toString();
     } else {
-      hasil = '0';
+      hasil = zeroCount.toString();
     }
     q = -1;
     done = true;
   }
 
-  void R1() {
+  void state(String content, String move, int destQ) {
+    tape1[activeIndex1].setContent(content[0]);
+    tape2[activeIndex2].setContent(content[1]);
+    tape3[activeIndex3].setContent(content[2]);
+    tape4[activeIndex4].setContent(content[3]);
+    if(move[0] == 'R') {
+      r1();
+    } else if(move[0] == 'L') {
+      l1();
+    }
+    if(move[1] == 'R') {
+      r2();
+    } else if(move[1] == 'L') {
+      l2();
+    }
+    if(move[2] == 'R') {
+      r3();
+    } else if(move[2] == 'L') {
+      l3();
+    }
+    if(move[3] == 'R') {
+      r4();
+    } else if(move[3] == 'L') {
+      l4();
+    }
+    q = destQ;
+  }
+
+  void r1() {
     tape1[activeIndex1].setIsCurrent(false);
     activeIndex1++;
     jumpToItem1();
     tape1[activeIndex1].setIsCurrent(true);
   }
 
-  void L1() {
+  void l1() {
     tape1[activeIndex1].setIsCurrent(false);
     activeIndex1--;
     jumpToItem1();
     tape1[activeIndex1].setIsCurrent(true);
   }
 
-  void R2() {
+  void r2() {
     tape2[activeIndex2].setIsCurrent(false);
     activeIndex2++;
     jumpToItem2();
     tape2[activeIndex2].setIsCurrent(true);
   }
 
-  void L2() {
+  void l2() {
     tape2[activeIndex2].setIsCurrent(false);
     activeIndex2--;
     jumpToItem2();
     tape2[activeIndex2].setIsCurrent(true);
   }
 
-  void R3() {
+  void r3() {
     tape3[activeIndex3].setIsCurrent(false);
     activeIndex3++;
     jumpToItem3();
     tape3[activeIndex3].setIsCurrent(true);
   }
 
-  void L3() {
+  void l3() {
     tape3[activeIndex3].setIsCurrent(false);
     activeIndex3--;
     jumpToItem3();
     tape3[activeIndex3].setIsCurrent(true);
   }
 
-  void R4() {
+  void r4() {
     tape4[activeIndex4].setIsCurrent(false);
     activeIndex4++;
     jumpToItem4();
     tape4[activeIndex4].setIsCurrent(true);
   }
 
-  void L4() {
+  void l4() {
     tape4[activeIndex4].setIsCurrent(false);
     activeIndex4--;
     jumpToItem4();

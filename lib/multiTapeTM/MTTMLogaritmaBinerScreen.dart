@@ -446,6 +446,8 @@ class _MTTMLogaritmaBinerScreen extends State<MTTMLogaritmaBinerScreen> {
             q9();
           } else if(q == 10) {
             q10();
+          } else if(q == 11) {
+            q11();
           }
         } else {
           timer.cancel();
@@ -457,25 +459,22 @@ class _MTTMLogaritmaBinerScreen extends State<MTTMLogaritmaBinerScreen> {
   void q0() {
     String a = tape1[activeIndex1].getContent();
     String b = tape2[activeIndex2].getContent();
-    if(a == '' && b == '') {
-      tape1[activeIndex1].setContent('');
-      tape2[activeIndex2].setContent('');
-      1();
-      2();
-      q = ;
+    String c = tape3[activeIndex3].getContent();
+    switch(a + b + c) {
+      case '': {
+        state('', '', );
+        break;
+      }
     }
   }
 
   void q1() {
     String a = tape1[activeIndex1].getContent();
     String b = tape2[activeIndex2].getContent();
-    switch(a + b) {
+    String c = tape3[activeIndex3].getContent();
+    switch(a + b + c) {
       case '': {
-        tape1[activeIndex1].setContent('');
-        tape2[activeIndex2].setContent('');
-        1();
-        2();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -484,13 +483,10 @@ class _MTTMLogaritmaBinerScreen extends State<MTTMLogaritmaBinerScreen> {
   void q2() {
     String a = tape1[activeIndex1].getContent();
     String b = tape2[activeIndex2].getContent();
-    switch(a + b) {
+    String c = tape3[activeIndex3].getContent();
+    switch(a + b + c) {
       case '': {
-        tape1[activeIndex1].setContent('');
-        tape2[activeIndex2].setContent('');
-        1();
-        2();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -499,13 +495,10 @@ class _MTTMLogaritmaBinerScreen extends State<MTTMLogaritmaBinerScreen> {
   void q3() {
     String a = tape1[activeIndex1].getContent();
     String b = tape2[activeIndex2].getContent();
-    switch(a + b) {
+    String c = tape3[activeIndex3].getContent();
+    switch(a + b + c) {
       case '': {
-        tape1[activeIndex1].setContent('');
-        tape2[activeIndex2].setContent('');
-        1();
-        2();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -514,13 +507,10 @@ class _MTTMLogaritmaBinerScreen extends State<MTTMLogaritmaBinerScreen> {
   void q4() {
     String a = tape1[activeIndex1].getContent();
     String b = tape2[activeIndex2].getContent();
-    switch(a + b) {
+    String c = tape3[activeIndex3].getContent();
+    switch(a + b + c) {
       case '': {
-        tape1[activeIndex1].setContent('');
-        tape2[activeIndex2].setContent('');
-        1();
-        2();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -529,13 +519,10 @@ class _MTTMLogaritmaBinerScreen extends State<MTTMLogaritmaBinerScreen> {
   void q5() {
     String a = tape1[activeIndex1].getContent();
     String b = tape2[activeIndex2].getContent();
-    switch(a + b) {
+    String c = tape3[activeIndex3].getContent();
+    switch(a + b + c) {
       case '': {
-        tape1[activeIndex1].setContent('');
-        tape2[activeIndex2].setContent('');
-        1();
-        2();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -544,13 +531,10 @@ class _MTTMLogaritmaBinerScreen extends State<MTTMLogaritmaBinerScreen> {
   void q6() {
     String a = tape1[activeIndex1].getContent();
     String b = tape2[activeIndex2].getContent();
-    switch(a + b) {
+    String c = tape3[activeIndex3].getContent();
+    switch(a + b + c) {
       case '': {
-        tape1[activeIndex1].setContent('');
-        tape2[activeIndex2].setContent('');
-        1();
-        2();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -559,13 +543,10 @@ class _MTTMLogaritmaBinerScreen extends State<MTTMLogaritmaBinerScreen> {
   void q7() {
     String a = tape1[activeIndex1].getContent();
     String b = tape2[activeIndex2].getContent();
-    switch(a + b) {
+    String c = tape3[activeIndex3].getContent();
+    switch(a + b + c) {
       case '': {
-        tape1[activeIndex1].setContent('');
-        tape2[activeIndex2].setContent('');
-        1();
-        2();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -574,13 +555,10 @@ class _MTTMLogaritmaBinerScreen extends State<MTTMLogaritmaBinerScreen> {
   void q8() {
     String a = tape1[activeIndex1].getContent();
     String b = tape2[activeIndex2].getContent();
-    switch(a + b) {
+    String c = tape3[activeIndex3].getContent();
+    switch(a + b + c) {
       case '': {
-        tape1[activeIndex1].setContent('');
-        tape2[activeIndex2].setContent('');
-        1();
-        2();
-        q = ;
+        state('', '', );
         break;
       }
     }
@@ -589,19 +567,28 @@ class _MTTMLogaritmaBinerScreen extends State<MTTMLogaritmaBinerScreen> {
   void q9() {
     String a = tape1[activeIndex1].getContent();
     String b = tape2[activeIndex2].getContent();
-    switch(a + b) {
+    String c = tape3[activeIndex3].getContent();
+    switch(a + b + c) {
       case '': {
-        tape1[activeIndex1].setContent('');
-        tape2[activeIndex2].setContent('');
-        1();
-        2();
-        q = ;
+        state('', '', );
         break;
       }
     }
   }
 
   void q10() {
+    String a = tape1[activeIndex1].getContent();
+    String b = tape2[activeIndex2].getContent();
+    String c = tape3[activeIndex3].getContent();
+    switch(a + b + c) {
+      case '': {
+        state('', '', );
+        break;
+      }
+    }
+  }
+
+  void q11() {
     int xCount = tape3.where((item) => item.getContent() == 'X').toList().length;
     int yCount = tape3.where((item) => item.getContent() == 'Y').toList().length;
     int zeroCount = tape3.where((item) => item.getContent() == '0').toList().length;
@@ -609,51 +596,69 @@ class _MTTMLogaritmaBinerScreen extends State<MTTMLogaritmaBinerScreen> {
       hasil = 'Tidak dapat diselesaikan';
     } else if(xCount == 1) {
       hasil = zeroCount.toString();
-    } else if(yCount == 1) {
-      hasil = (zeroCount * -1).toString();
-    } else {
-      hasil = '0';
     }
     q = -1;
     done = true;
   }
 
-  void R1() {
+  void state(String content, String move, int destQ) {
+    tape1[activeIndex1].setContent(content[0]);
+    tape2[activeIndex2].setContent(content[1]);
+    tape3[activeIndex3].setContent(content[2]);
+    if(move[0] == 'R') {
+      r1();
+    } else if(move[0] == 'L') {
+      l1();
+    }
+    if(move[1] == 'R') {
+      r2();
+    } else if(move[1] == 'L') {
+      l2();
+    }
+    if(move[2] == 'R') {
+      r3();
+    } else if(move[2] == 'L') {
+      l3();
+    }
+    q = destQ;
+  }
+
+  void r1() {
     tape1[activeIndex1].setIsCurrent(false);
     activeIndex1++;
     jumpToItem1();
     tape1[activeIndex1].setIsCurrent(true);
   }
 
-  void L1() {
+  void l1() {
     tape1[activeIndex1].setIsCurrent(false);
     activeIndex1--;
     jumpToItem1();
     tape1[activeIndex1].setIsCurrent(true);
   }
 
-  void R2() {
+  void r2() {
     tape2[activeIndex2].setIsCurrent(false);
     activeIndex2++;
     jumpToItem2();
     tape2[activeIndex2].setIsCurrent(true);
   }
 
-  void L2() {
+  void l2() {
     tape2[activeIndex2].setIsCurrent(false);
     activeIndex2--;
     jumpToItem2();
     tape2[activeIndex2].setIsCurrent(true);
   }
 
-  void R3() {
+  void r3() {
     tape3[activeIndex3].setIsCurrent(false);
     activeIndex3++;
     jumpToItem3();
     tape3[activeIndex3].setIsCurrent(true);
   }
 
-  void L3() {
+  void l3() {
     tape3[activeIndex3].setIsCurrent(false);
     activeIndex3--;
     jumpToItem3();
