@@ -65,10 +65,7 @@ class _STMFaktorialScreen extends State<STMFaktorialScreen> {
     }
 
     tape.add(Item('1', false));
-
-    tape.add(Item('B', false));
-    tape.add(Item('B', false));
-    tape.add(Item('B', false));
+    for (int i = 0; i < 100; i++) tape.add(Item('B', false));
 
     for (int i = 0; i < (total - 2) / 2; i++) {
       tape.add(Item('-1', false));
@@ -539,7 +536,7 @@ class _STMFaktorialScreen extends State<STMFaktorialScreen> {
         }
       case 'X':
         {
-          state('X', 'L', 2);
+          state('X', 'L', 22);
           break;
         }
     }

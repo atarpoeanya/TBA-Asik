@@ -79,10 +79,7 @@ class _STMPangkatScreen extends State<STMPangkatScreen> {
         tape.add(Item('0', false));
       }
     }
-
-    tape.add(Item('B', false));
-    tape.add(Item('B', false));
-    tape.add(Item('B', false));
+    for (int i = 0; i < 100; i++) tape.add(Item('B', false));
 
     for (int i = 0; i < (total - 2) / 2; i++) {
       tape.add(Item('-1', false));
