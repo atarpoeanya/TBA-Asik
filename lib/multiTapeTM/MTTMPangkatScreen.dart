@@ -659,12 +659,12 @@ class _MTTMPangkatScreen extends State<MTTMPangkatScreen> {
     String c = tape3[activeIndex3].getContent();
     String d = tape4[activeIndex4].getContent();
     switch(a + b + c + d) {
-      case '': {
-        state('', '', );
+      case '0BBB': {
+        state('B000', 'RRRR', 1);
         break;
       }
-      case '': {
-        state('', '', );
+      case '1BBB': {
+        state('BBBB', 'RSSS', 2);
         break;
       }
     }
@@ -676,8 +676,16 @@ class _MTTMPangkatScreen extends State<MTTMPangkatScreen> {
     String c = tape3[activeIndex3].getContent();
     String d = tape4[activeIndex4].getContent();
     switch(a + b + c + d) {
-      case '': {
-        state('', '', );
+      case 'XBBB': {
+        state('BBBB', 'RSLS', 3);
+        break;
+      }
+      case 'YBBB': {
+        state('BBBB', 'SSSL', 16);
+        break;
+      }
+      case 'BBBB': {
+        state('BBBB', 'SSSL', 16);
         break;
       }
     }
@@ -689,8 +697,16 @@ class _MTTMPangkatScreen extends State<MTTMPangkatScreen> {
     String c = tape3[activeIndex3].getContent();
     String d = tape4[activeIndex4].getContent();
     switch(a + b + c + d) {
-      case '': {
-        state('', '', );
+      case '000B': {
+        state('0000', 'SSLR', 3);
+        break;
+      }
+      case '00BB': {
+        state('00BB', 'SRRS', 4);
+        break;
+      }
+      case '0B0B': {
+        state('BB0B', 'RSSS', 5);
         break;
       }
     }
@@ -702,8 +718,16 @@ class _MTTMPangkatScreen extends State<MTTMPangkatScreen> {
     String c = tape3[activeIndex3].getContent();
     String d = tape4[activeIndex4].getContent();
     switch(a + b + c + d) {
-      case '': {
-        state('', '', );
+      case '000B': {
+        state('0000', 'SSRR', 4);
+        break;
+      }
+      case '00BB': {
+        state('00BB', 'SRLS', 3);
+        break;
+      }
+      case '0B0B': {
+        state('BB0B', 'RSSS', 6);
         break;
       }
     }
@@ -715,8 +739,16 @@ class _MTTMPangkatScreen extends State<MTTMPangkatScreen> {
     String c = tape3[activeIndex3].getContent();
     String d = tape4[activeIndex4].getContent();
     switch(a + b + c + d) {
-      case '': {
-        state('', '', );
+      case '0B0B': {
+        state('0BBB', 'SSLS', 5);
+        break;
+      }
+      case '0BBB': {
+        state('0BBB', 'SSSL', 7);
+        break;
+      }
+      case 'BB0B': {
+        state('BB0B', 'SSSS', 17);
         break;
       }
     }
@@ -728,8 +760,16 @@ class _MTTMPangkatScreen extends State<MTTMPangkatScreen> {
     String c = tape3[activeIndex3].getContent();
     String d = tape4[activeIndex4].getContent();
     switch(a + b + c + d) {
-      case '': {
-        state('', '', );
+      case '0B0B': {
+        state('0BBB', 'SSRS', 6);
+        break;
+      }
+      case '0BBB': {
+        state('0BBB', 'SSSL', 8);
+        break;
+      }
+      case 'BB0B': {
+        state('BB0B', 'SSSS', 17);
         break;
       }
     }
@@ -741,8 +781,12 @@ class _MTTMPangkatScreen extends State<MTTMPangkatScreen> {
     String c = tape3[activeIndex3].getContent();
     String d = tape4[activeIndex4].getContent();
     switch(a + b + c + d) {
-      case '': {
-        state('', '', );
+      case '0BB0': {
+        state('0B0B', 'SSRL', 7);
+        break;
+      }
+      case '0BBB': {
+        state('0BBB', 'SLLS', 9);
         break;
       }
     }
@@ -754,8 +798,12 @@ class _MTTMPangkatScreen extends State<MTTMPangkatScreen> {
     String c = tape3[activeIndex3].getContent();
     String d = tape4[activeIndex4].getContent();
     switch(a + b + c + d) {
-      case '': {
-        state('', '', );
+      case '0BB0': {
+        state('0B0B', 'SSLL', 8);
+        break;
+      }
+      case '0BBB': {
+        state('0BBB', 'SLRS', 10);
         break;
       }
     }
@@ -767,8 +815,16 @@ class _MTTMPangkatScreen extends State<MTTMPangkatScreen> {
     String c = tape3[activeIndex3].getContent();
     String d = tape4[activeIndex4].getContent();
     switch(a + b + c + d) {
-      case '': {
-        state('', '', );
+      case '000B': {
+        state('0000', 'SSLR', 9);
+        break;
+      }
+      case '00BB': {
+        state('00BB', 'SLRS', 10);
+        break;
+      }
+      case '0B0B': {
+        state('BB0B', 'RSSS', 11);
         break;
       }
     }
@@ -780,8 +836,16 @@ class _MTTMPangkatScreen extends State<MTTMPangkatScreen> {
     String c = tape3[activeIndex3].getContent();
     String d = tape4[activeIndex4].getContent();
     switch(a + b + c + d) {
-      case '': {
-        state('', '', );
+      case '000B': {
+        state('0000', 'SSRR', 10);
+        break;
+      }
+      case '00BB': {
+        state('00BB', 'SLLS', 9);
+        break;
+      }
+      case '0B0B': {
+        state('BB0B', 'RSSS', 12);
         break;
       }
     }
@@ -793,8 +857,16 @@ class _MTTMPangkatScreen extends State<MTTMPangkatScreen> {
     String c = tape3[activeIndex3].getContent();
     String d = tape4[activeIndex4].getContent();
     switch(a + b + c + d) {
-      case '': {
-        state('', '', );
+      case '0B0B': {
+        state('0BBB', 'SSLS', 11);
+        break;
+      }
+      case '0BBB': {
+        state('0BBB', 'SSSL', 13);
+        break;
+      }
+      case 'BB0B': {
+        state('BB0B', 'SSSS', 17);
         break;
       }
     }
@@ -806,8 +878,16 @@ class _MTTMPangkatScreen extends State<MTTMPangkatScreen> {
     String c = tape3[activeIndex3].getContent();
     String d = tape4[activeIndex4].getContent();
     switch(a + b + c + d) {
-      case '': {
-        state('', '', );
+      case '0B0B': {
+        state('0BBB', 'SSRS', 12);
+        break;
+      }
+      case '0BBB': {
+        state('0BBB', 'SSSL', 14);
+        break;
+      }
+      case 'BB0B': {
+        state('BB0B', 'SSSS', 17);
         break;
       }
     }
@@ -819,8 +899,12 @@ class _MTTMPangkatScreen extends State<MTTMPangkatScreen> {
     String c = tape3[activeIndex3].getContent();
     String d = tape4[activeIndex4].getContent();
     switch(a + b + c + d) {
-      case '': {
-        state('', '', );
+      case '0BB0': {
+        state('0B0B', 'SSRL', 13);
+        break;
+      }
+      case '0BBB': {
+        state('0BBB', 'SRLS', 3);
         break;
       }
     }
@@ -832,8 +916,12 @@ class _MTTMPangkatScreen extends State<MTTMPangkatScreen> {
     String c = tape3[activeIndex3].getContent();
     String d = tape4[activeIndex4].getContent();
     switch(a + b + c + d) {
-      case '': {
-        state('', '', );
+      case '0BB0': {
+        state('0B0B', 'SSLL', 14);
+        break;
+      }
+      case '0BBB': {
+        state('0BBB', 'SRRS', 4);
         break;
       }
     }
@@ -845,8 +933,8 @@ class _MTTMPangkatScreen extends State<MTTMPangkatScreen> {
     String c = tape3[activeIndex3].getContent();
     String d = tape4[activeIndex4].getContent();
     switch(a + b + c + d) {
-      case '': {
-        state('', '', );
+      case 'BBBB': {
+        state('BBBX', 'SSSR', 17);
         break;
       }
     }
@@ -858,8 +946,12 @@ class _MTTMPangkatScreen extends State<MTTMPangkatScreen> {
     String c = tape3[activeIndex3].getContent();
     String d = tape4[activeIndex4].getContent();
     switch(a + b + c + d) {
-      case '': {
-        state('', '', );
+      case 'BBB0': {
+        state('BBBB', 'SSSL', 16);
+        break;
+      }
+      case 'BBBB': {
+        state('BBBY', 'SSSR', 15);
         break;
       }
     }

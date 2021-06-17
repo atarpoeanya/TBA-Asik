@@ -446,8 +446,6 @@ class _MTTMLogaritmaBinerScreen extends State<MTTMLogaritmaBinerScreen> {
             q9();
           } else if(q == 10) {
             q10();
-          } else if(q == 11) {
-            q11();
           }
         } else {
           timer.cancel();
@@ -461,8 +459,16 @@ class _MTTMLogaritmaBinerScreen extends State<MTTMLogaritmaBinerScreen> {
     String b = tape2[activeIndex2].getContent();
     String c = tape3[activeIndex3].getContent();
     switch(a + b + c) {
-      case '': {
-        state('', '', );
+      case 'XBB': {
+        state('BBB', 'RSS', 1);
+        break;
+      }
+      case 'YBB': {
+        state('BBY', 'SSR', 10);
+        break;
+      }
+      case '1BB': {
+        state('BBY', 'SSR', 10);
         break;
       }
     }
@@ -473,8 +479,12 @@ class _MTTMLogaritmaBinerScreen extends State<MTTMLogaritmaBinerScreen> {
     String b = tape2[activeIndex2].getContent();
     String c = tape3[activeIndex3].getContent();
     switch(a + b + c) {
-      case '': {
-        state('', '', );
+      case '0BB': {
+        state('0BB', 'RSS', 1);
+        break;
+      }
+      case '1BB': {
+        state('BBB', 'LSS', 2);
         break;
       }
     }
@@ -485,8 +495,8 @@ class _MTTMLogaritmaBinerScreen extends State<MTTMLogaritmaBinerScreen> {
     String b = tape2[activeIndex2].getContent();
     String c = tape3[activeIndex3].getContent();
     switch(a + b + c) {
-      case '': {
-        state('', '', );
+      case '0BB': {
+        state('BBB', 'LSS', 3);
         break;
       }
     }
@@ -497,8 +507,12 @@ class _MTTMLogaritmaBinerScreen extends State<MTTMLogaritmaBinerScreen> {
     String b = tape2[activeIndex2].getContent();
     String c = tape3[activeIndex3].getContent();
     switch(a + b + c) {
-      case '': {
-        state('', '', );
+      case '0BB': {
+        state('B0B', 'LRS', 4);
+        break;
+      }
+      case 'BBB': {
+        state('BBB', 'SSL', 6);
         break;
       }
     }
@@ -509,8 +523,12 @@ class _MTTMLogaritmaBinerScreen extends State<MTTMLogaritmaBinerScreen> {
     String b = tape2[activeIndex2].getContent();
     String c = tape3[activeIndex3].getContent();
     switch(a + b + c) {
-      case '': {
-        state('', '', );
+      case '0BB': {
+        state('BBB', 'SSS', 2);
+        break;
+      }
+      case 'BBB': {
+        state('BB0', 'SLR', 5);
         break;
       }
     }
@@ -521,8 +539,12 @@ class _MTTMLogaritmaBinerScreen extends State<MTTMLogaritmaBinerScreen> {
     String b = tape2[activeIndex2].getContent();
     String c = tape3[activeIndex3].getContent();
     switch(a + b + c) {
-      case '': {
-        state('', '', );
+      case 'B0B': {
+        state('0BB', 'RLS', 5);
+        break;
+      }
+      case 'BBB': {
+        state('BBB', 'LSS', 2);
         break;
       }
     }
@@ -533,8 +555,12 @@ class _MTTMLogaritmaBinerScreen extends State<MTTMLogaritmaBinerScreen> {
     String b = tape2[activeIndex2].getContent();
     String c = tape3[activeIndex3].getContent();
     switch(a + b + c) {
-      case '': {
-        state('', '', );
+      case 'BBB': {
+        state('BBY', 'SSR', 9);
+        break;
+      }
+      case 'BB0': {
+        state('BB0', 'SLR', 7);
         break;
       }
     }
@@ -545,8 +571,12 @@ class _MTTMLogaritmaBinerScreen extends State<MTTMLogaritmaBinerScreen> {
     String b = tape2[activeIndex2].getContent();
     String c = tape3[activeIndex3].getContent();
     switch(a + b + c) {
-      case '': {
-        state('', '', );
+      case 'BBB': {
+        state('BBB', 'SSS', 10);
+        break;
+      }
+      case 'B0B': {
+        state('BBB', 'SSL', 8);
         break;
       }
     }
@@ -557,8 +587,12 @@ class _MTTMLogaritmaBinerScreen extends State<MTTMLogaritmaBinerScreen> {
     String b = tape2[activeIndex2].getContent();
     String c = tape3[activeIndex3].getContent();
     switch(a + b + c) {
-      case '': {
-        state('', '', );
+      case 'BB0': {
+        state('BBB', 'SSL', 8);
+        break;
+      }
+      case 'BBB': {
+        state('BBY', 'SSR', 9);
         break;
       }
     }
@@ -569,32 +603,20 @@ class _MTTMLogaritmaBinerScreen extends State<MTTMLogaritmaBinerScreen> {
     String b = tape2[activeIndex2].getContent();
     String c = tape3[activeIndex3].getContent();
     switch(a + b + c) {
-      case '': {
-        state('', '', );
+      case 'BBB': {
+        state('BBX', 'SSR', 10);
         break;
       }
     }
   }
 
   void q10() {
-    String a = tape1[activeIndex1].getContent();
-    String b = tape2[activeIndex2].getContent();
-    String c = tape3[activeIndex3].getContent();
-    switch(a + b + c) {
-      case '': {
-        state('', '', );
-        break;
-      }
-    }
-  }
-
-  void q11() {
     int xCount = tape3.where((item) => item.getContent() == 'X').toList().length;
     int yCount = tape3.where((item) => item.getContent() == 'Y').toList().length;
     int zeroCount = tape3.where((item) => item.getContent() == '0').toList().length;
     if(xCount == 1 && yCount == 1) {
       hasil = 'Tidak dapat diselesaikan';
-    } else if(xCount == 1) {
+    } else {
       hasil = zeroCount.toString();
     }
     q = -1;
