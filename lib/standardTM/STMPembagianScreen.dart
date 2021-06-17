@@ -357,6 +357,10 @@ class _STMPembagianScreen extends State<STMPembagianScreen> {
         break;
       }
       case 'B': {
+        tape[activeIndex + 3].setContent('B');
+        tape.add(
+          Item('-1', false)
+        );
         state('Y', 'L', 7);
         break;
       }
@@ -400,6 +404,10 @@ class _STMPembagianScreen extends State<STMPembagianScreen> {
         break;
       }
       case 'B': {
+        tape[activeIndex + 3].setContent('B');
+        tape.add(
+          Item('-1', false)
+        );
         state('X', 'L', 7);
         break;
       }

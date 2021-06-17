@@ -47,9 +47,15 @@ class _STMFaktorialScreen extends State<STMFaktorialScreen> {
       activeIndex++;
     }
 
-    tape.add(Item('B', false));
-    tape.add(Item('B', false));
-    tape.add(Item('B', false));
+    tape.add(
+      Item('B', false)
+    );
+    tape.add(
+      Item('B', false)
+    );
+    tape.add(
+      Item('B', false)
+    );
 
     if (this.widget.A < 0) {
       tape.add(Item('Y', false));
@@ -64,11 +70,24 @@ class _STMFaktorialScreen extends State<STMFaktorialScreen> {
       }
     }
 
-    tape.add(Item('1', false));
-    for (int i = 0; i < 100; i++) tape.add(Item('B', false));
+    tape.add(
+      Item('1', false)
+    );
 
-    for (int i = 0; i < (total - 2) / 2; i++) {
-      tape.add(Item('-1', false));
+    tape.add(
+      Item('B', false)
+    );
+    tape.add(
+      Item('B', false)
+    );
+    tape.add(
+      Item('B', false)
+    );
+
+    for(int i = 0; i < (total - 2) / 2; i++) {
+      tape.add(
+        Item('-1', false)
+      );
     }
   }
 
@@ -296,6 +315,10 @@ class _STMFaktorialScreen extends State<STMFaktorialScreen> {
     switch (tape[activeIndex].getContent()) {
       case 'B':
         {
+          tape[activeIndex + 3].setContent('B');
+          tape.add(
+            Item('-1', false)
+          );
           state('X', 'L', 3);
           break;
         }
@@ -376,6 +399,10 @@ class _STMFaktorialScreen extends State<STMFaktorialScreen> {
         }
       case 'B':
         {
+          tape[activeIndex + 3].setContent('B');
+          tape.add(
+            Item('-1', false)
+          );
           state('0', 'L', 9);
           break;
         }
@@ -556,6 +583,10 @@ class _STMFaktorialScreen extends State<STMFaktorialScreen> {
         }
       case 'B':
         {
+          tape[activeIndex + 3].setContent('B');
+          tape.add(
+            Item('-1', false)
+          );
           state('0', 'L', 21);
           break;
         }
@@ -684,7 +715,7 @@ class _STMFaktorialScreen extends State<STMFaktorialScreen> {
           state('B', 'R', 30);
           break;
         }
-      case 'B':
+      case '1':
         {
           state('Y', 'R', 31);
           break;

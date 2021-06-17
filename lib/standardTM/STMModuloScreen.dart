@@ -690,16 +690,28 @@ class _STMModuloScreen extends State<STMModuloScreen> {
     switch (tape[activeIndex].getContent()) {
       case 'X':
         {
+          tape[activeIndex + 3].setContent('B');
+          tape.add(
+            Item('-1', false)
+          );
           state('B', 'R', 28);
           break;
         }
       case 'Y':
         {
+          tape[activeIndex + 3].setContent('B');
+          tape.add(
+            Item('-1', false)
+          );
           state('B', 'R', 28);
           break;
         }
       case 'B':
         {
+          tape[activeIndex + 3].setContent('B');
+          tape.add(
+            Item('-1', false)
+          );
           state('B', 'R', 28);
           break;
         }
@@ -715,6 +727,10 @@ class _STMModuloScreen extends State<STMModuloScreen> {
         }
       case 'B':
         {
+          tape[activeIndex + 3].setContent('B');
+          tape.add(
+            Item('-1', false)
+          );
           state('Y', 'R', 34);
           break;
         }
@@ -785,6 +801,10 @@ class _STMModuloScreen extends State<STMModuloScreen> {
         }
       case 'B':
         {
+          tape[activeIndex + 3].setContent('B');
+          tape.add(
+            Item('-1', false)
+          );
           state('Y', 'R', 34);
           break;
         }
@@ -795,6 +815,10 @@ class _STMModuloScreen extends State<STMModuloScreen> {
     switch (tape[activeIndex].getContent()) {
       case 'B':
         {
+          tape[activeIndex + 3].setContent('B');
+          tape.add(
+            Item('-1', false)
+          );
           state('X', 'R', 35);
           break;
         }
