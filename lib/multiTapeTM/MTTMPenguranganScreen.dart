@@ -192,7 +192,7 @@ class _MTTMPenguranganScreen extends State<MTTMPenguranganScreen> {
         tape2.add(
           Item('B', false)
         );
-        xIsPlus = false;
+        xIsPlus = true;
         int tempB = this.widget.B * -1;
         for(int i = 0; i < tempB; i++) {
           tape1.add(
@@ -209,7 +209,7 @@ class _MTTMPenguranganScreen extends State<MTTMPenguranganScreen> {
         tape2.add(
           Item('B', false)
         );
-        xIsPlus = true;
+        xIsPlus = false;
         for(int i = 0; i < this.widget.B; i++) {
           tape1.add(
             Item('0', false)
@@ -266,7 +266,7 @@ class _MTTMPenguranganScreen extends State<MTTMPenguranganScreen> {
           },
         ),
         title: Text(
-          'Standard Turing Machine',
+          'Multi Tape Turing Machine',
           style: TextStyle(
             color: Colors.white,
           ),
@@ -526,6 +526,12 @@ class _MTTMPenguranganScreen extends State<MTTMPenguranganScreen> {
         break;
       }
       case 'BB': {
+        tape2[activeIndex2 - 3].setContent('B');
+        tape2.insert(
+          0,
+          Item('-1', false),
+        );
+        activeIndex2++;
         state('BX', 'SR', 5);
         break;
       }
@@ -560,6 +566,12 @@ class _MTTMPenguranganScreen extends State<MTTMPenguranganScreen> {
         break;
       }
       case '0B': {
+        tape2[activeIndex2 - 3].setContent('B');
+        tape2.insert(
+          0,
+          Item('-1', false),
+        );
+        activeIndex2++;
         state('0Y', 'SR', 7);
         break;
       }

@@ -61,6 +61,7 @@ class _MTTMPembagianScreen extends State<MTTMPembagianScreen> {
       );
       activeIndex1++;
       activeIndex2++;
+      activeIndex3++;
     }
 
     tape1.add(
@@ -251,7 +252,7 @@ class _MTTMPembagianScreen extends State<MTTMPembagianScreen> {
           },
         ),
         title: Text(
-          'Standard Turing Machine',
+          'Multi Tape Turing Machine',
           style: TextStyle(
             color: Colors.white,
           ),
@@ -503,7 +504,7 @@ class _MTTMPembagianScreen extends State<MTTMPembagianScreen> {
   void q0() {
     String a = tape1[activeIndex1].getContent();
     String b = tape2[activeIndex2].getContent();
-    String c = tape2[activeIndex3].getContent();
+    String c = tape3[activeIndex3].getContent();
     switch(a + b + c) {
       case 'XBB': {
         state('BBX', 'RSS', 1);
@@ -523,7 +524,7 @@ class _MTTMPembagianScreen extends State<MTTMPembagianScreen> {
   void q1() {
     String a = tape1[activeIndex1].getContent();
     String b = tape2[activeIndex2].getContent();
-    String c = tape2[activeIndex3].getContent();
+    String c = tape3[activeIndex3].getContent();
     switch(a + b + c) {
       case '0BX': {
         state('B0X', 'RRS', 1);
@@ -547,7 +548,7 @@ class _MTTMPembagianScreen extends State<MTTMPembagianScreen> {
   void q2() {
     String a = tape1[activeIndex1].getContent();
     String b = tape2[activeIndex2].getContent();
-    String c = tape2[activeIndex3].getContent();
+    String c = tape3[activeIndex3].getContent();
     switch(a + b + c) {
       case 'XBX': {
         state('BBX', 'RLR', 3);
@@ -579,7 +580,7 @@ class _MTTMPembagianScreen extends State<MTTMPembagianScreen> {
   void q3() {
     String a = tape1[activeIndex1].getContent();
     String b = tape2[activeIndex2].getContent();
-    String c = tape2[activeIndex3].getContent();
+    String c = tape3[activeIndex3].getContent();
     switch(a + b + c) {
       case '00B': {
         state('0BB', 'RLS', 3);
@@ -603,7 +604,7 @@ class _MTTMPembagianScreen extends State<MTTMPembagianScreen> {
   void q4() {
     String a = tape1[activeIndex1].getContent();
     String b = tape2[activeIndex2].getContent();
-    String c = tape2[activeIndex3].getContent();
+    String c = tape3[activeIndex3].getContent();
     switch(a + b + c) {
       case '00B': {
         state('0BB', 'LLS', 4);
@@ -627,7 +628,7 @@ class _MTTMPembagianScreen extends State<MTTMPembagianScreen> {
   void q5() {
     String a = tape1[activeIndex1].getContent();
     String b = tape2[activeIndex2].getContent();
-    String c = tape2[activeIndex3].getContent();
+    String c = tape3[activeIndex3].getContent();
     switch(a + b + c) {
       case '0B0': {
         state('0BB', 'SSL', 5);
@@ -647,7 +648,7 @@ class _MTTMPembagianScreen extends State<MTTMPembagianScreen> {
   void q6() {
     String a = tape1[activeIndex1].getContent();
     String b = tape2[activeIndex2].getContent();
-    String c = tape2[activeIndex3].getContent();
+    String c = tape3[activeIndex3].getContent();
     switch(a + b + c) {
       case '0BB': {
         state('0BX', 'SSR', 10);
@@ -659,7 +660,7 @@ class _MTTMPembagianScreen extends State<MTTMPembagianScreen> {
   void q7() {
     String a = tape1[activeIndex1].getContent();
     String b = tape2[activeIndex2].getContent();
-    String c = tape2[activeIndex3].getContent();
+    String c = tape3[activeIndex3].getContent();
     switch(a + b + c) {
       case 'BBB': {
         state('BBY', 'SSR', 8);
@@ -679,7 +680,7 @@ class _MTTMPembagianScreen extends State<MTTMPembagianScreen> {
   void q8() {
     String a = tape1[activeIndex1].getContent();
     String b = tape2[activeIndex2].getContent();
-    String c = tape2[activeIndex3].getContent();
+    String c = tape3[activeIndex3].getContent();
     switch(a + b + c) {
       case 'BBB': {
         state('BBX', 'SSR', 10);
@@ -691,7 +692,7 @@ class _MTTMPembagianScreen extends State<MTTMPembagianScreen> {
   void q9() {
     String a = tape1[activeIndex1].getContent();
     String b = tape2[activeIndex2].getContent();
-    String c = tape2[activeIndex3].getContent();
+    String c = tape3[activeIndex3].getContent();
     switch(a + b + c) {
       case 'BBB': {
         state('BBX', 'SSR', 10);

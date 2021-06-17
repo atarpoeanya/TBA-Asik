@@ -195,7 +195,7 @@ class _MTTMModuloScreen extends State<MTTMModuloScreen> {
           },
         ),
         title: Text(
-          'Standard Turing Machine',
+          'Multi Tape Turing Machine',
           style: TextStyle(
             color: Colors.white,
           ),
@@ -579,17 +579,17 @@ class _MTTMModuloScreen extends State<MTTMModuloScreen> {
   }
 
   void r2() {
-    tape1[activeIndex2].setIsCurrent(false);
+    tape2[activeIndex2].setIsCurrent(false);
     activeIndex2++;
     jumpToItem2();
-    tape1[activeIndex2].setIsCurrent(true);
+    tape2[activeIndex2].setIsCurrent(true);
   }
 
   void l2() {
-    tape1[activeIndex2].setIsCurrent(false);
+    tape2[activeIndex2].setIsCurrent(false);
     activeIndex2--;
     jumpToItem2();
-    tape1[activeIndex2].setIsCurrent(true);
+    tape2[activeIndex2].setIsCurrent(true);
   }
 
   @override

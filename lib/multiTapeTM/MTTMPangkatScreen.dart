@@ -67,6 +67,8 @@ class _MTTMPangkatScreen extends State<MTTMPangkatScreen> {
       );
       activeIndex1++;
       activeIndex2++;
+      activeIndex3++;
+      activeIndex4++;
     }
 
     tape1.add(
@@ -307,7 +309,7 @@ class _MTTMPangkatScreen extends State<MTTMPangkatScreen> {
           },
         ),
         title: Text(
-          'Standard Turing Machine',
+          'Multi Tape Turing Machine',
           style: TextStyle(
             color: Colors.white,
           ),
@@ -318,7 +320,7 @@ class _MTTMPangkatScreen extends State<MTTMPangkatScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(this.widget.A.toString() + ' / ' + this.widget.B.toString()),
+            Text(this.widget.A.toString() + ' ^ ' + this.widget.B.toString()),
             Container(
               margin: EdgeInsets.only(
                 top: 16.0,
@@ -698,6 +700,20 @@ class _MTTMPangkatScreen extends State<MTTMPangkatScreen> {
     String d = tape4[activeIndex4].getContent();
     switch(a + b + c + d) {
       case '000B': {
+        if(tape4[activeIndex4 + 3].getContent() == '-1') {
+          tape4[activeIndex4 + 3].setContent('B');
+          tape4.add(
+            Item('-1', false)
+          );
+        }
+        if(tape3[activeIndex3 - 3].getContent() == '-1') {
+          tape3[activeIndex3 - 3].setContent('B');
+          tape3.insert(
+            0,
+            Item('-1', false),
+          );
+          activeIndex3++;
+        }
         state('0000', 'SSLR', 3);
         break;
       }
@@ -719,6 +735,18 @@ class _MTTMPangkatScreen extends State<MTTMPangkatScreen> {
     String d = tape4[activeIndex4].getContent();
     switch(a + b + c + d) {
       case '000B': {
+        if(tape4[activeIndex4 + 3].getContent() == '-1') {
+          tape4[activeIndex4 + 3].setContent('B');
+          tape4.add(
+            Item('-1', false)
+          );
+        }
+        if(tape3[activeIndex3 + 3].getContent() == '-1') {
+          tape3[activeIndex3 + 3].setContent('B');
+          tape3.add(
+            Item('-1', false)
+          );
+        }
         state('0000', 'SSRR', 4);
         break;
       }
@@ -740,6 +768,14 @@ class _MTTMPangkatScreen extends State<MTTMPangkatScreen> {
     String d = tape4[activeIndex4].getContent();
     switch(a + b + c + d) {
       case '0B0B': {
+        if(tape3[activeIndex3 - 3].getContent() == '-1') {
+          tape3[activeIndex3 - 3].setContent('B');
+          tape3.insert(
+            0,
+            Item('-1', false),
+          );
+          activeIndex3++;
+        }
         state('0BBB', 'SSLS', 5);
         break;
       }
@@ -761,6 +797,12 @@ class _MTTMPangkatScreen extends State<MTTMPangkatScreen> {
     String d = tape4[activeIndex4].getContent();
     switch(a + b + c + d) {
       case '0B0B': {
+        if(tape3[activeIndex3 + 3].getContent() == '-1') {
+          tape3[activeIndex3 + 3].setContent('B');
+          tape3.add(
+            Item('-1', false)
+          );
+        }
         state('0BBB', 'SSRS', 6);
         break;
       }
@@ -782,6 +824,20 @@ class _MTTMPangkatScreen extends State<MTTMPangkatScreen> {
     String d = tape4[activeIndex4].getContent();
     switch(a + b + c + d) {
       case '0BB0': {
+        if(tape3[activeIndex3 + 3].getContent() == '-1') {
+          tape3[activeIndex3 + 3].setContent('B');
+          tape3.add(
+            Item('-1', false)
+          );
+        }
+        if(tape4[activeIndex4 - 3].getContent() == '-1') {
+          tape4[activeIndex4 - 3].setContent('B');
+          tape4.insert(
+            0,
+            Item('-1', false),
+          );
+          activeIndex4++;
+        }
         state('0B0B', 'SSRL', 7);
         break;
       }
@@ -799,6 +855,22 @@ class _MTTMPangkatScreen extends State<MTTMPangkatScreen> {
     String d = tape4[activeIndex4].getContent();
     switch(a + b + c + d) {
       case '0BB0': {
+        if(tape3[activeIndex3 - 3].getContent() == '-1') {
+          tape3[activeIndex3 - 3].setContent('B');
+          tape3.insert(
+            0,
+            Item('-1', false),
+          );
+          activeIndex3++;
+        }
+        if(tape4[activeIndex4 - 3].getContent() == '-1') {
+          tape4[activeIndex4 - 3].setContent('B');
+          tape4.insert(
+            0,
+            Item('-1', false),
+          );
+          activeIndex4++;
+        }
         state('0B0B', 'SSLL', 8);
         break;
       }
@@ -816,6 +888,20 @@ class _MTTMPangkatScreen extends State<MTTMPangkatScreen> {
     String d = tape4[activeIndex4].getContent();
     switch(a + b + c + d) {
       case '000B': {
+        if(tape4[activeIndex4 + 3].getContent() == '-1') {
+          tape4[activeIndex4 + 3].setContent('B');
+          tape4.add(
+            Item('-1', false)
+          );
+        }
+        if(tape3[activeIndex3 - 3].getContent() == '-1') {
+          tape3[activeIndex3 - 3].setContent('B');
+          tape3.insert(
+            0,
+            Item('-1', false),
+          );
+          activeIndex3++;
+        }
         state('0000', 'SSLR', 9);
         break;
       }
@@ -837,6 +923,18 @@ class _MTTMPangkatScreen extends State<MTTMPangkatScreen> {
     String d = tape4[activeIndex4].getContent();
     switch(a + b + c + d) {
       case '000B': {
+        if(tape4[activeIndex4 + 3].getContent() == '-1') {
+          tape4[activeIndex4 + 3].setContent('B');
+          tape4.add(
+            Item('-1', false)
+          );
+        }
+        if(tape3[activeIndex3 + 3].getContent() == '-1') {
+          tape3[activeIndex3 + 3].setContent('B');
+          tape3.add(
+            Item('-1', false)
+          );
+        }
         state('0000', 'SSRR', 10);
         break;
       }
@@ -858,6 +956,14 @@ class _MTTMPangkatScreen extends State<MTTMPangkatScreen> {
     String d = tape4[activeIndex4].getContent();
     switch(a + b + c + d) {
       case '0B0B': {
+        if(tape3[activeIndex3 - 3].getContent() == '-1') {
+          tape3[activeIndex3 - 3].setContent('B');
+          tape3.insert(
+            0,
+            Item('-1', false),
+          );
+          activeIndex3++;
+        }
         state('0BBB', 'SSLS', 11);
         break;
       }
@@ -879,6 +985,12 @@ class _MTTMPangkatScreen extends State<MTTMPangkatScreen> {
     String d = tape4[activeIndex4].getContent();
     switch(a + b + c + d) {
       case '0B0B': {
+        if(tape3[activeIndex3 + 3].getContent() == '-1') {
+          tape3[activeIndex3 + 3].setContent('B');
+          tape3.add(
+            Item('-1', false)
+          );
+        }
         state('0BBB', 'SSRS', 12);
         break;
       }
@@ -900,6 +1012,20 @@ class _MTTMPangkatScreen extends State<MTTMPangkatScreen> {
     String d = tape4[activeIndex4].getContent();
     switch(a + b + c + d) {
       case '0BB0': {
+        if(tape3[activeIndex3 + 3].getContent() == '-1') {
+          tape3[activeIndex3 + 3].setContent('B');
+          tape3.add(
+            Item('-1', false)
+          );
+        }
+        if(tape4[activeIndex4 - 3].getContent() == '-1') {
+          tape4[activeIndex4 - 3].setContent('B');
+          tape4.insert(
+            0,
+            Item('-1', false),
+          );
+          activeIndex4++;
+        }
         state('0B0B', 'SSRL', 13);
         break;
       }
@@ -917,6 +1043,22 @@ class _MTTMPangkatScreen extends State<MTTMPangkatScreen> {
     String d = tape4[activeIndex4].getContent();
     switch(a + b + c + d) {
       case '0BB0': {
+        if(tape3[activeIndex3 - 3].getContent() == '-1') {
+          tape3[activeIndex3 - 3].setContent('B');
+          tape3.insert(
+            0,
+            Item('-1', false),
+          );
+          activeIndex3++;
+        }
+        if(tape4[activeIndex4 - 3].getContent() == '-1') {
+          tape4[activeIndex4 - 3].setContent('B');
+          tape4.insert(
+            0,
+            Item('-1', false),
+          );
+          activeIndex4++;
+        }
         state('0B0B', 'SSLL', 14);
         break;
       }

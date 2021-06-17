@@ -60,6 +60,7 @@ class _MTTMLogaritmaBinerScreen extends State<MTTMLogaritmaBinerScreen> {
       );
       activeIndex1++;
       activeIndex2++;
+      activeIndex3++;
     }
 
     tape1.add(
@@ -205,7 +206,7 @@ class _MTTMLogaritmaBinerScreen extends State<MTTMLogaritmaBinerScreen> {
           },
         ),
         title: Text(
-          'Standard Turing Machine',
+          'Multi Tape Turing Machine',
           style: TextStyle(
             color: Colors.white,
           ),
@@ -216,7 +217,7 @@ class _MTTMLogaritmaBinerScreen extends State<MTTMLogaritmaBinerScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(this.widget.A.toString() + '!'),
+            Text('log\u{2082}' + this.widget.A.toString()),
             Container(
               margin: EdgeInsets.only(
                 top: 16.0,
@@ -464,11 +465,11 @@ class _MTTMLogaritmaBinerScreen extends State<MTTMLogaritmaBinerScreen> {
         break;
       }
       case 'YBB': {
-        state('BBY', 'SSR', 10);
+        state('BBY', 'SSR', 9);
         break;
       }
       case '1BB': {
-        state('BBY', 'SSR', 10);
+        state('BBY', 'SSR', 9);
         break;
       }
     }
@@ -508,6 +509,22 @@ class _MTTMLogaritmaBinerScreen extends State<MTTMLogaritmaBinerScreen> {
     String c = tape3[activeIndex3].getContent();
     switch(a + b + c) {
       case '0BB': {
+        if(tape1[activeIndex1 - 3].getContent() == '-1') {
+          tape1[activeIndex1 - 3].setContent('B');
+          tape1.insert(
+            0,
+            Item('-1', false),
+          );
+          activeIndex1++;
+        }
+        if(tape2[activeIndex2 - 3].getContent() == '-1') {
+          tape2[activeIndex2 - 3].setContent('B');
+          tape2.insert(
+            0,
+            Item('-1', false),
+          );
+          activeIndex2++;
+        }
         state('B0B', 'LRS', 4);
         break;
       }
@@ -524,7 +541,7 @@ class _MTTMLogaritmaBinerScreen extends State<MTTMLogaritmaBinerScreen> {
     String c = tape3[activeIndex3].getContent();
     switch(a + b + c) {
       case '0BB': {
-        state('BBB', 'SSS', 2);
+        state('0BB', 'SSS', 2);
         break;
       }
       case 'BBB': {
@@ -540,6 +557,14 @@ class _MTTMLogaritmaBinerScreen extends State<MTTMLogaritmaBinerScreen> {
     String c = tape3[activeIndex3].getContent();
     switch(a + b + c) {
       case 'B0B': {
+        if(tape2[activeIndex2 - 3].getContent() == '-1') {
+          tape2[activeIndex2 - 3].setContent('B');
+          tape2.insert(
+            0,
+            Item('-1', false),
+          );
+          activeIndex2++;
+        }
         state('0BB', 'RLS', 5);
         break;
       }

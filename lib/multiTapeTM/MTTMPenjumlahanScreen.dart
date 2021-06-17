@@ -266,7 +266,7 @@ class _MTTMPenjumlahanScreen extends State<MTTMPenjumlahanScreen> {
           },
         ),
         title: Text(
-          'Standard Turing Machine',
+          'Multi Tape Turing Machine',
           style: TextStyle(
             color: Colors.white,
           ),
@@ -526,6 +526,12 @@ class _MTTMPenjumlahanScreen extends State<MTTMPenjumlahanScreen> {
         break;
       }
       case 'BB': {
+        tape2[activeIndex2 - 3].setContent('B');
+        tape2.insert(
+          0,
+          Item('-1', false),
+        );
+        activeIndex2++;
         state('BX', 'SR', 5);
         break;
       }
@@ -560,6 +566,12 @@ class _MTTMPenjumlahanScreen extends State<MTTMPenjumlahanScreen> {
         break;
       }
       case '0B': {
+        tape2[activeIndex2 - 3].setContent('B');
+        tape2.insert(
+          0,
+          Item('-1', false),
+        );
+        activeIndex2++;
         state('0Y', 'SR', 7);
         break;
       }

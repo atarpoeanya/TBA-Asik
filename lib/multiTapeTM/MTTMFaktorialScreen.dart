@@ -60,6 +60,7 @@ class _MTTMFaktorialScreen extends State<MTTMFaktorialScreen> {
       );
       activeIndex1++;
       activeIndex2++;
+      activeIndex3++;
     }
 
     tape1.add(
@@ -205,7 +206,7 @@ class _MTTMFaktorialScreen extends State<MTTMFaktorialScreen> {
           },
         ),
         title: Text(
-          'Standard Turing Machine',
+          'Multi Tape Turing Machine',
           style: TextStyle(
             color: Colors.white,
           ),
@@ -492,7 +493,7 @@ class _MTTMFaktorialScreen extends State<MTTMFaktorialScreen> {
     String c = tape3[activeIndex3].getContent();
     switch(a + b + c) {
       case '0BB': {
-        state('00B', 'RRS', 1);
+        state('0B0', 'RSR', 1);
         break;
       }
       case '1BB': {
@@ -508,7 +509,7 @@ class _MTTMFaktorialScreen extends State<MTTMFaktorialScreen> {
     String c = tape3[activeIndex3].getContent();
     switch(a + b + c) {
       case '0BB': {
-        state('BBB', 'LLS', 3);
+        state('BBB', 'LSL', 13);
         break;
       }
     }
@@ -520,6 +521,12 @@ class _MTTMFaktorialScreen extends State<MTTMFaktorialScreen> {
     String c = tape3[activeIndex3].getContent();
     switch(a + b + c) {
       case '00B': {
+        if(tape3[activeIndex3 + 3].getContent() == '-1') {
+          tape3[activeIndex3 + 3].setContent('B');
+          tape3.add(
+            Item('-1', false)
+          );
+        }
         state('000', 'SLR', 3);
         break;
       }
@@ -540,6 +547,12 @@ class _MTTMFaktorialScreen extends State<MTTMFaktorialScreen> {
     String c = tape3[activeIndex3].getContent();
     switch(a + b + c) {
       case '00B': {
+        if(tape3[activeIndex3 + 3].getContent() == '-1') {
+          tape3[activeIndex3 + 3].setContent('B');
+          tape3.add(
+            Item('-1', false)
+          );
+        }
         state('000', 'SRR', 4);
         break;
       }
@@ -592,6 +605,12 @@ class _MTTMFaktorialScreen extends State<MTTMFaktorialScreen> {
     String c = tape3[activeIndex3].getContent();
     switch(a + b + c) {
       case '0B0': {
+        if(tape2[activeIndex2 + 3].getContent() == '-1') {
+          tape2[activeIndex2 + 3].setContent('B');
+          tape2.add(
+            Item('-1', false)
+          );
+        }
         state('00B', 'SRL', 7);
         break;
       }
@@ -612,6 +631,12 @@ class _MTTMFaktorialScreen extends State<MTTMFaktorialScreen> {
     String c = tape3[activeIndex3].getContent();
     switch(a + b + c) {
       case '0B0': {
+        tape2[activeIndex2 - 3].setContent('B');
+        tape2.insert(
+          0,
+          Item('-1', false),
+        );
+        activeIndex2++;
         state('00B', 'SLL', 8);
         break;
       }
@@ -632,6 +657,12 @@ class _MTTMFaktorialScreen extends State<MTTMFaktorialScreen> {
     String c = tape3[activeIndex3].getContent();
     switch(a + b + c) {
       case '00B': {
+        if(tape3[activeIndex3 + 3].getContent() == '-1') {
+          tape3[activeIndex3 + 3].setContent('B');
+          tape3.add(
+            Item('-1', false)
+          );
+        }
         state('000', 'SLR', 9);
         break;
       }
@@ -652,6 +683,12 @@ class _MTTMFaktorialScreen extends State<MTTMFaktorialScreen> {
     String c = tape3[activeIndex3].getContent();
     switch(a + b + c) {
       case '00B': {
+        if(tape3[activeIndex3 + 3].getContent() == '-1') {
+          tape3[activeIndex3 + 3].setContent('B');
+          tape3.add(
+            Item('-1', false)
+          );
+        }
         state('000', 'SRR', 10);
         break;
       }
@@ -704,6 +741,12 @@ class _MTTMFaktorialScreen extends State<MTTMFaktorialScreen> {
     String c = tape3[activeIndex3].getContent();
     switch(a + b + c) {
       case '0B0': {
+        if(tape2[activeIndex2 + 3].getContent() == '-1') {
+          tape2[activeIndex2 + 3].setContent('B');
+          tape2.add(
+            Item('-1', false)
+          );
+        }
         state('00B', 'SRL', 13);
         break;
       }
@@ -724,6 +767,12 @@ class _MTTMFaktorialScreen extends State<MTTMFaktorialScreen> {
     String c = tape3[activeIndex3].getContent();
     switch(a + b + c) {
       case '0B0': {
+        tape2[activeIndex2 - 3].setContent('B');
+        tape2.insert(
+          0,
+          Item('-1', false),
+        );
+        activeIndex2++;
         state('00B', 'SLL', 14);
         break;
       }

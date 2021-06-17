@@ -61,6 +61,7 @@ class _MTTMPerkalianScreen extends State<MTTMPerkalianScreen> {
       );
       activeIndex1++;
       activeIndex2++;
+      activeIndex3++;
     }
 
     tape1.add(
@@ -251,7 +252,7 @@ class _MTTMPerkalianScreen extends State<MTTMPerkalianScreen> {
           },
         ),
         title: Text(
-          'Standard Turing Machine',
+          'Multi Tape Turing Machine',
           style: TextStyle(
             color: Colors.white,
           ),
@@ -500,7 +501,7 @@ class _MTTMPerkalianScreen extends State<MTTMPerkalianScreen> {
         break;
       }
       case 'YBB': {
-        state('BYY', 'RSS', 1);
+        state('BBY', 'RSS', 1);
         break;
       }
       case '1BB': {
@@ -516,11 +517,11 @@ class _MTTMPerkalianScreen extends State<MTTMPerkalianScreen> {
     String c = tape3[activeIndex3].getContent();
     switch(a + b + c) {
       case '0BX': {
-        state('B0X', 'RSS', 1);
+        state('B0X', 'RRS', 1);
         break;
       }
       case '0BY': {
-        state('B0Y', 'RSS', 1);
+        state('B0Y', 'RRS', 1);
         break;
       }
       case '1BX': {

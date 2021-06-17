@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-// import 'package:tubes/multiTapeTM/MTTMFaktorialScreen.dart';
-// import 'package:tubes/multiTapeTM/MTTMLogaritmaBinerScreen.dart';
-// import 'package:tubes/multiTapeTM/MTTMModuloScreen.dart';
-// import 'package:tubes/multiTapeTM/MTTMPangkatScreen.dart';
-// import 'package:tubes/multiTapeTM/MTTMPembagianScreen.dart';
-// import 'package:tubes/multiTapeTM/MTTMPenguranganScreen.dart';
-// import 'package:tubes/multiTapeTM/MTTMPenjumlahanScreen.dart';
-// import 'package:tubes/multiTapeTM/MTTMPerkalianScreen.dart';
+import 'package:tubes/multiTapeTM/MTTMFaktorialScreen.dart';
+import 'package:tubes/multiTapeTM/MTTMLogaritmaBinerScreen.dart';
+import 'package:tubes/multiTapeTM/MTTMModuloScreen.dart';
+import 'package:tubes/multiTapeTM/MTTMPangkatScreen.dart';
+import 'package:tubes/multiTapeTM/MTTMPembagianScreen.dart';
+import 'package:tubes/multiTapeTM/MTTMPenguranganScreen.dart';
+import 'package:tubes/multiTapeTM/MTTMPenjumlahanScreen.dart';
+import 'package:tubes/multiTapeTM/MTTMPerkalianScreen.dart';
 import 'package:tubes/standardTM/STMFaktorialScreen.dart';
 import 'package:tubes/standardTM/STMLogaritmaBinerScreen.dart';
 import 'package:tubes/standardTM/STMModuloScreen.dart';
@@ -106,65 +106,65 @@ class SelectScreen extends StatelessWidget {
                 },
                 child: const Text('Standard Turing Machine'),
               ),
-              // TextButton(
-              //   onPressed: () {
-              //     Navigator.push(
-              //       context,
-              //       MaterialPageRoute(
-              //         builder: (context) {
-              //           if(type == 1) {
-              //             return MTTMPenjumlahanScreen(
-              //               A: A,
-              //               B: B,
-              //               width: MediaQuery.of(context).size.width,
-              //             );
-              //           } else if(type == 2) {
-              //             return MTTMPenguranganScreen(
-              //               A: A,
-              //               B: B,
-              //               width: MediaQuery.of(context).size.width,
-              //             );
-              //           } else if(type == 3) {
-              //             return MTTMPerkalianScreen(
-              //               A: A,
-              //               B: B,
-              //               width: MediaQuery.of(context).size.width,
-              //             );
-              //           } else if(type == 4) {
-              //             return MTTMPembagianScreen(
-              //               A: A,
-              //               B: B,
-              //               width: MediaQuery.of(context).size.width,
-              //             );
-              //           } else if(type == 5) {
-              //             return MTTMFaktorialScreen(
-              //               A: A,
-              //               width: MediaQuery.of(context).size.width,
-              //             );
-              //           } else if(type == 6) {
-              //             return MTTMModuloScreen(
-              //               A: A,
-              //               B: B,
-              //               width: MediaQuery.of(context).size.width,
-              //             );
-              //           } else if(type == 7) {
-              //             return MTTMPangkatScreen(
-              //               A: A,
-              //               B: B,
-              //               width: MediaQuery.of(context).size.width,
-              //             );
-              //           } else {
-              //             return MTTMLogaritmaBinerScreen(
-              //               A: A,
-              //               width: MediaQuery.of(context).size.width,
-              //             );
-              //           }
-              //         }
-              //       )
-              //     );
-              //   },
-              //   child: const Text('Multi Tape Turing Machine'),
-              // ),
+              TextButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) {
+                        if(type == 1) {
+                          return MTTMPenjumlahanScreen(
+                            A: A,
+                            B: B,
+                            width: MediaQuery.of(context).size.width,
+                          );
+                        } else if(type == 2) {
+                          return MTTMPenguranganScreen(
+                            A: A,
+                            B: B,
+                            width: MediaQuery.of(context).size.width,
+                          );
+                        } else if(type == 3) {
+                          return MTTMPerkalianScreen(
+                            A: A,
+                            B: B,
+                            width: MediaQuery.of(context).size.width,
+                          );
+                        } else if(type == 4) {
+                          return MTTMPembagianScreen(
+                            A: A,
+                            B: B,
+                            width: MediaQuery.of(context).size.width,
+                          );
+                        } else if(type == 5) {
+                          return MTTMFaktorialScreen(
+                            A: A,
+                            width: MediaQuery.of(context).size.width,
+                          );
+                        } else if(type == 6) {
+                          return MTTMModuloScreen(
+                            A: A,
+                            B: B,
+                            width: MediaQuery.of(context).size.width,
+                          );
+                        } else if(type == 7) {
+                          return MTTMPangkatScreen(
+                            A: A,
+                            B: B,
+                            width: MediaQuery.of(context).size.width,
+                          );
+                        } else {
+                          return MTTMLogaritmaBinerScreen(
+                            A: A,
+                            width: MediaQuery.of(context).size.width,
+                          );
+                        }
+                      }
+                    )
+                  );
+                },
+                child: const Text('Multi Tape Turing Machine'),
+              ),
             ],
           ),
         ),
