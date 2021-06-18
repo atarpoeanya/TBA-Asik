@@ -609,10 +609,6 @@ class _MTTMPenjumlahanScreen extends State<MTTMPenjumlahanScreen> {
         state('BX', 'RR', 9);
         break;
       }
-      case 'YB': {
-        state('BY', 'RR', 9);
-        break;
-      }
     }
   }
 

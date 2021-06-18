@@ -192,7 +192,7 @@ class _MTTMPenguranganScreen extends State<MTTMPenguranganScreen> {
         tape2.add(
           Item('B', false)
         );
-        xIsPlus = true;
+        xIsPlus = false;
         int tempB = this.widget.B * -1;
         for(int i = 0; i < tempB; i++) {
           tape1.add(
@@ -209,7 +209,7 @@ class _MTTMPenguranganScreen extends State<MTTMPenguranganScreen> {
         tape2.add(
           Item('B', false)
         );
-        xIsPlus = false;
+        xIsPlus = true;
         for(int i = 0; i < this.widget.B; i++) {
           tape1.add(
             Item('0', false)
@@ -606,10 +606,6 @@ class _MTTMPenguranganScreen extends State<MTTMPenguranganScreen> {
         break;
       }
       case 'XB': {
-        state('BX', 'RR', 9);
-        break;
-      }
-      case 'YB': {
         state('BY', 'RR', 9);
         break;
       }

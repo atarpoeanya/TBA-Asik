@@ -65,7 +65,10 @@ class _STMLogaritmaBinerScreen extends State<STMLogaritmaBinerScreen> {
     }
 
     tape.add(Item('1', false));
-    for (int i = 0; i < 100; i++) tape.add(Item('B', false));
+    
+    tape.add(Item('B', false));
+    tape.add(Item('B', false));
+    tape.add(Item('B', false));
 
     for (int i = 0; i < (total - 2) / 2; i++) {
       tape.add(Item('-1', false));
@@ -225,6 +228,8 @@ class _STMLogaritmaBinerScreen extends State<STMLogaritmaBinerScreen> {
             q20();
           } else if (q == 21) {
             q21();
+          } else if (q == 22) {
+            q22();
           }
         } else {
           timer.cancel();
@@ -242,12 +247,12 @@ class _STMLogaritmaBinerScreen extends State<STMLogaritmaBinerScreen> {
         }
       case '1':
         {
-          state('Y', 'R', 19);
+          state('Y', 'R', 20);
           break;
         }
       case 'Y':
         {
-          state('B', 'R', 18);
+          state('B', 'R', 19);
           break;
         }
     }
@@ -307,6 +312,10 @@ class _STMLogaritmaBinerScreen extends State<STMLogaritmaBinerScreen> {
         }
       case 'B':
         {
+          tape[activeIndex + 3].setContent('B');
+          tape.add(
+            Item('-1', false)
+          );
           state('0', 'L', 5);
           break;
         }
@@ -367,6 +376,12 @@ class _STMLogaritmaBinerScreen extends State<STMLogaritmaBinerScreen> {
         }
       case 'B':
         {
+          tape[activeIndex - 3].setContent('B');
+          tape.insert(
+            0,
+            Item('-1', false)
+          );
+          activeIndex++;
           state('0', 'R', 9);
           break;
         }
@@ -412,6 +427,10 @@ class _STMLogaritmaBinerScreen extends State<STMLogaritmaBinerScreen> {
         }
       case 'B':
         {
+          tape[activeIndex + 3].setContent('B');
+          tape.add(
+            Item('-1', false)
+          );
           state('1', 'L', 6);
           break;
         }
@@ -427,7 +446,7 @@ class _STMLogaritmaBinerScreen extends State<STMLogaritmaBinerScreen> {
         }
       case '0':
         {
-          state('B', 'R', 16);
+          state('B', 'R', 17);
           break;
         }
     }
@@ -452,12 +471,18 @@ class _STMLogaritmaBinerScreen extends State<STMLogaritmaBinerScreen> {
     switch (tape[activeIndex].getContent()) {
       case '0':
         {
-          state('0', 'L', 14);
+          state('0', 'L', 15);
           break;
         }
       case 'B':
         {
-          state('X', 'R', 15);
+          tape[activeIndex - 3].setContent('B');
+          tape.insert(
+            0,
+            Item('-1', false)
+          );
+          activeIndex++;
+          state('Y', 'R', 20);
           break;
         }
     }
@@ -467,12 +492,18 @@ class _STMLogaritmaBinerScreen extends State<STMLogaritmaBinerScreen> {
     switch (tape[activeIndex].getContent()) {
       case '0':
         {
-          state('0', 'R', 15);
+          state('0', 'L', 15);
           break;
         }
       case 'B':
         {
-          state('B', 'R', 21);
+          tape[activeIndex - 3].setContent('B');
+          tape.insert(
+            0,
+            Item('-1', false)
+          );
+          activeIndex++;
+          state('X', 'R', 16);
           break;
         }
     }
@@ -482,17 +513,12 @@ class _STMLogaritmaBinerScreen extends State<STMLogaritmaBinerScreen> {
     switch (tape[activeIndex].getContent()) {
       case '0':
         {
-          state('B', 'R', 16);
+          state('0', 'R', 16);
           break;
         }
       case 'B':
         {
-          state('B', 'L', 16);
-          break;
-        }
-      case '1':
-        {
-          state('B', 'L', 17);
+          state('B', 'R', 22);
           break;
         }
     }
@@ -502,12 +528,17 @@ class _STMLogaritmaBinerScreen extends State<STMLogaritmaBinerScreen> {
     switch (tape[activeIndex].getContent()) {
       case '0':
         {
-          state('B', 'L', 17);
+          state('B', 'R', 17);
           break;
         }
       case 'B':
         {
-          state('Y', 'R', 19);
+          state('B', 'L', 17);
+          break;
+        }
+      case '1':
+        {
+          state('B', 'L', 18);
           break;
         }
     }
@@ -517,12 +548,12 @@ class _STMLogaritmaBinerScreen extends State<STMLogaritmaBinerScreen> {
     switch (tape[activeIndex].getContent()) {
       case '0':
         {
-          state('B', 'R', 18);
+          state('B', 'L', 18);
           break;
         }
       case 'B':
         {
-          state('Y', 'R', 19);
+          state('Y', 'R', 20);
           break;
         }
     }
@@ -530,9 +561,14 @@ class _STMLogaritmaBinerScreen extends State<STMLogaritmaBinerScreen> {
 
   void q19() {
     switch (tape[activeIndex].getContent()) {
-      case 'B':
+      case '0':
         {
-          state('X', 'R', 20);
+          state('B', 'R', 19);
+          break;
+        }
+      case '1':
+        {
+          state('Y', 'R', 20);
           break;
         }
     }
@@ -542,13 +578,27 @@ class _STMLogaritmaBinerScreen extends State<STMLogaritmaBinerScreen> {
     switch (tape[activeIndex].getContent()) {
       case 'B':
         {
-          state('B', 'R', 21);
+          tape[activeIndex + 3].setContent('B');
+          tape.add(
+            Item('-1', false)
+          );
+          state('X', 'R', 21);
           break;
         }
     }
   }
 
   void q21() {
+    switch (tape[activeIndex].getContent()) {
+      case 'B':
+        {
+          state('B', 'R', 22);
+          break;
+        }
+    }
+  }
+
+  void q22() {
     int xCount = tape.where((item) => item.getContent() == 'X').toList().length;
     int yCount = tape.where((item) => item.getContent() == 'Y').toList().length;
     int zeroCount =
@@ -557,8 +607,6 @@ class _STMLogaritmaBinerScreen extends State<STMLogaritmaBinerScreen> {
       hasil = 'Tidak dapat diselesaikan';
     } else if (xCount == 1) {
       hasil = zeroCount.toString();
-    } else {
-      hasil = '0';
     }
     q = -1;
     done = true;
