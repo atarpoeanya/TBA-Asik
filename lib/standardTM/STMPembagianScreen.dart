@@ -158,8 +158,8 @@ class _STMPembagianScreen extends State<STMPembagianScreen> {
               ),
             ),
             Container(
-              margin: EdgeInsets.only(
-                top: 16.0,
+              margin: EdgeInsets.symmetric(
+                vertical: 16.0,
               ),
               height: 50.0,
               child: ListView.builder(

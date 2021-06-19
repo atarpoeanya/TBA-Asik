@@ -294,8 +294,11 @@ class _MTTMPerkalianScreen extends State<MTTMPerkalianScreen> {
                       width: 50.0,
                       height: 50.0,
                       decoration: BoxDecoration(
-                        color: Colors.white,
-                        border: Border.all(color: Colors.white, width: 0.5),
+                        color: Color(0xFFF1F4FA),
+                        border: Border.all(
+                          color: Color(0xFFF1F4FA),
+                          width: 0.5
+                        ),
                       ),
                     );
                   } else {
@@ -311,8 +314,11 @@ class _MTTMPerkalianScreen extends State<MTTMPerkalianScreen> {
                       width: 50.0,
                       height: 50.0,
                       decoration: BoxDecoration(
-                        color: tape1[index].getIsCurrent() == true ? Colors.lightBlue : Colors.lightGreen,
-                        border: Border.all(color: Colors.white, width: 0.5),
+                        color: tape1[index].getIsCurrent() == true ? Colors.lightBlueAccent : Colors.lightBlue[700],
+                        border: Border.all(
+                          color: Color(0xFFF1F4FA),
+                          width: 0.5
+                        ),
                       ),
                     );
                   }
@@ -320,9 +326,6 @@ class _MTTMPerkalianScreen extends State<MTTMPerkalianScreen> {
               ),
             ),
             Container(
-              margin: EdgeInsets.only(
-                top: 16.0,
-              ),
               height: 50.0,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
@@ -342,8 +345,11 @@ class _MTTMPerkalianScreen extends State<MTTMPerkalianScreen> {
                       width: 50.0,
                       height: 50.0,
                       decoration: BoxDecoration(
-                        color: Colors.white,
-                        border: Border.all(color: Colors.white, width: 0.5),
+                        color: Color(0xFFF1F4FA),
+                        border: Border.all(
+                          color: Color(0xFFF1F4FA),
+                          width: 0.5
+                        ),
                       ),
                     );
                   } else {
@@ -359,8 +365,11 @@ class _MTTMPerkalianScreen extends State<MTTMPerkalianScreen> {
                       width: 50.0,
                       height: 50.0,
                       decoration: BoxDecoration(
-                        color: tape2[index].getIsCurrent() == true ? Colors.lightBlue : Colors.lightGreen,
-                        border: Border.all(color: Colors.white, width: 0.5),
+                        color: tape2[index].getIsCurrent() == true ? Colors.lightBlueAccent : Colors.lightBlue[700],
+                        border: Border.all(
+                          color: Color(0xFFF1F4FA),
+                          width: 0.5
+                        ),
                       ),
                     );
                   }
@@ -369,7 +378,7 @@ class _MTTMPerkalianScreen extends State<MTTMPerkalianScreen> {
             ),
             Container(
               margin: EdgeInsets.only(
-                top: 16.0,
+                bottom: 16.0,
               ),
               height: 50.0,
               child: ListView.builder(
@@ -390,8 +399,11 @@ class _MTTMPerkalianScreen extends State<MTTMPerkalianScreen> {
                       width: 50.0,
                       height: 50.0,
                       decoration: BoxDecoration(
-                        color: Colors.white,
-                        border: Border.all(color: Colors.white, width: 0.5),
+                        color: Color(0xFFF1F4FA),
+                        border: Border.all(
+                          color: Color(0xFFF1F4FA),
+                          width: 0.5
+                        ),
                       ),
                     );
                   } else {
@@ -407,8 +419,11 @@ class _MTTMPerkalianScreen extends State<MTTMPerkalianScreen> {
                       width: 50.0,
                       height: 50.0,
                       decoration: BoxDecoration(
-                        color: tape3[index].getIsCurrent() == true ? Colors.lightBlue : Colors.lightGreen,
-                        border: Border.all(color: Colors.white, width: 0.5),
+                        color: tape3[index].getIsCurrent() == true ? Colors.lightBlueAccent : Colors.lightBlue[700],
+                        border: Border.all(
+                          color: Color(0xFFF1F4FA),
+                          width: 0.5
+                        ),
                       ),
                     );
                   }
