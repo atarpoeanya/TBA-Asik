@@ -383,6 +383,9 @@ class _MTTMPangkatScreen extends State<MTTMPangkatScreen> {
               ),
             ),
             Container(
+              margin: EdgeInsets.only(
+                top: 4.0,
+              ),
               height: 50.0,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
@@ -434,6 +437,9 @@ class _MTTMPangkatScreen extends State<MTTMPangkatScreen> {
               ),
             ),
             Container(
+              margin: EdgeInsets.symmetric(
+                vertical: 4.0,
+              ),
               height: 50.0,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,

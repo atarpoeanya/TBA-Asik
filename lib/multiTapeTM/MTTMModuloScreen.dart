@@ -270,6 +270,7 @@ class _MTTMModuloScreen extends State<MTTMModuloScreen> {
             ),
             Container(
               margin: EdgeInsets.only(
+                top: 4.0,
                 bottom: 16.0,
               ),
               height: 50.0,

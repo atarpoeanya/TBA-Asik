@@ -198,7 +198,6 @@ class _STMModuloScreen extends State<STMModuloScreen> {
                           horizontal: 16.0,
                         ),
                         primary: Colors.white,
-                        textStyle: TextStyle(fontSize: 20),
                       ),
                       onPressed: () {
                         setState(() {

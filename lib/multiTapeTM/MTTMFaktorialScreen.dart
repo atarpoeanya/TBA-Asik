@@ -280,6 +280,9 @@ class _MTTMFaktorialScreen extends State<MTTMFaktorialScreen> {
               ),
             ),
             Container(
+              margin: EdgeInsets.symmetric(
+                vertical: 4.0,
+              ),
               height: 50.0,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,

@@ -342,6 +342,7 @@ class _MTTMPenjumlahanScreen extends State<MTTMPenjumlahanScreen> {
             Container(
               margin: EdgeInsets.only(
                 bottom: 16.0,
+                top: 4.0,
               ),
               height: 50.0,
               child: ListView.builder(
