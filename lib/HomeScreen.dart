@@ -37,12 +37,12 @@ class HomeScreen extends StatelessWidget {
                     InkWell(
                       onTap: () {
                         Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => InputScreen(
-                            type: 1,
-                          ),
-                        ));
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => InputScreen(
+                                type: 1,
+                              ),
+                            ));
                       },
                       child: Container(
                         child: Center(
@@ -74,12 +74,12 @@ class HomeScreen extends StatelessWidget {
                     InkWell(
                       onTap: () {
                         Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => InputScreen(
-                            type: 2,
-                          ),
-                        ));
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => InputScreen(
+                                type: 2,
+                              ),
+                            ));
                       },
                       child: Container(
                         child: Center(
@@ -116,12 +116,12 @@ class HomeScreen extends StatelessWidget {
                     InkWell(
                       onTap: () {
                         Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => InputScreen(
-                            type: 3,
-                          ),
-                        ));
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => InputScreen(
+                                type: 3,
+                              ),
+                            ));
                       },
                       child: Container(
                         child: Center(
@@ -156,12 +156,12 @@ class HomeScreen extends StatelessWidget {
                     InkWell(
                       onTap: () {
                         Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => InputScreen(
-                            type: 4,
-                          ),
-                        ));
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => InputScreen(
+                                type: 4,
+                              ),
+                            ));
                       },
                       child: Container(
                         child: Center(
@@ -198,12 +198,12 @@ class HomeScreen extends StatelessWidget {
                     InkWell(
                       onTap: () {
                         Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => InputScreen(
-                            type: 5,
-                          ),
-                        ));
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => InputScreen(
+                                type: 5,
+                              ),
+                            ));
                       },
                       child: Container(
                         child: Center(
@@ -235,12 +235,12 @@ class HomeScreen extends StatelessWidget {
                     InkWell(
                       onTap: () {
                         Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => InputScreen(
-                            type: 6,
-                          ),
-                        ));
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => InputScreen(
+                                type: 6,
+                              ),
+                            ));
                       },
                       child: Container(
                         child: Center(
@@ -277,12 +277,12 @@ class HomeScreen extends StatelessWidget {
                     InkWell(
                       onTap: () {
                         Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => InputScreen(
-                            type: 7,
-                          ),
-                        ));
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => InputScreen(
+                                type: 7,
+                              ),
+                            ));
                       },
                       child: Container(
                         child: Center(
@@ -317,12 +317,12 @@ class HomeScreen extends StatelessWidget {
                     InkWell(
                       onTap: () {
                         Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => InputScreen(
-                            type: 8,
-                          ),
-                        ));
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => InputScreen(
+                                type: 8,
+                              ),
+                            ));
                       },
                       child: Container(
                         child: Center(
