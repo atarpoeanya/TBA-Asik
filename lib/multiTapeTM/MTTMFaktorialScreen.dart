@@ -31,163 +31,96 @@ class _MTTMFaktorialScreen extends State<MTTMFaktorialScreen> {
   String hasil = '';
   Timer timer = Timer.periodic(Duration(seconds: 1), (timer) {});
 
+  int defSpeed = 1000;
+  int defSpeedJ = 500;
+
+  int curSpeed = 0;
+  int curSpeedJ = 0;
+
+  int twoTimeSpeed = 500;
+  int twoTime = 250;
+
+  bool _isVisible = true;
+
   @override
   void initState() {
     super.initState();
-    int count =  this.widget.width ~/ 50.0;
+    int count = this.widget.width ~/ 50.0;
     total = count;
-    if(count % 2 == 0) {
+    if (count % 2 == 0) {
       padding = (this.widget.width % 50.0) / 2.0 + 25.0;
       total--;
     } else {
-      if(this.widget.width % 50.0 > 32.0) {
+      if (this.widget.width % 50.0 > 32.0) {
         padding = (this.widget.width % 50.0) / 2;
       } else {
         padding = (this.widget.width % 50.0) / 2.0 + 50.0;
-        total-=2;
+        total -= 2;
       }
     }
 
-    for(int i = 0; i < (total - 2) / 2; i++) {
-      tape1.add(
-        Item('-1', false)
-      );
-      tape2.add(
-        Item('-1', false)
-      );
-      tape3.add(
-        Item('-1', false)
-      );
+    for (int i = 0; i < (total - 2) / 2; i++) {
+      tape1.add(Item('-1', false));
+      tape2.add(Item('-1', false));
+      tape3.add(Item('-1', false));
       activeIndex1++;
       activeIndex2++;
       activeIndex3++;
     }
 
-    tape1.add(
-      Item('B', false)
-    );
-    tape1.add(
-      Item('B', false)
-    );
-    tape1.add(
-      Item('B', false)
-    );
+    tape1.add(Item('B', false));
+    tape1.add(Item('B', false));
+    tape1.add(Item('B', false));
 
-    tape2.add(
-      Item('B', false)
-    );
-    tape2.add(
-      Item('B', false)
-    );
-    tape2.add(
-      Item('B', false)
-    );
+    tape2.add(Item('B', false));
+    tape2.add(Item('B', false));
+    tape2.add(Item('B', false));
 
-    tape3.add(
-      Item('B', false)
-    );
-    tape3.add(
-      Item('B', false)
-    );
-    tape3.add(
-      Item('B', false)
-    );
-    
-    if(this.widget.A < 0) {
-      tape1.add(
-        Item('Y', false)
-      );
-      tape2.add(
-        Item('B', false)
-      );
-      tape3.add(
-        Item('B', false)
-      );
+    tape3.add(Item('B', false));
+    tape3.add(Item('B', false));
+    tape3.add(Item('B', false));
+
+    if (this.widget.A < 0) {
+      tape1.add(Item('Y', false));
+      tape2.add(Item('B', false));
+      tape3.add(Item('B', false));
       int tempA = this.widget.A * -1;
-      for(int i = 0; i < tempA; i++) {
-        tape1.add(
-          Item('0', false)
-        );
-        tape2.add(
-          Item('B', false)
-        );
-        tape3.add(
-          Item('B', false)
-        );
+      for (int i = 0; i < tempA; i++) {
+        tape1.add(Item('0', false));
+        tape2.add(Item('B', false));
+        tape3.add(Item('B', false));
       }
-    } else if(this.widget.A > 0) {
-      tape1.add(
-        Item('X', false)
-      );
-      tape2.add(
-        Item('B', false)
-      );
-      tape3.add(
-        Item('B', false)
-      );
-      for(int i = 0; i < this.widget.A; i++) {
-        tape1.add(
-          Item('0', false)
-        );
-        tape2.add(
-          Item('B', false)
-        );
-        tape3.add(
-          Item('B', false)
-        );
+    } else if (this.widget.A > 0) {
+      tape1.add(Item('X', false));
+      tape2.add(Item('B', false));
+      tape3.add(Item('B', false));
+      for (int i = 0; i < this.widget.A; i++) {
+        tape1.add(Item('0', false));
+        tape2.add(Item('B', false));
+        tape3.add(Item('B', false));
       }
     }
 
-    tape1.add(
-      Item('1', false)
-    );
-    tape2.add(
-      Item('B', false)
-    );
-    tape3.add(
-      Item('B', false)
-    );
+    tape1.add(Item('1', false));
+    tape2.add(Item('B', false));
+    tape3.add(Item('B', false));
 
-    tape1.add(
-      Item('B', false)
-    );
-    tape1.add(
-      Item('B', false)
-    );
-    tape1.add(
-      Item('B', false)
-    );
+    tape1.add(Item('B', false));
+    tape1.add(Item('B', false));
+    tape1.add(Item('B', false));
 
-    tape2.add(
-      Item('B', false)
-    );
-    tape2.add(
-      Item('B', false)
-    );
-    tape2.add(
-      Item('B', false)
-    );
+    tape2.add(Item('B', false));
+    tape2.add(Item('B', false));
+    tape2.add(Item('B', false));
 
-    tape3.add(
-      Item('B', false)
-    );
-    tape3.add(
-      Item('B', false)
-    );
-    tape3.add(
-      Item('B', false)
-    );
+    tape3.add(Item('B', false));
+    tape3.add(Item('B', false));
+    tape3.add(Item('B', false));
 
-    for(int i = 0; i < (total - 2) / 2; i++) {
-      tape1.add(
-        Item('-1', false)
-      );
-      tape2.add(
-        Item('-1', false)
-      );
-      tape3.add(
-        Item('-1', false)
-      );
+    for (int i = 0; i < (total - 2) / 2; i++) {
+      tape1.add(Item('-1', false));
+      tape2.add(Item('-1', false));
+      tape3.add(Item('-1', false));
     }
   }
 
@@ -231,53 +164,50 @@ class _MTTMFaktorialScreen extends State<MTTMFaktorialScreen> {
               ),
               height: 50.0,
               child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                itemCount: tape1.length,
-                controller: controller1,
-                itemBuilder: (context, index) {
-                  if(tape1[index].getContent() == '-1') {
-                    return Container(
-                      child: Center(
-                        child: Text(
-                          '',
-                          style: TextStyle(
-                            color: Colors.white,
+                  scrollDirection: Axis.horizontal,
+                  itemCount: tape1.length,
+                  controller: controller1,
+                  itemBuilder: (context, index) {
+                    if (tape1[index].getContent() == '-1') {
+                      return Container(
+                        child: Center(
+                          child: Text(
+                            '',
+                            style: TextStyle(
+                              color: Colors.white,
+                            ),
                           ),
                         ),
-                      ),
-                      width: 50.0,
-                      height: 50.0,
-                      decoration: BoxDecoration(
-                        color: Color(0xFFF1F4FA),
-                        border: Border.all(
+                        width: 50.0,
+                        height: 50.0,
+                        decoration: BoxDecoration(
                           color: Color(0xFFF1F4FA),
-                          width: 0.5
+                          border:
+                              Border.all(color: Color(0xFFF1F4FA), width: 0.5),
                         ),
-                      ),
-                    );
-                  } else {
-                    return Container(
-                      child: Center(
-                        child: Text(
-                          tape1[index].getContent(),
-                          style: TextStyle(
-                            color: Colors.white,
+                      );
+                    } else {
+                      return Container(
+                        child: Center(
+                          child: Text(
+                            tape1[index].getContent(),
+                            style: TextStyle(
+                              color: Colors.white,
+                            ),
                           ),
                         ),
-                      ),
-                      width: 50.0,
-                      height: 50.0,
-                      decoration: BoxDecoration(
-                        color: tape1[index].getIsCurrent() == true ? Colors.lightBlueAccent : Colors.lightBlue[700],
-                        border: Border.all(
-                          color: Color(0xFFF1F4FA),
-                          width: 0.5
+                        width: 50.0,
+                        height: 50.0,
+                        decoration: BoxDecoration(
+                          color: tape1[index].getIsCurrent() == true
+                              ? Colors.lightBlueAccent
+                              : Colors.lightBlue[700],
+                          border:
+                              Border.all(color: Color(0xFFF1F4FA), width: 0.5),
                         ),
-                      ),
-                    );
-                  }
-                }
-              ),
+                      );
+                    }
+                  }),
             ),
             Container(
               margin: EdgeInsets.symmetric(
@@ -285,53 +215,50 @@ class _MTTMFaktorialScreen extends State<MTTMFaktorialScreen> {
               ),
               height: 50.0,
               child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                itemCount: tape2.length,
-                controller: controller2,
-                itemBuilder: (context, index) {
-                  if(tape2[index].getContent() == '-1') {
-                    return Container(
-                      child: Center(
-                        child: Text(
-                          '',
-                          style: TextStyle(
-                            color: Colors.white,
+                  scrollDirection: Axis.horizontal,
+                  itemCount: tape2.length,
+                  controller: controller2,
+                  itemBuilder: (context, index) {
+                    if (tape2[index].getContent() == '-1') {
+                      return Container(
+                        child: Center(
+                          child: Text(
+                            '',
+                            style: TextStyle(
+                              color: Colors.white,
+                            ),
                           ),
                         ),
-                      ),
-                      width: 50.0,
-                      height: 50.0,
-                      decoration: BoxDecoration(
-                        color: Color(0xFFF1F4FA),
-                        border: Border.all(
+                        width: 50.0,
+                        height: 50.0,
+                        decoration: BoxDecoration(
                           color: Color(0xFFF1F4FA),
-                          width: 0.5
+                          border:
+                              Border.all(color: Color(0xFFF1F4FA), width: 0.5),
                         ),
-                      ),
-                    );
-                  } else {
-                    return Container(
-                      child: Center(
-                        child: Text(
-                          tape2[index].getContent(),
-                          style: TextStyle(
-                            color: Colors.white,
+                      );
+                    } else {
+                      return Container(
+                        child: Center(
+                          child: Text(
+                            tape2[index].getContent(),
+                            style: TextStyle(
+                              color: Colors.white,
+                            ),
                           ),
                         ),
-                      ),
-                      width: 50.0,
-                      height: 50.0,
-                      decoration: BoxDecoration(
-                        color: tape2[index].getIsCurrent() == true ? Colors.lightBlueAccent : Colors.lightBlue[700],
-                        border: Border.all(
-                          color: Color(0xFFF1F4FA),
-                          width: 0.5
+                        width: 50.0,
+                        height: 50.0,
+                        decoration: BoxDecoration(
+                          color: tape2[index].getIsCurrent() == true
+                              ? Colors.lightBlueAccent
+                              : Colors.lightBlue[700],
+                          border:
+                              Border.all(color: Color(0xFFF1F4FA), width: 0.5),
                         ),
-                      ),
-                    );
-                  }
-                }
-              ),
+                      );
+                    }
+                  }),
             ),
             Container(
               margin: EdgeInsets.only(
@@ -339,176 +266,191 @@ class _MTTMFaktorialScreen extends State<MTTMFaktorialScreen> {
               ),
               height: 50.0,
               child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                itemCount: tape3.length,
-                controller: controller3,
-                itemBuilder: (context, index) {
-                  if(tape3[index].getContent() == '-1') {
-                    return Container(
-                      child: Center(
-                        child: Text(
-                          '',
-                          style: TextStyle(
-                            color: Colors.white,
+                  scrollDirection: Axis.horizontal,
+                  itemCount: tape3.length,
+                  controller: controller3,
+                  itemBuilder: (context, index) {
+                    if (tape3[index].getContent() == '-1') {
+                      return Container(
+                        child: Center(
+                          child: Text(
+                            '',
+                            style: TextStyle(
+                              color: Colors.white,
+                            ),
                           ),
                         ),
-                      ),
-                      width: 50.0,
-                      height: 50.0,
-                      decoration: BoxDecoration(
-                        color: Color(0xFFF1F4FA),
-                        border: Border.all(
-                          color: Color(0xFFF1F4FA),
-                          width: 0.5
-                        ),
-                      ),
-                    );
-                  } else {
-                    return Container(
-                      child: Center(
-                        child: Text(
-                          tape3[index].getContent(),
-                          style: TextStyle(
-                            color: Colors.white,
-                          ),
-                        ),
-                      ),
-                      width: 50.0,
-                      height: 50.0,
-                      decoration: BoxDecoration(
-                        color: tape3[index].getIsCurrent() == true ? Colors.lightBlueAccent : Colors.lightBlue[700],
-                        border: Border.all(
-                          color: Color(0xFFF1F4FA),
-                          width: 0.5
-                        ),
-                      ),
-                    );
-                  }
-                }
-              ),
-            ),
-            Padding(
-              padding: EdgeInsets.symmetric(
-                vertical: 8.0,
-              ),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(8),
-                child: Stack(
-                  children: [
-                    Positioned.fill(
-                      child: Container(
+                        width: 50.0,
+                        height: 50.0,
                         decoration: BoxDecoration(
-                          color: Colors.lightBlue,
+                          color: Color(0xFFF1F4FA),
+                          border:
+                              Border.all(color: Color(0xFFF1F4FA), width: 0.5),
                         ),
-                      ),
-                    ),
-                    TextButton(
-                      style: TextButton.styleFrom(
-                        padding: EdgeInsets.symmetric(
-                          vertical: 8.0,
-                          horizontal: 16.0,
+                      );
+                    } else {
+                      return Container(
+                        child: Center(
+                          child: Text(
+                            tape3[index].getContent(),
+                            style: TextStyle(
+                              color: Colors.white,
+                            ),
+                          ),
                         ),
-                        primary: Colors.white,
-                      ),
+                        width: 50.0,
+                        height: 50.0,
+                        decoration: BoxDecoration(
+                          color: tape3[index].getIsCurrent() == true
+                              ? Colors.lightBlueAccent
+                              : Colors.lightBlue[700],
+                          border:
+                              Border.all(color: Color(0xFFF1F4FA), width: 0.5),
+                        ),
+                      );
+                    }
+                  }),
+            ),
+            AnimatedCrossFade(
+                firstChild: Visibility(
+                  child: Container(
+                    margin: EdgeInsets.fromLTRB(0, 20, 0, 20),
+                    decoration: BoxDecoration(),
+                    child: FloatingActionButton(
                       onPressed: () {
+                        _isVisible = false;
+                        curSpeed = defSpeed;
+                        curSpeedJ = defSpeedJ;
                         setState(() {
                           tape1[activeIndex1].setIsCurrent(true);
                           tape2[activeIndex2].setIsCurrent(true);
                           tape3[activeIndex3].setIsCurrent(true);
-                          jumpToItem1();
-                          jumpToItem2();
-                          jumpToItem3();
-                          q = 0;               
+                          jumpToItem1(curSpeedJ);
+                          jumpToItem2(curSpeedJ);
+                          jumpToItem3(curSpeedJ);
+                          q = 0;
                         });
-                        runTM();
+                        runTM(curSpeed);
                       },
-                      child: const Text('Proses'),
+                      child: Icon(Icons.play_arrow, color: Colors.white),
                     ),
-                  ],
+                  ),
                 ),
-              ),
-            ),
-            Text('Hasil:'),
-            Text(done ? hasil.toString() : ''),
+                secondChild: Visibility(
+                  child: Center(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        TextButton(
+                          onPressed: () {
+                            curSpeed = defSpeed;
+                            curSpeedJ = defSpeedJ;
+                            timer.cancel();
+                          },
+                          child: Icon(Icons.pause),
+                        ),
+                        TextButton(
+                          onPressed: () {
+                            curSpeed = defSpeed;
+                            curSpeedJ = defSpeedJ;
+                            timer.cancel();
+                            runTM(curSpeed);
+                          },
+                          child: Icon(Icons.play_arrow),
+                        ),
+                        TextButton(
+                          onPressed: () {
+                            curSpeed = twoTimeSpeed;
+                            curSpeedJ = twoTime;
+                            timer.cancel();
+                            runTM(curSpeed);
+                          },
+                          child: Icon(Icons.fast_forward),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                crossFadeState: _isVisible
+                    ? CrossFadeState.showFirst
+                    : CrossFadeState.showSecond,
+                duration: Duration(milliseconds: 500)),
+            Text('Hasil:', style: TextStyle(fontSize: 30)),
+            Text(done ? hasil.toString() : '',
+                style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold)),
           ],
         ),
       ),
     );
   }
 
-  void jumpToItem1() {
-    int l = activeIndex1 - total~/2.0;
+  void jumpToItem1(int s) {
+    int l = activeIndex1 - total ~/ 2.0;
     double value = 50.0 * l;
     controller1.animateTo(
       value,
-      duration: Duration(
-        milliseconds: 500
-      ),
+      duration: Duration(milliseconds: s),
       curve: Curves.ease,
     );
   }
 
-  void jumpToItem2() {
-    int l = activeIndex2 - total~/2.0;
+  void jumpToItem2(int s) {
+    int l = activeIndex2 - total ~/ 2.0;
     double value = 50.0 * l;
     controller2.animateTo(
       value,
-      duration: Duration(
-        milliseconds: 500
-      ),
+      duration: Duration(milliseconds: s),
       curve: Curves.ease,
     );
   }
 
-  void jumpToItem3() {
-    int l = activeIndex3 - total~/2.0;
+  void jumpToItem3(int s) {
+    int l = activeIndex3 - total ~/ 2.0;
     double value = 50.0 * l;
     controller3.animateTo(
       value,
-      duration: Duration(
-        milliseconds: 500
-      ),
+      duration: Duration(milliseconds: s),
       curve: Curves.ease,
     );
   }
 
-  void runTM() {
-    timer = Timer.periodic(Duration(seconds: 1), (timer) {
+  void runTM(int s) {
+    timer = Timer.periodic(Duration(milliseconds: s), (timer) {
       setState(() {
-        if(!done) {
-          if(q == 0) {
+        if (!done) {
+          if (q == 0) {
             q0();
-          } else if(q == 1) {
+          } else if (q == 1) {
             q1();
-          } else if(q == 2) {
+          } else if (q == 2) {
             q2();
-          } else if(q == 3) {
+          } else if (q == 3) {
             q3();
-          } else if(q == 4) {
+          } else if (q == 4) {
             q4();
-          } else if(q == 5) {
+          } else if (q == 5) {
             q5();
-          } else if(q == 6) {
+          } else if (q == 6) {
             q6();
-          } else if(q == 7) {
+          } else if (q == 7) {
             q7();
-          } else if(q == 8) {
+          } else if (q == 8) {
             q8();
-          } else if(q == 9) {
+          } else if (q == 9) {
             q9();
-          } else if(q == 10) {
+          } else if (q == 10) {
             q10();
-          } else if(q == 11) {
+          } else if (q == 11) {
             q11();
-          } else if(q == 12) {
+          } else if (q == 12) {
             q12();
-          } else if(q == 13) {
+          } else if (q == 13) {
             q13();
-          } else if(q == 14) {
+          } else if (q == 14) {
             q14();
-          } else if(q == 15) {
+          } else if (q == 15) {
             q15();
-          } else if(q == 16) {
+          } else if (q == 16) {
             q16();
           }
         } else {
@@ -522,19 +464,22 @@ class _MTTMFaktorialScreen extends State<MTTMFaktorialScreen> {
     String a = tape1[activeIndex1].getContent();
     String b = tape2[activeIndex2].getContent();
     String c = tape3[activeIndex3].getContent();
-    switch(a + b + c) {
-      case 'XBB': {
-        state('BBB', 'RSS', 1);
-        break;
-      }
-      case '1BB': {
-        state('BBY', 'SSR', 15);
-        break;
-      }
-      case 'YBB': {
-        state('BBY', 'SSR', 15);
-        break;
-      }
+    switch (a + b + c) {
+      case 'XBB':
+        {
+          state('BBB', 'RSS', 1);
+          break;
+        }
+      case '1BB':
+        {
+          state('BBY', 'SSR', 15);
+          break;
+        }
+      case 'YBB':
+        {
+          state('BBY', 'SSR', 15);
+          break;
+        }
     }
   }
 
@@ -542,15 +487,17 @@ class _MTTMFaktorialScreen extends State<MTTMFaktorialScreen> {
     String a = tape1[activeIndex1].getContent();
     String b = tape2[activeIndex2].getContent();
     String c = tape3[activeIndex3].getContent();
-    switch(a + b + c) {
-      case '0BB': {
-        state('0B0', 'RSR', 1);
-        break;
-      }
-      case '1BB': {
-        state('BBB', 'LSS', 2);
-        break;
-      }
+    switch (a + b + c) {
+      case '0BB':
+        {
+          state('0B0', 'RSR', 1);
+          break;
+        }
+      case '1BB':
+        {
+          state('BBB', 'LSS', 2);
+          break;
+        }
     }
   }
 
@@ -558,11 +505,12 @@ class _MTTMFaktorialScreen extends State<MTTMFaktorialScreen> {
     String a = tape1[activeIndex1].getContent();
     String b = tape2[activeIndex2].getContent();
     String c = tape3[activeIndex3].getContent();
-    switch(a + b + c) {
-      case '0BB': {
-        state('BBB', 'LSL', 13);
-        break;
-      }
+    switch (a + b + c) {
+      case '0BB':
+        {
+          state('BBB', 'LSL', 13);
+          break;
+        }
     }
   }
 
@@ -570,25 +518,26 @@ class _MTTMFaktorialScreen extends State<MTTMFaktorialScreen> {
     String a = tape1[activeIndex1].getContent();
     String b = tape2[activeIndex2].getContent();
     String c = tape3[activeIndex3].getContent();
-    switch(a + b + c) {
-      case '00B': {
-        if(tape3[activeIndex3 + 3].getContent() == '-1') {
-          tape3[activeIndex3 + 3].setContent('B');
-          tape3.add(
-            Item('-1', false)
-          );
+    switch (a + b + c) {
+      case '00B':
+        {
+          if (tape3[activeIndex3 + 3].getContent() == '-1') {
+            tape3[activeIndex3 + 3].setContent('B');
+            tape3.add(Item('-1', false));
+          }
+          state('000', 'SLR', 3);
+          break;
         }
-        state('000', 'SLR', 3);
-        break;
-      }
-      case '0BB': {
-        state('0BB', 'LRS', 4);
-        break;
-      }
-      case 'B0B': {
-        state('B0B', 'RSS', 5);
-        break;
-      }
+      case '0BB':
+        {
+          state('0BB', 'LRS', 4);
+          break;
+        }
+      case 'B0B':
+        {
+          state('B0B', 'RSS', 5);
+          break;
+        }
     }
   }
 
@@ -596,25 +545,26 @@ class _MTTMFaktorialScreen extends State<MTTMFaktorialScreen> {
     String a = tape1[activeIndex1].getContent();
     String b = tape2[activeIndex2].getContent();
     String c = tape3[activeIndex3].getContent();
-    switch(a + b + c) {
-      case '00B': {
-        if(tape3[activeIndex3 + 3].getContent() == '-1') {
-          tape3[activeIndex3 + 3].setContent('B');
-          tape3.add(
-            Item('-1', false)
-          );
+    switch (a + b + c) {
+      case '00B':
+        {
+          if (tape3[activeIndex3 + 3].getContent() == '-1') {
+            tape3[activeIndex3 + 3].setContent('B');
+            tape3.add(Item('-1', false));
+          }
+          state('000', 'SRR', 4);
+          break;
         }
-        state('000', 'SRR', 4);
-        break;
-      }
-      case '0BB': {
-        state('0BB', 'LLS', 3);
-        break;
-      }
-      case 'B0B': {
-        state('B0B', 'RSS', 6);
-        break;
-      }
+      case '0BB':
+        {
+          state('0BB', 'LLS', 3);
+          break;
+        }
+      case 'B0B':
+        {
+          state('B0B', 'RSS', 6);
+          break;
+        }
     }
   }
 
@@ -622,15 +572,17 @@ class _MTTMFaktorialScreen extends State<MTTMFaktorialScreen> {
     String a = tape1[activeIndex1].getContent();
     String b = tape2[activeIndex2].getContent();
     String c = tape3[activeIndex3].getContent();
-    switch(a + b + c) {
-      case '00B': {
-        state('0BB', 'SLS', 5);
-        break;
-      }
-      case '0BB': {
-        state('BBB', 'RSL', 7);
-        break;
-      }
+    switch (a + b + c) {
+      case '00B':
+        {
+          state('0BB', 'SLS', 5);
+          break;
+        }
+      case '0BB':
+        {
+          state('BBB', 'RSL', 7);
+          break;
+        }
     }
   }
 
@@ -638,15 +590,17 @@ class _MTTMFaktorialScreen extends State<MTTMFaktorialScreen> {
     String a = tape1[activeIndex1].getContent();
     String b = tape2[activeIndex2].getContent();
     String c = tape3[activeIndex3].getContent();
-    switch(a + b + c) {
-      case '00B': {
-        state('0BB', 'SRS', 6);
-        break;
-      }
-      case '0BB': {
-        state('BBB', 'RSL', 8);
-        break;
-      }
+    switch (a + b + c) {
+      case '00B':
+        {
+          state('0BB', 'SRS', 6);
+          break;
+        }
+      case '0BB':
+        {
+          state('BBB', 'RSL', 8);
+          break;
+        }
     }
   }
 
@@ -654,25 +608,26 @@ class _MTTMFaktorialScreen extends State<MTTMFaktorialScreen> {
     String a = tape1[activeIndex1].getContent();
     String b = tape2[activeIndex2].getContent();
     String c = tape3[activeIndex3].getContent();
-    switch(a + b + c) {
-      case '0B0': {
-        if(tape2[activeIndex2 + 3].getContent() == '-1') {
-          tape2[activeIndex2 + 3].setContent('B');
-          tape2.add(
-            Item('-1', false)
-          );
+    switch (a + b + c) {
+      case '0B0':
+        {
+          if (tape2[activeIndex2 + 3].getContent() == '-1') {
+            tape2[activeIndex2 + 3].setContent('B');
+            tape2.add(Item('-1', false));
+          }
+          state('00B', 'SRL', 7);
+          break;
         }
-        state('00B', 'SRL', 7);
-        break;
-      }
-      case 'BB0': {
-        state('BB0', 'SSR', 16);
-        break;
-      }
-      case '0BB': {
-        state('0BB', 'SLR', 9);
-        break;
-      }
+      case 'BB0':
+        {
+          state('BB0', 'SSR', 16);
+          break;
+        }
+      case '0BB':
+        {
+          state('0BB', 'SLR', 9);
+          break;
+        }
     }
   }
 
@@ -680,25 +635,28 @@ class _MTTMFaktorialScreen extends State<MTTMFaktorialScreen> {
     String a = tape1[activeIndex1].getContent();
     String b = tape2[activeIndex2].getContent();
     String c = tape3[activeIndex3].getContent();
-    switch(a + b + c) {
-      case '0B0': {
-        tape2[activeIndex2 - 3].setContent('B');
-        tape2.insert(
-          0,
-          Item('-1', false),
-        );
-        activeIndex2++;
-        state('00B', 'SLL', 8);
-        break;
-      }
-      case 'BB0': {
-        state('BB0', 'SSR', 16);
-        break;
-      }
-      case '0BB': {
-        state('0BB', 'SRR', 10);
-        break;
-      }
+    switch (a + b + c) {
+      case '0B0':
+        {
+          tape2[activeIndex2 - 3].setContent('B');
+          tape2.insert(
+            0,
+            Item('-1', false),
+          );
+          activeIndex2++;
+          state('00B', 'SLL', 8);
+          break;
+        }
+      case 'BB0':
+        {
+          state('BB0', 'SSR', 16);
+          break;
+        }
+      case '0BB':
+        {
+          state('0BB', 'SRR', 10);
+          break;
+        }
     }
   }
 
@@ -706,25 +664,26 @@ class _MTTMFaktorialScreen extends State<MTTMFaktorialScreen> {
     String a = tape1[activeIndex1].getContent();
     String b = tape2[activeIndex2].getContent();
     String c = tape3[activeIndex3].getContent();
-    switch(a + b + c) {
-      case '00B': {
-        if(tape3[activeIndex3 + 3].getContent() == '-1') {
-          tape3[activeIndex3 + 3].setContent('B');
-          tape3.add(
-            Item('-1', false)
-          );
+    switch (a + b + c) {
+      case '00B':
+        {
+          if (tape3[activeIndex3 + 3].getContent() == '-1') {
+            tape3[activeIndex3 + 3].setContent('B');
+            tape3.add(Item('-1', false));
+          }
+          state('000', 'SLR', 9);
+          break;
         }
-        state('000', 'SLR', 9);
-        break;
-      }
-      case '0BB': {
-        state('0BB', 'RRS', 10);
-        break;
-      }
-      case 'B0B': {
-        state('B0B', 'LSS', 11);
-        break;
-      }
+      case '0BB':
+        {
+          state('0BB', 'RRS', 10);
+          break;
+        }
+      case 'B0B':
+        {
+          state('B0B', 'LSS', 11);
+          break;
+        }
     }
   }
 
@@ -732,25 +691,26 @@ class _MTTMFaktorialScreen extends State<MTTMFaktorialScreen> {
     String a = tape1[activeIndex1].getContent();
     String b = tape2[activeIndex2].getContent();
     String c = tape3[activeIndex3].getContent();
-    switch(a + b + c) {
-      case '00B': {
-        if(tape3[activeIndex3 + 3].getContent() == '-1') {
-          tape3[activeIndex3 + 3].setContent('B');
-          tape3.add(
-            Item('-1', false)
-          );
+    switch (a + b + c) {
+      case '00B':
+        {
+          if (tape3[activeIndex3 + 3].getContent() == '-1') {
+            tape3[activeIndex3 + 3].setContent('B');
+            tape3.add(Item('-1', false));
+          }
+          state('000', 'SRR', 10);
+          break;
         }
-        state('000', 'SRR', 10);
-        break;
-      }
-      case '0BB': {
-        state('0BB', 'RLS', 9);
-        break;
-      }
-      case 'B0B': {
-        state('B0B', 'LSS', 12);
-        break;
-      }
+      case '0BB':
+        {
+          state('0BB', 'RLS', 9);
+          break;
+        }
+      case 'B0B':
+        {
+          state('B0B', 'LSS', 12);
+          break;
+        }
     }
   }
 
@@ -758,15 +718,17 @@ class _MTTMFaktorialScreen extends State<MTTMFaktorialScreen> {
     String a = tape1[activeIndex1].getContent();
     String b = tape2[activeIndex2].getContent();
     String c = tape3[activeIndex3].getContent();
-    switch(a + b + c) {
-      case '00B': {
-        state('0BB', 'SLS', 11);
-        break;
-      }
-      case '0BB': {
-        state('BBB', 'LSL', 13);
-        break;
-      }
+    switch (a + b + c) {
+      case '00B':
+        {
+          state('0BB', 'SLS', 11);
+          break;
+        }
+      case '0BB':
+        {
+          state('BBB', 'LSL', 13);
+          break;
+        }
     }
   }
 
@@ -774,15 +736,17 @@ class _MTTMFaktorialScreen extends State<MTTMFaktorialScreen> {
     String a = tape1[activeIndex1].getContent();
     String b = tape2[activeIndex2].getContent();
     String c = tape3[activeIndex3].getContent();
-    switch(a + b + c) {
-      case '00B': {
-        state('0BB', 'SRS', 12);
-        break;
-      }
-      case '0BB': {
-        state('BBB', 'LSL', 14);
-        break;
-      }
+    switch (a + b + c) {
+      case '00B':
+        {
+          state('0BB', 'SRS', 12);
+          break;
+        }
+      case '0BB':
+        {
+          state('BBB', 'LSL', 14);
+          break;
+        }
     }
   }
 
@@ -790,25 +754,26 @@ class _MTTMFaktorialScreen extends State<MTTMFaktorialScreen> {
     String a = tape1[activeIndex1].getContent();
     String b = tape2[activeIndex2].getContent();
     String c = tape3[activeIndex3].getContent();
-    switch(a + b + c) {
-      case '0B0': {
-        if(tape2[activeIndex2 + 3].getContent() == '-1') {
-          tape2[activeIndex2 + 3].setContent('B');
-          tape2.add(
-            Item('-1', false)
-          );
+    switch (a + b + c) {
+      case '0B0':
+        {
+          if (tape2[activeIndex2 + 3].getContent() == '-1') {
+            tape2[activeIndex2 + 3].setContent('B');
+            tape2.add(Item('-1', false));
+          }
+          state('00B', 'SRL', 13);
+          break;
         }
-        state('00B', 'SRL', 13);
-        break;
-      }
-      case '0BB': {
-        state('0BB', 'SLR', 3);
-        break;
-      }
-      case 'BB0': {
-        state('BB0', 'SSR', 16);
-        break;
-      }
+      case '0BB':
+        {
+          state('0BB', 'SLR', 3);
+          break;
+        }
+      case 'BB0':
+        {
+          state('BB0', 'SSR', 16);
+          break;
+        }
     }
   }
 
@@ -816,25 +781,28 @@ class _MTTMFaktorialScreen extends State<MTTMFaktorialScreen> {
     String a = tape1[activeIndex1].getContent();
     String b = tape2[activeIndex2].getContent();
     String c = tape3[activeIndex3].getContent();
-    switch(a + b + c) {
-      case '0B0': {
-        tape2[activeIndex2 - 3].setContent('B');
-        tape2.insert(
-          0,
-          Item('-1', false),
-        );
-        activeIndex2++;
-        state('00B', 'SLL', 14);
-        break;
-      }
-      case '0BB': {
-        state('0BB', 'SRR', 4);
-        break;
-      }
-      case 'BB0': {
-        state('BB0', 'SSR', 16);
-        break;
-      }
+    switch (a + b + c) {
+      case '0B0':
+        {
+          tape2[activeIndex2 - 3].setContent('B');
+          tape2.insert(
+            0,
+            Item('-1', false),
+          );
+          activeIndex2++;
+          state('00B', 'SLL', 14);
+          break;
+        }
+      case '0BB':
+        {
+          state('0BB', 'SRR', 4);
+          break;
+        }
+      case 'BB0':
+        {
+          state('BB0', 'SSR', 16);
+          break;
+        }
     }
   }
 
@@ -842,19 +810,23 @@ class _MTTMFaktorialScreen extends State<MTTMFaktorialScreen> {
     String a = tape1[activeIndex1].getContent();
     String b = tape2[activeIndex2].getContent();
     String c = tape3[activeIndex3].getContent();
-    switch(a + b + c) {
-      case 'BBB': {
-        state('BBX', 'SSR', 16);
-        break;
-      }
+    switch (a + b + c) {
+      case 'BBB':
+        {
+          state('BBX', 'SSR', 16);
+          break;
+        }
     }
   }
 
   void q16() {
-    int xCount = tape3.where((item) => item.getContent() == 'X').toList().length;
-    int yCount = tape3.where((item) => item.getContent() == 'Y').toList().length;
-    int zeroCount = tape3.where((item) => item.getContent() == '0').toList().length;
-    if(xCount == 1 && yCount == 1) {
+    int xCount =
+        tape3.where((item) => item.getContent() == 'X').toList().length;
+    int yCount =
+        tape3.where((item) => item.getContent() == 'Y').toList().length;
+    int zeroCount =
+        tape3.where((item) => item.getContent() == '0').toList().length;
+    if (xCount == 1 && yCount == 1) {
       hasil = 'Tidak dapat diselesaikan';
     } else {
       hasil = zeroCount.toString();
@@ -867,19 +839,19 @@ class _MTTMFaktorialScreen extends State<MTTMFaktorialScreen> {
     tape1[activeIndex1].setContent(content[0]);
     tape2[activeIndex2].setContent(content[1]);
     tape3[activeIndex3].setContent(content[2]);
-    if(move[0] == 'R') {
+    if (move[0] == 'R') {
       r1();
-    } else if(move[0] == 'L') {
+    } else if (move[0] == 'L') {
       l1();
     }
-    if(move[1] == 'R') {
+    if (move[1] == 'R') {
       r2();
-    } else if(move[1] == 'L') {
+    } else if (move[1] == 'L') {
       l2();
     }
-    if(move[2] == 'R') {
+    if (move[2] == 'R') {
       r3();
-    } else if(move[2] == 'L') {
+    } else if (move[2] == 'L') {
       l3();
     }
     q = destQ;
@@ -888,42 +860,42 @@ class _MTTMFaktorialScreen extends State<MTTMFaktorialScreen> {
   void r1() {
     tape1[activeIndex1].setIsCurrent(false);
     activeIndex1++;
-    jumpToItem1();
+    jumpToItem1(curSpeedJ);
     tape1[activeIndex1].setIsCurrent(true);
   }
 
   void l1() {
     tape1[activeIndex1].setIsCurrent(false);
     activeIndex1--;
-    jumpToItem1();
+    jumpToItem1(curSpeedJ);
     tape1[activeIndex1].setIsCurrent(true);
   }
 
   void r2() {
     tape2[activeIndex2].setIsCurrent(false);
     activeIndex2++;
-    jumpToItem2();
+    jumpToItem2(curSpeedJ);
     tape2[activeIndex2].setIsCurrent(true);
   }
 
   void l2() {
     tape2[activeIndex2].setIsCurrent(false);
     activeIndex2--;
-    jumpToItem2();
+    jumpToItem2(curSpeedJ);
     tape2[activeIndex2].setIsCurrent(true);
   }
 
   void r3() {
     tape3[activeIndex3].setIsCurrent(false);
     activeIndex3++;
-    jumpToItem3();
+    jumpToItem3(curSpeedJ);
     tape3[activeIndex3].setIsCurrent(true);
   }
 
   void l3() {
     tape3[activeIndex3].setIsCurrent(false);
     activeIndex3--;
-    jumpToItem3();
+    jumpToItem3(curSpeedJ);
     tape3[activeIndex3].setIsCurrent(true);
   }
 
