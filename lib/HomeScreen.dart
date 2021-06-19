@@ -20,107 +20,338 @@ class HomeScreen extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(
-                  'Pilih operasi yang akan dilakukan',
-                  style: TextStyle(
-                    fontSize: 18.0,
+                Padding(
+                  padding: EdgeInsets.all(16.0),
+                  child: Text(
+                    'Pilih operasi yang akan dilakukan',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 18.0,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
-                TextButton(
-                  onPressed: () {
-                    Navigator.push(
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(
                         context,
                         MaterialPageRoute(
                           builder: (context) => InputScreen(
                             type: 1,
                           ),
                         ));
-                  },
-                  child: const Text('Penjumlahan'),
-                ),
-                TextButton(
-                  onPressed: () {
-                    Navigator.push(
+                      },
+                      child: Container(
+                        child: Center(
+                          child: Text(
+                            '+',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 36.0,
+                            ),
+                          ),
+                        ),
+                        width: 100.0,
+                        height: 100.0,
+                        margin: EdgeInsets.all(8.0),
+                        decoration: BoxDecoration(
+                          color: Colors.lightBlue,
+                          borderRadius: BorderRadius.circular(16.0),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Color(0xFF9AB1D2),
+                              offset: Offset(0, 8),
+                              blurRadius: 16,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(
                         context,
                         MaterialPageRoute(
                           builder: (context) => InputScreen(
                             type: 2,
                           ),
                         ));
-                  },
-                  child: const Text('Pengurangan'),
+                      },
+                      child: Container(
+                        child: Center(
+                          child: Text(
+                            '-',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 36.0,
+                            ),
+                          ),
+                        ),
+                        width: 100.0,
+                        height: 100.0,
+                        margin: EdgeInsets.all(8.0),
+                        decoration: BoxDecoration(
+                          color: Colors.lightBlue,
+                          borderRadius: BorderRadius.circular(16.0),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Color(0xFF9AB1D2),
+                              offset: Offset(0, 8),
+                              blurRadius: 16,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
-                TextButton(
-                  onPressed: () {
-                    Navigator.push(
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(
                         context,
                         MaterialPageRoute(
                           builder: (context) => InputScreen(
                             type: 3,
                           ),
                         ));
-                  },
-                  child: const Text('Perkalian'),
-                ),
-                TextButton(
-                  onPressed: () {
-                    Navigator.push(
+                      },
+                      child: Container(
+                        child: Center(
+                          child: Text(
+                            '*',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 36.0,
+                            ),
+                          ),
+                        ),
+                        padding: EdgeInsets.only(
+                          top: 16.0,
+                        ),
+                        width: 100.0,
+                        height: 100.0,
+                        margin: EdgeInsets.all(8.0),
+                        decoration: BoxDecoration(
+                          color: Colors.lightBlue,
+                          borderRadius: BorderRadius.circular(16.0),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Color(0xFF9AB1D2),
+                              offset: Offset(0, 8),
+                              blurRadius: 16,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(
                         context,
                         MaterialPageRoute(
                           builder: (context) => InputScreen(
                             type: 4,
                           ),
                         ));
-                  },
-                  child: const Text('Pembagian'),
+                      },
+                      child: Container(
+                        child: Center(
+                          child: Text(
+                            '/',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 36.0,
+                            ),
+                          ),
+                        ),
+                        width: 100.0,
+                        height: 100.0,
+                        margin: EdgeInsets.all(8.0),
+                        decoration: BoxDecoration(
+                          color: Colors.lightBlue,
+                          borderRadius: BorderRadius.circular(16.0),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Color(0xFF9AB1D2),
+                              offset: Offset(0, 8),
+                              blurRadius: 16,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
-                TextButton(
-                  onPressed: () {
-                    Navigator.push(
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(
                         context,
                         MaterialPageRoute(
                           builder: (context) => InputScreen(
                             type: 5,
                           ),
                         ));
-                  },
-                  child: const Text('Faktorial'),
-                ),
-                TextButton(
-                  onPressed: () {
-                    Navigator.push(
+                      },
+                      child: Container(
+                        child: Center(
+                          child: Text(
+                            '!',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 36.0,
+                            ),
+                          ),
+                        ),
+                        width: 100.0,
+                        height: 100.0,
+                        margin: EdgeInsets.all(8.0),
+                        decoration: BoxDecoration(
+                          color: Colors.lightBlue,
+                          borderRadius: BorderRadius.circular(16.0),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Color(0xFF9AB1D2),
+                              offset: Offset(0, 8),
+                              blurRadius: 16,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(
                         context,
                         MaterialPageRoute(
                           builder: (context) => InputScreen(
                             type: 6,
                           ),
                         ));
-                  },
-                  child: const Text('Modulo'),
+                      },
+                      child: Container(
+                        child: Center(
+                          child: Text(
+                            '%',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 36.0,
+                            ),
+                          ),
+                        ),
+                        width: 100.0,
+                        height: 100.0,
+                        margin: EdgeInsets.all(8.0),
+                        decoration: BoxDecoration(
+                          color: Colors.lightBlue,
+                          borderRadius: BorderRadius.circular(16.0),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Color(0xFF9AB1D2),
+                              offset: Offset(0, 8),
+                              blurRadius: 16,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
-                TextButton(
-                  onPressed: () {
-                    Navigator.push(
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(
                         context,
                         MaterialPageRoute(
                           builder: (context) => InputScreen(
                             type: 7,
                           ),
                         ));
-                  },
-                  child: const Text('Pangkat'),
-                ),
-                TextButton(
-                  onPressed: () {
-                    Navigator.push(
+                      },
+                      child: Container(
+                        child: Center(
+                          child: Text(
+                            '^',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 36.0,
+                            ),
+                          ),
+                        ),
+                        padding: EdgeInsets.only(
+                          top: 16.0,
+                        ),
+                        width: 100.0,
+                        height: 100.0,
+                        margin: EdgeInsets.all(8.0),
+                        decoration: BoxDecoration(
+                          color: Colors.lightBlue,
+                          borderRadius: BorderRadius.circular(16.0),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Color(0xFF9AB1D2),
+                              offset: Offset(0, 8),
+                              blurRadius: 16,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(
                         context,
                         MaterialPageRoute(
                           builder: (context) => InputScreen(
                             type: 8,
                           ),
                         ));
-                  },
-                  child: const Text('Logaritma biner'),
+                      },
+                      child: Container(
+                        child: Center(
+                          child: Text(
+                            'Log\u{2082}',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 24.0,
+                            ),
+                          ),
+                        ),
+                        width: 100.0,
+                        height: 100.0,
+                        margin: EdgeInsets.all(8.0),
+                        decoration: BoxDecoration(
+                          color: Colors.lightBlue,
+                          borderRadius: BorderRadius.circular(16.0),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Color(0xFF9AB1D2),
+                              offset: Offset(0, 8),
+                              blurRadius: 16,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ],
             ),

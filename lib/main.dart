@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
       title: 'Turing Machine',
       theme: ThemeData(
         primarySwatch: Colors.lightBlue,
-        scaffoldBackgroundColor: Colors.white,
+        scaffoldBackgroundColor: Color(0xFFF1F4FA),
       ),
       home: HomeScreen(),
     );

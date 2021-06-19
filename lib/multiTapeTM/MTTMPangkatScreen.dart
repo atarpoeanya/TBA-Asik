@@ -320,7 +320,14 @@ class _MTTMPangkatScreen extends State<MTTMPangkatScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(this.widget.A.toString() + ' ^ ' + this.widget.B.toString()),
+            Text(
+              this.widget.A.toString() + ' ^ ' + this.widget.B.toString(),
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 18.0,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
             Container(
               margin: EdgeInsets.only(
                 top: 16.0,
@@ -513,22 +520,48 @@ class _MTTMPangkatScreen extends State<MTTMPangkatScreen> {
                 }
               ),
             ),
-            TextButton(
-              onPressed: () {
-                setState(() {
-                  tape1[activeIndex1].setIsCurrent(true);
-                  tape2[activeIndex2].setIsCurrent(true);
-                  tape3[activeIndex3].setIsCurrent(true);
-                  tape3[activeIndex4].setIsCurrent(true);
-                  jumpToItem1();
-                  jumpToItem2();
-                  jumpToItem3();
-                  jumpToItem4();
-                  q = 0;               
-                });
-                runTM();
-              },
-              child: const Text('Proses'),
+            Padding(
+              padding: EdgeInsets.symmetric(
+                vertical: 8.0,
+              ),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(8),
+                child: Stack(
+                  children: [
+                    Positioned.fill(
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: Colors.lightBlue,
+                        ),
+                      ),
+                    ),
+                    TextButton(
+                      style: TextButton.styleFrom(
+                        padding: EdgeInsets.symmetric(
+                          vertical: 8.0,
+                          horizontal: 16.0,
+                        ),
+                        primary: Colors.white,
+                      ),
+                      onPressed: () {
+                        setState(() {
+                          tape1[activeIndex1].setIsCurrent(true);
+                          tape2[activeIndex2].setIsCurrent(true);
+                          tape3[activeIndex3].setIsCurrent(true);
+                          tape3[activeIndex4].setIsCurrent(true);
+                          jumpToItem1();
+                          jumpToItem2();
+                          jumpToItem3();
+                          jumpToItem4();
+                          q = 0;               
+                        });
+                        runTM();
+                      },
+                      child: const Text('Proses'),
+                    ),
+                  ],
+                ),
+              ),
             ),
             Text('Hasil:'),
             Text(done ? hasil.toString() : ''),

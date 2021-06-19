@@ -117,66 +117,104 @@ class _STMFaktorialScreen extends State<STMFaktorialScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(this.widget.A.toString() + '!'),
+            Text(
+              this.widget.A.toString() + '!',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 18.0,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
             Container(
               margin: EdgeInsets.only(
                 top: 16.0,
               ),
               height: 50.0,
               child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: tape.length,
-                  controller: controller,
-                  itemBuilder: (context, index) {
-                    if (tape[index].getContent() == '-1') {
-                      return Container(
-                        child: Center(
-                          child: Text(
-                            '',
-                            style: TextStyle(
-                              color: Colors.white,
-                            ),
+                scrollDirection: Axis.horizontal,
+                itemCount: tape.length,
+                controller: controller,
+                itemBuilder: (context, index) {
+                  if (tape[index].getContent() == '-1') {
+                    return Container(
+                      child: Center(
+                        child: Text(
+                          '',
+                          style: TextStyle(
+                            color: Colors.white,
                           ),
                         ),
-                        width: 50.0,
-                        height: 50.0,
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          border: Border.all(color: Colors.white, width: 0.5),
+                      ),
+                      width: 50.0,
+                      height: 50.0,
+                      decoration: BoxDecoration(
+                        color: Color(0xFFF1F4FA),
+                        border: Border.all(
+                          color: Color(0xFFF1F4FA),
+                          width: 0.5
                         ),
-                      );
-                    } else {
-                      return Container(
-                        child: Center(
-                          child: Text(
-                            tape[index].getContent(),
-                            style: TextStyle(
-                              color: Colors.white,
-                            ),
+                      ),
+                    );
+                  } else {
+                    return Container(
+                      child: Center(
+                        child: Text(
+                          tape[index].getContent(),
+                          style: TextStyle(
+                            color: Colors.white,
                           ),
                         ),
-                        width: 50.0,
-                        height: 50.0,
-                        decoration: BoxDecoration(
-                          color: tape[index].getIsCurrent() == true
-                              ? Colors.lightBlue
-                              : Colors.lightGreen,
-                          border: Border.all(color: Colors.white, width: 0.5),
+                      ),
+                      width: 50.0,
+                      height: 50.0,
+                      decoration: BoxDecoration(
+                        color: tape[index].getIsCurrent() == true ? Colors.lightBlueAccent : Colors.lightBlue[700],
+                        border: Border.all(
+                          color: Color(0xFFF1F4FA),
+                          width: 0.5
                         ),
-                      );
-                    }
-                  }),
+                      ),
+                    );
+                  }
+                }),
             ),
-            TextButton(
-              onPressed: () {
-                setState(() {
-                  tape[activeIndex].setIsCurrent(true);
-                  jumpToItem();
-                  q = 0;
-                });
-                runTM();
-              },
-              child: const Text('Proses'),
+            Padding(
+              padding: EdgeInsets.symmetric(
+                vertical: 8.0,
+              ),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(8),
+                child: Stack(
+                  children: [
+                    Positioned.fill(
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: Colors.lightBlue,
+                        ),
+                      ),
+                    ),
+                    TextButton(
+                      style: TextButton.styleFrom(
+                        padding: EdgeInsets.symmetric(
+                          vertical: 8.0,
+                          horizontal: 16.0,
+                        ),
+                        primary: Colors.white,
+                        textStyle: TextStyle(fontSize: 20),
+                      ),
+                      onPressed: () {
+                        setState(() {
+                          tape[activeIndex].setIsCurrent(true);
+                          jumpToItem();
+                          q = 0;
+                        });
+                        runTM();
+                      },
+                      child: const Text('Proses'),
+                    ),
+                  ],
+                ),
+              ),
             ),
             Text('Hasil:'),
             Text(done ? hasil : ''),

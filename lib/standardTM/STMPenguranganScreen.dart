@@ -196,7 +196,14 @@ class _STMPenguranganScreen extends State<STMPenguranganScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(this.widget.A.toString() + ' - ' + this.widget.B.toString()),
+            Text(
+              this.widget.A.toString() + ' - ' + this.widget.B.toString(),
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 18.0,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
             Container(
               margin: EdgeInsets.only(
                 top: 16.0,
@@ -220,8 +227,11 @@ class _STMPenguranganScreen extends State<STMPenguranganScreen> {
                       width: 50.0,
                       height: 50.0,
                       decoration: BoxDecoration(
-                        color: Colors.white,
-                        border: Border.all(color: Colors.white, width: 0.5),
+                        color: Color(0xFFF1F4FA),
+                        border: Border.all(
+                          color: Color(0xFFF1F4FA),
+                          width: 0.5
+                        ),
                       ),
                     );
                   } else {
@@ -237,24 +247,54 @@ class _STMPenguranganScreen extends State<STMPenguranganScreen> {
                       width: 50.0,
                       height: 50.0,
                       decoration: BoxDecoration(
-                        color: tape[index].getIsCurrent() == true ? Colors.lightBlue : Colors.lightGreen,
-                        border: Border.all(color: Colors.white, width: 0.5),
+                        color: tape[index].getIsCurrent() == true ? Colors.lightBlueAccent : Colors.lightBlue[700],
+                        border: Border.all(
+                          color: Color(0xFFF1F4FA),
+                          width: 0.5
+                        ),
                       ),
                     );
                   }
                 }
               ),
             ),
-            TextButton(
-              onPressed: () {
-                setState(() {
-                  tape[activeIndex].setIsCurrent(true);
-                  jumpToItem();
-                  q = 0;               
-                });
-                runTM();
-              },
-              child: const Text('Proses'),
+            Padding(
+              padding: EdgeInsets.symmetric(
+                vertical: 8.0,
+              ),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(8),
+                child: Stack(
+                  children: [
+                    Positioned.fill(
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: Colors.lightBlue,
+                        ),
+                      ),
+                    ),
+                    TextButton(
+                      style: TextButton.styleFrom(
+                        padding: EdgeInsets.symmetric(
+                          vertical: 8.0,
+                          horizontal: 16.0,
+                        ),
+                        primary: Colors.white,
+                        textStyle: TextStyle(fontSize: 20),
+                      ),
+                      onPressed: () {
+                        setState(() {
+                          tape[activeIndex].setIsCurrent(true);
+                          jumpToItem();
+                          q = 0;
+                        });
+                        runTM();
+                      },
+                      child: const Text('Proses'),
+                    ),
+                  ],
+                ),
+              ),
             ),
             Text('Hasil:'),
             Text(done ? hasil.toString() : ''),
