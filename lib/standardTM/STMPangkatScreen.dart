@@ -26,6 +26,17 @@ class _STMPangkatScreen extends State<STMPangkatScreen> {
   String hasil = '0';
   Timer timer = Timer.periodic(Duration(seconds: 1), (timer) {});
 
+  int defSpeed = 1000;
+  int defSpeedJ = 500;
+
+  int curSpeed = 0;
+  int curSpeedJ = 0;
+
+  int twoTimeSpeed = 500;
+  int twoTime = 250;
+
+  bool _isVisible = true;
+
   @override
   void initState() {
     super.initState();
@@ -79,7 +90,7 @@ class _STMPangkatScreen extends State<STMPangkatScreen> {
         tape.add(Item('0', false));
       }
     }
-    
+
     tape.add(Item('B', false));
     tape.add(Item('B', false));
     tape.add(Item('B', false));
@@ -129,110 +140,132 @@ class _STMPangkatScreen extends State<STMPangkatScreen> {
               ),
               height: 50.0,
               child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                itemCount: tape.length,
-                controller: controller,
-                itemBuilder: (context, index) {
-                  if (tape[index].getContent() == '-1') {
-                    return Container(
-                      child: Center(
-                        child: Text(
-                          '',
-                          style: TextStyle(
-                            color: Colors.white,
+                  scrollDirection: Axis.horizontal,
+                  itemCount: tape.length,
+                  controller: controller,
+                  itemBuilder: (context, index) {
+                    if (tape[index].getContent() == '-1') {
+                      return Container(
+                        child: Center(
+                          child: Text(
+                            '',
+                            style: TextStyle(
+                              color: Colors.white,
+                            ),
                           ),
                         ),
-                      ),
-                      width: 50.0,
-                      height: 50.0,
-                      decoration: BoxDecoration(
-                        color: Color(0xFFF1F4FA),
-                        border: Border.all(
-                          color: Color(0xFFF1F4FA),
-                          width: 0.5
-                        ),
-                      ),
-                    );
-                  } else {
-                    return Container(
-                      child: Center(
-                        child: Text(
-                          tape[index].getContent(),
-                          style: TextStyle(
-                            color: Colors.white,
-                          ),
-                        ),
-                      ),
-                      width: 50.0,
-                      height: 50.0,
-                      decoration: BoxDecoration(
-                        color: tape[index].getIsCurrent() == true ? Colors.lightBlueAccent : Colors.lightBlue[700],
-                        border: Border.all(
-                          color: Color(0xFFF1F4FA),
-                          width: 0.5
-                        ),
-                      ),
-                    );
-                  }
-                }),
-            ),
-            Padding(
-              padding: EdgeInsets.symmetric(
-                vertical: 8.0,
-              ),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(8),
-                child: Stack(
-                  children: [
-                    Positioned.fill(
-                      child: Container(
+                        width: 50.0,
+                        height: 50.0,
                         decoration: BoxDecoration(
-                          color: Colors.lightBlue,
+                          color: Color(0xFFF1F4FA),
+                          border:
+                              Border.all(color: Color(0xFFF1F4FA), width: 0.5),
                         ),
-                      ),
-                    ),
-                    TextButton(
-                      style: TextButton.styleFrom(
-                        padding: EdgeInsets.symmetric(
-                          vertical: 8.0,
-                          horizontal: 16.0,
+                      );
+                    } else {
+                      return Container(
+                        child: Center(
+                          child: Text(
+                            tape[index].getContent(),
+                            style: TextStyle(
+                              color: Colors.white,
+                            ),
+                          ),
                         ),
-                        primary: Colors.white,
-                      ),
+                        width: 50.0,
+                        height: 50.0,
+                        decoration: BoxDecoration(
+                          color: tape[index].getIsCurrent() == true
+                              ? Colors.lightBlueAccent
+                              : Colors.lightBlue[700],
+                          border:
+                              Border.all(color: Color(0xFFF1F4FA), width: 0.5),
+                        ),
+                      );
+                    }
+                  }),
+            ),
+            AnimatedCrossFade(
+                firstChild: Visibility(
+                  child: Container(
+                    margin: EdgeInsets.fromLTRB(0, 20, 0, 20),
+                    decoration: BoxDecoration(),
+                    child: FloatingActionButton(
                       onPressed: () {
+                        _isVisible = false;
+                        curSpeed = defSpeed;
+                        curSpeedJ = defSpeedJ;
                         setState(() {
                           tape[activeIndex].setIsCurrent(true);
-                          jumpToItem();
+                          jumpToItem(curSpeedJ);
                           q = 0;
                         });
-                        runTM();
+                        runTM(curSpeed);
                       },
-                      child: const Text('Proses'),
+                      child: Icon(Icons.play_arrow, color: Colors.white),
                     ),
-                  ],
+                  ),
                 ),
-              ),
-            ),
-            Text('Hasil:'),
-            Text(done ? hasil : ''),
+                secondChild: Visibility(
+                  child: Center(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        TextButton(
+                          onPressed: () {
+                            curSpeed = defSpeed;
+                            curSpeedJ = defSpeedJ;
+                            timer.cancel();
+                          },
+                          child: Icon(Icons.pause),
+                        ),
+                        TextButton(
+                          onPressed: () {
+                            curSpeed = defSpeed;
+                            curSpeedJ = defSpeedJ;
+                            timer.cancel();
+                            runTM(curSpeed);
+                          },
+                          child: Icon(Icons.play_arrow),
+                        ),
+                        TextButton(
+                          onPressed: () {
+                            curSpeed = twoTimeSpeed;
+                            curSpeedJ = twoTime;
+                            timer.cancel();
+                            runTM(curSpeed);
+                          },
+                          child: Icon(Icons.fast_forward),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                crossFadeState: _isVisible
+                    ? CrossFadeState.showFirst
+                    : CrossFadeState.showSecond,
+                duration: Duration(milliseconds: 500)),
+            Text('Hasil:', style: TextStyle(fontSize: 30)),
+            Text(done ? hasil.toString() : '',
+                style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold)),
           ],
         ),
       ),
     );
   }
 
-  void jumpToItem() {
+  void jumpToItem(int s) {
     int l = activeIndex - total ~/ 2.0;
     double value = 50.0 * l;
     controller.animateTo(
       value,
-      duration: Duration(milliseconds: 500),
+      duration: Duration(milliseconds: s),
       curve: Curves.ease,
     );
   }
 
-  void runTM() {
-    timer = Timer.periodic(Duration(seconds: 1), (timer) {
+  void runTM(int s) {
+    timer = Timer.periodic(Duration(milliseconds: s), (timer) {
       setState(() {
         if (!done) {
           if (q == 0) {
@@ -341,680 +374,767 @@ class _STMPangkatScreen extends State<STMPangkatScreen> {
 
   void q0() {
     switch (tape[activeIndex].getContent()) {
-      case 'X': {
-        state('B', 'R', 1);
-        break;
-      }
-      case '1': {
-        state('B', 'R', 37);
-        break;
-      }
-      case 'Y': {
-        state('B', 'R', 36);
-        break;
-      }
+      case 'X':
+        {
+          state('B', 'R', 1);
+          break;
+        }
+      case '1':
+        {
+          state('B', 'R', 37);
+          break;
+        }
+      case 'Y':
+        {
+          state('B', 'R', 36);
+          break;
+        }
     }
   }
 
   void q1() {
     switch (tape[activeIndex].getContent()) {
-      case '0': {
-        state('0', 'R', 1);
-        break;
-      }
-      case '1': {
-        state('1', 'R', 2);
-        break;
-      }
+      case '0':
+        {
+          state('0', 'R', 1);
+          break;
+        }
+      case '1':
+        {
+          state('1', 'R', 2);
+          break;
+        }
     }
   }
 
   void q2() {
     switch (tape[activeIndex].getContent()) {
-      case 'X': {
-        state('B', 'R', 3);
-        break;
-      }
-      case 'Y': {
-        state('B', 'L', 41);
-        break;
-      }
-      case 'B': {
-        state('B', 'L', 39);
-        break;
-      }
+      case 'X':
+        {
+          state('B', 'R', 3);
+          break;
+        }
+      case 'Y':
+        {
+          state('B', 'L', 41);
+          break;
+        }
+      case 'B':
+        {
+          state('B', 'L', 39);
+          break;
+        }
     }
   }
 
   void q3() {
     switch (tape[activeIndex].getContent()) {
-      case '0': {
-        state('0', 'R', 3);
-        break;
-      }
-      case 'B': {
-        tape[activeIndex + 3].setContent('B');
-        tape.add(
-          Item('-1', false)
-        );
-        state('X', 'L', 4);
-        break;
-      }
+      case '0':
+        {
+          state('0', 'R', 3);
+          break;
+        }
+      case 'B':
+        {
+          tape[activeIndex + 3].setContent('B');
+          tape.add(Item('-1', false));
+          state('X', 'L', 4);
+          break;
+        }
     }
   }
 
   void q4() {
     switch (tape[activeIndex].getContent()) {
-      case '0': {
-        state('0', 'L', 4);
-        break;
-      }
-      case 'B': {
-        state('B', 'L', 5);
-        break;
-      }
+      case '0':
+        {
+          state('0', 'L', 4);
+          break;
+        }
+      case 'B':
+        {
+          state('B', 'L', 5);
+          break;
+        }
     }
   }
 
   void q5() {
     switch (tape[activeIndex].getContent()) {
-      case '1': {
-        state('1', 'L', 6);
-        break;
-      }
+      case '1':
+        {
+          state('1', 'L', 6);
+          break;
+        }
     }
   }
 
   void q6() {
     switch (tape[activeIndex].getContent()) {
-      case '0': {
-        state('0', 'L', 6);
-        break;
-      }
-      case 'B': {
-        state('B', 'R', 7);
-        break;
-      }
+      case '0':
+        {
+          state('0', 'L', 6);
+          break;
+        }
+      case 'B':
+        {
+          state('B', 'R', 7);
+          break;
+        }
     }
   }
 
   void q7() {
     switch (tape[activeIndex].getContent()) {
-      case '0': {
-        state('0', 'R', 7);
-        break;
-      }
-      case '1': {
-        state('1', 'R', 8);
-        break;
-      }
+      case '0':
+        {
+          state('0', 'R', 7);
+          break;
+        }
+      case '1':
+        {
+          state('1', 'R', 8);
+          break;
+        }
     }
   }
 
   void q8() {
     switch (tape[activeIndex].getContent()) {
-      case 'B': {
-        state('B', 'R', 8);
-        break;
-      }
-      case '0': {
-        state('B', 'L', 9);
-        break;
-      }
+      case 'B':
+        {
+          state('B', 'R', 8);
+          break;
+        }
+      case '0':
+        {
+          state('B', 'L', 9);
+          break;
+        }
     }
   }
 
   void q9() {
     switch (tape[activeIndex].getContent()) {
-      case 'B': {
-        state('B', 'L', 9);
-        break;
-      }
-      case '1': {
-        state('1', 'L', 10);
-        break;
-      }
+      case 'B':
+        {
+          state('B', 'L', 9);
+          break;
+        }
+      case '1':
+        {
+          state('1', 'L', 10);
+          break;
+        }
     }
   }
 
   void q10() {
     switch (tape[activeIndex].getContent()) {
-      case 'Z': {
-        state('Z', 'L', 10);
-        break;
-      }
-      case '0': {
-        state('Z', 'R', 11);
-        break;
-      }
-      case 'B': {
-        state('B', 'R', 16);
-        break;
-      }
+      case 'Z':
+        {
+          state('Z', 'L', 10);
+          break;
+        }
+      case '0':
+        {
+          state('Z', 'R', 11);
+          break;
+        }
+      case 'B':
+        {
+          state('B', 'R', 16);
+          break;
+        }
     }
   }
 
   void q11() {
     switch (tape[activeIndex].getContent()) {
-      case 'Z': {
-        state('Z', 'R', 11);
-        break;
-      }
-      case '1': {
-        state('1', 'R', 12);
-        break;
-      }
+      case 'Z':
+        {
+          state('Z', 'R', 11);
+          break;
+        }
+      case '1':
+        {
+          state('1', 'R', 12);
+          break;
+        }
     }
   }
 
   void q12() {
     switch (tape[activeIndex].getContent()) {
-      case 'B': {
-        state('B', 'R', 12);
-        break;
-      }
-      case '0': {
-        state('0', 'R', 12);
-        break;
-      }
-      case 'X': {
-        state('X', 'R', 13);
-        break;
-      }
+      case 'B':
+        {
+          state('B', 'R', 12);
+          break;
+        }
+      case '0':
+        {
+          state('0', 'R', 12);
+          break;
+        }
+      case 'X':
+        {
+          state('X', 'R', 13);
+          break;
+        }
     }
   }
 
   void q13() {
     switch (tape[activeIndex].getContent()) {
-      case '0': {
-        state('0', 'R', 13);
-        break;
-      }
-      case 'B': {
-        tape[activeIndex + 3].setContent('B');
-        tape.add(
-          Item('-1', false)
-        );
-        state('0', 'L', 14);
-        break;
-      }
+      case '0':
+        {
+          state('0', 'R', 13);
+          break;
+        }
+      case 'B':
+        {
+          tape[activeIndex + 3].setContent('B');
+          tape.add(Item('-1', false));
+          state('0', 'L', 14);
+          break;
+        }
     }
   }
 
   void q14() {
     switch (tape[activeIndex].getContent()) {
-      case '0': {
-        state('0', 'L', 14);
-        break;
-      }
-      case 'X': {
-        state('X', 'L', 15);
-        break;
-      }
+      case '0':
+        {
+          state('0', 'L', 14);
+          break;
+        }
+      case 'X':
+        {
+          state('X', 'L', 15);
+          break;
+        }
     }
   }
 
   void q15() {
     switch (tape[activeIndex].getContent()) {
-      case 'B': {
-        state('B', 'L', 15);
-        break;
-      }
-      case '0': {
-        state('0', 'L', 15);
-        break;
-      }
-      case '1': {
-        state('1', 'L', 10);
-        break;
-      }
+      case 'B':
+        {
+          state('B', 'L', 15);
+          break;
+        }
+      case '0':
+        {
+          state('0', 'L', 15);
+          break;
+        }
+      case '1':
+        {
+          state('1', 'L', 10);
+          break;
+        }
     }
   }
 
   void q16() {
     switch (tape[activeIndex].getContent()) {
-      case 'Z': {
-        state('0', 'R', 16);
-        break;
-      }
-      case '1': {
-        state('1', 'L', 17);
-        break;
-      }
+      case 'Z':
+        {
+          state('0', 'R', 16);
+          break;
+        }
+      case '1':
+        {
+          state('1', 'L', 17);
+          break;
+        }
     }
   }
 
   void q17() {
     switch (tape[activeIndex].getContent()) {
-      case '0': {
-        state('Z', 'R', 18);
-        break;
-      }
+      case '0':
+        {
+          state('Z', 'R', 18);
+          break;
+        }
     }
   }
 
   void q18() {
     switch (tape[activeIndex].getContent()) {
-      case '1': {
-        state('1', 'R', 19);
-        break;
-      }
+      case '1':
+        {
+          state('1', 'R', 19);
+          break;
+        }
     }
   }
 
   void q19() {
     switch (tape[activeIndex].getContent()) {
-      case 'B': {
-        state('B', 'R', 19);
-        break;
-      }
-      case '0': {
-        state('B', 'L', 20);
-        break;
-      }
-      case 'X': {
-        state('X', 'L', 32);
-        break;
-      }
+      case 'B':
+        {
+          state('B', 'R', 19);
+          break;
+        }
+      case '0':
+        {
+          state('B', 'L', 20);
+          break;
+        }
+      case 'X':
+        {
+          state('X', 'L', 32);
+          break;
+        }
     }
   }
 
   void q20() {
     switch (tape[activeIndex].getContent()) {
-      case 'B': {
-        state('B', 'L', 20);
-        break;
-      }
-      case '0': {
-        state('0', 'L', 20);
-        break;
-      }
-      case '1': {
-        state('1', 'L', 21);
-        break;
-      }
+      case 'B':
+        {
+          state('B', 'L', 20);
+          break;
+        }
+      case '0':
+        {
+          state('0', 'L', 20);
+          break;
+        }
+      case '1':
+        {
+          state('1', 'L', 21);
+          break;
+        }
     }
   }
 
   void q21() {
     switch (tape[activeIndex].getContent()) {
-      case 'Z': {
-        state('Z', 'L', 21);
-        break;
-      }
-      case '0': {
-        state('Z', 'R', 22);
-        break;
-      }
-      case 'B': {
-        state('B', 'R', 28);
-        break;
-      }
+      case 'Z':
+        {
+          state('Z', 'L', 21);
+          break;
+        }
+      case '0':
+        {
+          state('Z', 'R', 22);
+          break;
+        }
+      case 'B':
+        {
+          state('B', 'R', 28);
+          break;
+        }
     }
   }
 
   void q22() {
     switch (tape[activeIndex].getContent()) {
-      case 'Z': {
-        state('Z', 'R', 22);
-        break;
-      }
-      case '1': {
-        state('1', 'R', 23);
-        break;
-      }
+      case 'Z':
+        {
+          state('Z', 'R', 22);
+          break;
+        }
+      case '1':
+        {
+          state('1', 'R', 23);
+          break;
+        }
     }
   }
 
   void q23() {
     switch (tape[activeIndex].getContent()) {
-      case 'B': {
-        state('B', 'R', 23);
-        break;
-      }
-      case '0': {
-        state('0', 'R', 23);
-        break;
-      }
-      case 'X': {
-        state('X', 'R', 24);
-        break;
-      }
+      case 'B':
+        {
+          state('B', 'R', 23);
+          break;
+        }
+      case '0':
+        {
+          state('0', 'R', 23);
+          break;
+        }
+      case 'X':
+        {
+          state('X', 'R', 24);
+          break;
+        }
     }
   }
 
   void q24() {
     switch (tape[activeIndex].getContent()) {
-      case '0': {
-        state('0', 'R', 24);
-        break;
-      }
-      case 'Z': {
-        state('Z', 'R', 24);
-        break;
-      }
-      case 'B': {
-        state('B', 'L', 25);
-        break;
-      }
+      case '0':
+        {
+          state('0', 'R', 24);
+          break;
+        }
+      case 'Z':
+        {
+          state('Z', 'R', 24);
+          break;
+        }
+      case 'B':
+        {
+          state('B', 'L', 25);
+          break;
+        }
     }
   }
 
   void q25() {
     switch (tape[activeIndex].getContent()) {
-      case 'Z': {
-        state('Z', 'L', 25);
-        break;
-      }
-      case '0': {
-        state('Z', 'R', 26);
-        break;
-      }
-      case 'X': {
-        state('X', 'L', 20);
-        break;
-      }
+      case 'Z':
+        {
+          state('Z', 'L', 25);
+          break;
+        }
+      case '0':
+        {
+          state('Z', 'R', 26);
+          break;
+        }
+      case 'X':
+        {
+          state('X', 'L', 20);
+          break;
+        }
     }
   }
 
   void q26() {
     switch (tape[activeIndex].getContent()) {
-      case '0': {
-        state('0', 'R', 26);
-        break;
-      }
-      case 'Z': {
-        state('Z', 'R', 26);
-        break;
-      }
-      case 'B': {
-        tape[activeIndex + 3].setContent('B');
-        tape.add(
-          Item('-1', false)
-        );
-        state('0', 'L', 27);
-        break;
-      }
+      case '0':
+        {
+          state('0', 'R', 26);
+          break;
+        }
+      case 'Z':
+        {
+          state('Z', 'R', 26);
+          break;
+        }
+      case 'B':
+        {
+          tape[activeIndex + 3].setContent('B');
+          tape.add(Item('-1', false));
+          state('0', 'L', 27);
+          break;
+        }
     }
   }
 
   void q27() {
     switch (tape[activeIndex].getContent()) {
-      case '0': {
-        state('0', 'L', 27);
-        break;
-      }
-      case 'Z': {
-        state('Z', 'L', 25);
-        break;
-      }
+      case '0':
+        {
+          state('0', 'L', 27);
+          break;
+        }
+      case 'Z':
+        {
+          state('Z', 'L', 25);
+          break;
+        }
     }
   }
 
   void q28() {
     switch (tape[activeIndex].getContent()) {
-      case 'Z': {
-        state('0', 'R', 28);
-        break;
-      }
-      case '1': {
-        state('1', 'R', 29);
-        break;
-      }
+      case 'Z':
+        {
+          state('0', 'R', 28);
+          break;
+        }
+      case '1':
+        {
+          state('1', 'R', 29);
+          break;
+        }
     }
   }
 
   void q29() {
     switch (tape[activeIndex].getContent()) {
-      case 'B': {
-        state('B', 'R', 29);
-        break;
-      }
-      case '0': {
-        state('0', 'R', 29);
-        break;
-      }
-      case 'X': {
-        state('X', 'R', 30);
-        break;
-      }
+      case 'B':
+        {
+          state('B', 'R', 29);
+          break;
+        }
+      case '0':
+        {
+          state('0', 'R', 29);
+          break;
+        }
+      case 'X':
+        {
+          state('X', 'R', 30);
+          break;
+        }
     }
   }
 
   void q30() {
     switch (tape[activeIndex].getContent()) {
-      case '0': {
-        state('0', 'L', 30);
-        break;
-      }
-      case 'Z': {
-        state('0', 'R', 30);
-        break;
-      }
-      case 'X': {
-        state('X', 'L', 31);
-        break;
-      }
+      case '0':
+        {
+          state('0', 'L', 30);
+          break;
+        }
+      case 'Z':
+        {
+          state('0', 'R', 30);
+          break;
+        }
+      case 'X':
+        {
+          state('X', 'L', 31);
+          break;
+        }
     }
   }
 
   void q31() {
     switch (tape[activeIndex].getContent()) {
-      case '0': {
-        state('0', 'L', 31);
-        break;
-      }
-      case 'B': {
-        state('B', 'L', 31);
-        break;
-      }
-      case '1': {
-        state('1', 'L', 17);
-        break;
-      }
+      case '0':
+        {
+          state('0', 'L', 31);
+          break;
+        }
+      case 'B':
+        {
+          state('B', 'L', 31);
+          break;
+        }
+      case '1':
+        {
+          state('1', 'L', 17);
+          break;
+        }
     }
   }
 
   void q32() {
     switch (tape[activeIndex].getContent()) {
-      case 'B': {
-        state('B', 'L', 32);
-        break;
-      }
-      case '1': {
-        state('B', 'L', 33);
-        break;
-      }
+      case 'B':
+        {
+          state('B', 'L', 32);
+          break;
+        }
+      case '1':
+        {
+          state('B', 'L', 33);
+          break;
+        }
     }
   }
 
   void q33() {
     switch (tape[activeIndex].getContent()) {
-      case 'Z': {
-        state('B', 'L', 34);
-        break;
-      }
+      case 'Z':
+        {
+          state('B', 'L', 34);
+          break;
+        }
     }
   }
 
   void q34() {
     switch (tape[activeIndex].getContent()) {
-      case '0': {
-        state('B', 'L', 34);
-        break;
-      }
-      case 'B': {
-        state('B', 'R', 34);
-        break;
-      }
-      case 'X': {
-        state('X', 'R', 35);
-        break;
-      }
+      case '0':
+        {
+          state('B', 'L', 34);
+          break;
+        }
+      case 'B':
+        {
+          state('B', 'R', 34);
+          break;
+        }
+      case 'X':
+        {
+          state('X', 'R', 35);
+          break;
+        }
     }
   }
 
   void q35() {
     switch (tape[activeIndex].getContent()) {
-      case '0': {
-        state('0', 'R', 35);
-        break;
-      }
-      case 'B': {
-        state('B', 'R', 47);
-        break;
-      }
+      case '0':
+        {
+          state('0', 'R', 35);
+          break;
+        }
+      case 'B':
+        {
+          state('B', 'R', 47);
+          break;
+        }
     }
   }
 
   void q36() {
     switch (tape[activeIndex].getContent()) {
-      case '0': {
-        state('B', 'R', 36);
-        break;
-      }
-      case '1': {
-        state('B', 'R', 37);
-        break;
-      }
+      case '0':
+        {
+          state('B', 'R', 36);
+          break;
+        }
+      case '1':
+        {
+          state('B', 'R', 37);
+          break;
+        }
     }
   }
 
   void q37() {
     switch (tape[activeIndex].getContent()) {
-      case 'X': {
-        state('B', 'R', 38);
-        break;
-      }
-      case 'Y': {
-        state('B', 'R', 38);
-        break;
-      }
-      case 'B': {
-        tape[activeIndex + 3].setContent('B');
-        tape.add(
-          Item('-1', false)
-        );
-        state('B', 'R', 38);
-        break;
-      }
+      case 'X':
+        {
+          state('B', 'R', 38);
+          break;
+        }
+      case 'Y':
+        {
+          state('B', 'R', 38);
+          break;
+        }
+      case 'B':
+        {
+          tape[activeIndex + 3].setContent('B');
+          tape.add(Item('-1', false));
+          state('B', 'R', 38);
+          break;
+        }
     }
   }
 
   void q38() {
     switch (tape[activeIndex].getContent()) {
-      case '0': {
-        state('B', 'R', 38);
-        break;
-      }
-      case 'B': {
-        tape[activeIndex + 3].setContent('B');
-        tape.add(
-          Item('-1', false)
-        );
-        state('Y', 'R', 45);
-        break;
-      }
+      case '0':
+        {
+          state('B', 'R', 38);
+          break;
+        }
+      case 'B':
+        {
+          tape[activeIndex + 3].setContent('B');
+          tape.add(Item('-1', false));
+          state('Y', 'R', 45);
+          break;
+        }
     }
   }
 
   void q39() {
     switch (tape[activeIndex].getContent()) {
-      case '1': {
-        state('B', 'L', 40);
-        break;
-      }
+      case '1':
+        {
+          state('B', 'L', 40);
+          break;
+        }
     }
   }
 
   void q40() {
     switch (tape[activeIndex].getContent()) {
-      case '0': {
-        state('B', 'L', 40);
-        break;
-      }
-      case 'B': {
-        tape[activeIndex + 3].setContent('B');
-        tape.add(
-          Item('-1', false)
-        );
-        state('Y', 'R', 45);
-        break;
-      }
+      case '0':
+        {
+          state('B', 'L', 40);
+          break;
+        }
+      case 'B':
+        {
+          tape[activeIndex + 3].setContent('B');
+          tape.add(Item('-1', false));
+          state('Y', 'R', 45);
+          break;
+        }
     }
   }
 
   void q41() {
     switch (tape[activeIndex].getContent()) {
-      case '1': {
-        state('B', 'L', 42);
-        break;
-      }
+      case '1':
+        {
+          state('B', 'L', 42);
+          break;
+        }
     }
   }
 
   void q42() {
     switch (tape[activeIndex].getContent()) {
-      case '0': {
-        state('B', 'L', 42);
-        break;
-      }
-      case 'B': {
-        state('B', 'R', 43);
-        break;
-      }
+      case '0':
+        {
+          state('B', 'L', 42);
+          break;
+        }
+      case 'B':
+        {
+          state('B', 'R', 43);
+          break;
+        }
     }
   }
 
   void q43() {
     switch (tape[activeIndex].getContent()) {
-       case 'B': {
-        state('B', 'R', 43);
-        break;
-      }
-      case '0': {
-        state('B', 'R', 44);
-        break;
-      }
+      case 'B':
+        {
+          state('B', 'R', 43);
+          break;
+        }
+      case '0':
+        {
+          state('B', 'R', 44);
+          break;
+        }
     }
   }
 
   void q44() {
     switch (tape[activeIndex].getContent()) {
-      case '0': {
-        state('B', 'R', 44);
-        break;
-      }
-      case 'B': {
-        tape[activeIndex + 3].setContent('B');
-        tape.add(
-          Item('-1', false)
-        );
-        state('Y', 'R', 45);
-        break;
-      }
+      case '0':
+        {
+          state('B', 'R', 44);
+          break;
+        }
+      case 'B':
+        {
+          tape[activeIndex + 3].setContent('B');
+          tape.add(Item('-1', false));
+          state('Y', 'R', 45);
+          break;
+        }
     }
   }
 
   void q45() {
     switch (tape[activeIndex].getContent()) {
-      case 'B': {
-        tape[activeIndex + 3].setContent('B');
-        tape.add(
-          Item('-1', false)
-        );
-        state('X', 'R', 46);
-        break;
-      }
+      case 'B':
+        {
+          tape[activeIndex + 3].setContent('B');
+          tape.add(Item('-1', false));
+          state('X', 'R', 46);
+          break;
+        }
     }
   }
 
   void q46() {
     switch (tape[activeIndex].getContent()) {
-      case 'B': {
-        state('B', 'R', 47);
-        break;
-      }
+      case 'B':
+        {
+          state('B', 'R', 47);
+          break;
+        }
     }
   }
 
@@ -1045,14 +1165,14 @@ class _STMPangkatScreen extends State<STMPangkatScreen> {
   void R() {
     tape[activeIndex].setIsCurrent(false);
     activeIndex++;
-    jumpToItem();
+    jumpToItem(curSpeedJ);
     tape[activeIndex].setIsCurrent(true);
   }
 
   void L() {
     tape[activeIndex].setIsCurrent(false);
     activeIndex--;
-    jumpToItem();
+    jumpToItem(curSpeedJ);
     tape[activeIndex].setIsCurrent(true);
   }
 

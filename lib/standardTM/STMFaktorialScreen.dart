@@ -25,6 +25,17 @@ class _STMFaktorialScreen extends State<STMFaktorialScreen> {
   String hasil = '0';
   Timer timer = Timer.periodic(Duration(seconds: 1), (timer) {});
 
+  int defSpeed = 1000;
+  int defSpeedJ = 500;
+
+  int curSpeed = 0;
+  int curSpeedJ = 0;
+
+  int twoTimeSpeed = 500;
+  int twoTime = 250;
+
+  bool _isVisible = true;
+
   @override
   void initState() {
     super.initState();
@@ -47,15 +58,9 @@ class _STMFaktorialScreen extends State<STMFaktorialScreen> {
       activeIndex++;
     }
 
-    tape.add(
-      Item('B', false)
-    );
-    tape.add(
-      Item('B', false)
-    );
-    tape.add(
-      Item('B', false)
-    );
+    tape.add(Item('B', false));
+    tape.add(Item('B', false));
+    tape.add(Item('B', false));
 
     if (this.widget.A < 0) {
       tape.add(Item('Y', false));
@@ -70,24 +75,14 @@ class _STMFaktorialScreen extends State<STMFaktorialScreen> {
       }
     }
 
-    tape.add(
-      Item('1', false)
-    );
+    tape.add(Item('1', false));
 
-    tape.add(
-      Item('B', false)
-    );
-    tape.add(
-      Item('B', false)
-    );
-    tape.add(
-      Item('B', false)
-    );
+    tape.add(Item('B', false));
+    tape.add(Item('B', false));
+    tape.add(Item('B', false));
 
-    for(int i = 0; i < (total - 2) / 2; i++) {
-      tape.add(
-        Item('-1', false)
-      );
+    for (int i = 0; i < (total - 2) / 2; i++) {
+      tape.add(Item('-1', false));
     }
   }
 
@@ -131,110 +126,132 @@ class _STMFaktorialScreen extends State<STMFaktorialScreen> {
               ),
               height: 50.0,
               child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                itemCount: tape.length,
-                controller: controller,
-                itemBuilder: (context, index) {
-                  if (tape[index].getContent() == '-1') {
-                    return Container(
-                      child: Center(
-                        child: Text(
-                          '',
-                          style: TextStyle(
-                            color: Colors.white,
+                  scrollDirection: Axis.horizontal,
+                  itemCount: tape.length,
+                  controller: controller,
+                  itemBuilder: (context, index) {
+                    if (tape[index].getContent() == '-1') {
+                      return Container(
+                        child: Center(
+                          child: Text(
+                            '',
+                            style: TextStyle(
+                              color: Colors.white,
+                            ),
                           ),
                         ),
-                      ),
-                      width: 50.0,
-                      height: 50.0,
-                      decoration: BoxDecoration(
-                        color: Color(0xFFF1F4FA),
-                        border: Border.all(
-                          color: Color(0xFFF1F4FA),
-                          width: 0.5
-                        ),
-                      ),
-                    );
-                  } else {
-                    return Container(
-                      child: Center(
-                        child: Text(
-                          tape[index].getContent(),
-                          style: TextStyle(
-                            color: Colors.white,
-                          ),
-                        ),
-                      ),
-                      width: 50.0,
-                      height: 50.0,
-                      decoration: BoxDecoration(
-                        color: tape[index].getIsCurrent() == true ? Colors.lightBlueAccent : Colors.lightBlue[700],
-                        border: Border.all(
-                          color: Color(0xFFF1F4FA),
-                          width: 0.5
-                        ),
-                      ),
-                    );
-                  }
-                }),
-            ),
-            Padding(
-              padding: EdgeInsets.symmetric(
-                vertical: 8.0,
-              ),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(8),
-                child: Stack(
-                  children: [
-                    Positioned.fill(
-                      child: Container(
+                        width: 50.0,
+                        height: 50.0,
                         decoration: BoxDecoration(
-                          color: Colors.lightBlue,
+                          color: Color(0xFFF1F4FA),
+                          border:
+                              Border.all(color: Color(0xFFF1F4FA), width: 0.5),
                         ),
-                      ),
-                    ),
-                    TextButton(
-                      style: TextButton.styleFrom(
-                        padding: EdgeInsets.symmetric(
-                          vertical: 8.0,
-                          horizontal: 16.0,
+                      );
+                    } else {
+                      return Container(
+                        child: Center(
+                          child: Text(
+                            tape[index].getContent(),
+                            style: TextStyle(
+                              color: Colors.white,
+                            ),
+                          ),
                         ),
-                        primary: Colors.white,
-                      ),
+                        width: 50.0,
+                        height: 50.0,
+                        decoration: BoxDecoration(
+                          color: tape[index].getIsCurrent() == true
+                              ? Colors.lightBlueAccent
+                              : Colors.lightBlue[700],
+                          border:
+                              Border.all(color: Color(0xFFF1F4FA), width: 0.5),
+                        ),
+                      );
+                    }
+                  }),
+            ),
+            AnimatedCrossFade(
+                firstChild: Visibility(
+                  child: Container(
+                    margin: EdgeInsets.fromLTRB(0, 20, 0, 20),
+                    decoration: BoxDecoration(),
+                    child: FloatingActionButton(
                       onPressed: () {
+                        _isVisible = false;
+                        curSpeed = defSpeed;
+                        curSpeedJ = defSpeedJ;
                         setState(() {
                           tape[activeIndex].setIsCurrent(true);
-                          jumpToItem();
+                          jumpToItem(curSpeedJ);
                           q = 0;
                         });
-                        runTM();
+                        runTM(curSpeed);
                       },
-                      child: const Text('Proses'),
+                      child: Icon(Icons.play_arrow, color: Colors.white),
                     ),
-                  ],
+                  ),
                 ),
-              ),
-            ),
-            Text('Hasil:'),
-            Text(done ? hasil : ''),
+                secondChild: Visibility(
+                  child: Center(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        TextButton(
+                          onPressed: () {
+                            curSpeed = defSpeed;
+                            curSpeedJ = defSpeedJ;
+                            timer.cancel();
+                          },
+                          child: Icon(Icons.pause),
+                        ),
+                        TextButton(
+                          onPressed: () {
+                            curSpeed = defSpeed;
+                            curSpeedJ = defSpeedJ;
+                            timer.cancel();
+                            runTM(curSpeed);
+                          },
+                          child: Icon(Icons.play_arrow),
+                        ),
+                        TextButton(
+                          onPressed: () {
+                            curSpeed = twoTimeSpeed;
+                            curSpeedJ = twoTime;
+                            timer.cancel();
+                            runTM(curSpeed);
+                          },
+                          child: Icon(Icons.fast_forward),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                crossFadeState: _isVisible
+                    ? CrossFadeState.showFirst
+                    : CrossFadeState.showSecond,
+                duration: Duration(milliseconds: 500)),
+            Text('Hasil:', style: TextStyle(fontSize: 30)),
+            Text(done ? hasil.toString() : '',
+                style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold)),
           ],
         ),
       ),
     );
   }
 
-  void jumpToItem() {
+  void jumpToItem(int s) {
     int l = activeIndex - total ~/ 2.0;
     double value = 50.0 * l;
     controller.animateTo(
       value,
-      duration: Duration(milliseconds: 500),
+      duration: Duration(milliseconds: s),
       curve: Curves.ease,
     );
   }
 
-  void runTM() {
-    timer = Timer.periodic(Duration(seconds: 1), (timer) {
+  void runTM(int s) {
+    timer = Timer.periodic(Duration(milliseconds: s), (timer) {
       setState(() {
         if (!done) {
           if (q == 0) {
@@ -353,9 +370,7 @@ class _STMFaktorialScreen extends State<STMFaktorialScreen> {
       case 'B':
         {
           tape[activeIndex + 3].setContent('B');
-          tape.add(
-            Item('-1', false)
-          );
+          tape.add(Item('-1', false));
           state('X', 'L', 3);
           break;
         }
@@ -437,9 +452,7 @@ class _STMFaktorialScreen extends State<STMFaktorialScreen> {
       case 'B':
         {
           tape[activeIndex + 3].setContent('B');
-          tape.add(
-            Item('-1', false)
-          );
+          tape.add(Item('-1', false));
           state('0', 'L', 9);
           break;
         }
@@ -621,9 +634,7 @@ class _STMFaktorialScreen extends State<STMFaktorialScreen> {
       case 'B':
         {
           tape[activeIndex + 3].setContent('B');
-          tape.add(
-            Item('-1', false)
-          );
+          tape.add(Item('-1', false));
           state('0', 'L', 21);
           break;
         }
@@ -809,14 +820,14 @@ class _STMFaktorialScreen extends State<STMFaktorialScreen> {
   void R() {
     tape[activeIndex].setIsCurrent(false);
     activeIndex++;
-    jumpToItem();
+    jumpToItem(curSpeedJ);
     tape[activeIndex].setIsCurrent(true);
   }
 
   void L() {
     tape[activeIndex].setIsCurrent(false);
     activeIndex--;
-    jumpToItem();
+    jumpToItem(curSpeedJ);
     tape[activeIndex].setIsCurrent(true);
   }
 
